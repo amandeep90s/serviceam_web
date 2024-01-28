@@ -1,9 +1,7 @@
 <?php
 
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Redis;
+use App\Http\Controllers\Common\AdminController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,75 +15,23 @@ use Illuminate\Support\Facades\Session;
  */
 
 Route::redirect('/', '/admin/login');
+
 Route::view('/dashboard', 'common.admin.dashboard');
 
-Route::get('/login', function () {
+Route::get('/login', [AdminController::class, 'login']);
 
-    $base_url = \App\Helpers\Helper::getBaseUrl();
+Route::get('/permission_list/{id}/token/{token}', [AdminController::class, 'permissionList']);
 
-    $services = json_decode(\App\Helpers\Helper::getServiceBaseUrl(), true);
+Route::get('/logout', [AdminController::class, 'logout']);
 
-    $settings = json_encode(\App\Helpers\Helper::getSettings());
+Route::get('/forgotPassword', [AdminController::class, 'forgotPassword']);
 
-    $base = [];
-
-    foreach ($services as $key => $service) {
-        $base[$key] = $service;
-    }
-
-    $base = json_encode($base);
-
-    return view('common.admin.auth.login', compact('base', 'base_url', 'settings'));
-});
-
-Route::get('/permission_list/{id}/token/{token}', function ($id, $token) {
-    $client = new \GuzzleHttp\Client();
-    $result = $client->post(env('BASE_URL') . '/api/v1/admin/permission_list', [
-        'headers' => ['Authorization' => 'Bearer ' . $token],
-    ]);
-    Session::put('user_id', $id);
-    $redis = Redis::connection();
-    $redis->set($id, json_encode(json_decode($result->getBody())));
-});
-
-Route::get('/logout', function () {
-
-    $user = Session::get('user_id');
-
-    Redis::del($user);
-
-    return view('common.admin.auth.logout');
-});
-
-Route::get('/forgotPassword', function () {
-    $urlparam = ($_GET);
-
-    $base_url = \App\Helpers\Helper::getBaseUrl();
-    $services = json_decode(\App\Helpers\Helper::getServiceBaseUrl(), true);
-    $settings = json_encode(\App\Helpers\Helper::getSettings());
-    $base = [];
-    foreach ($services as $key => $service) {
-        $base[$key] = $service;
-    }
-    $base = json_encode($base);
-    return view('common.admin.auth.forgot', compact('base', 'base_url', 'settings', 'urlparam'));
-});
-
-Route::get('/resetPassword', function () {
-    $urlparam = ($_GET);
-    $base_url = \App\Helpers\Helper::getBaseUrl();
-    $services = json_decode(\App\Helpers\Helper::getServiceBaseUrl(), true);
-    $settings = json_encode(\App\Helpers\Helper::getSettings());
-    $base = [];
-    foreach ($services as $key => $service) {
-        $base[$key] = $service;
-    }
-    $base = json_encode($base);
-    return view('common.admin.auth.reset', compact('base', 'base_url', 'settings', 'urlparam'));
-});
+Route::get('/resetPassword', [AdminController::class, 'resetPassword']);
 
 Route::view('/user', 'common.admin.users.index');
+
 Route::view('/user/create', 'common.admin.users.form');
+
 Route::get('/user/{id}/edit', function ($id) {
     return view('common.admin.users.form', compact('id'));
 });
@@ -106,56 +52,74 @@ Route::view('/dispatcher-panel', 'common.admin.dispatcherpanel.index');
 
 //Fleet
 Route::view('/fleet', 'common.admin.fleets.index');
+
 Route::view('/fleet/create', 'common.admin.fleets.form');
+
 Route::get('/fleet/{id}/edit', function ($id) {
     return view('common.admin.fleets.form', compact('id'));
 });
+
 Route::view('/card', 'common.admin.fleets.cards');
+
 Route::view('/wallet', 'common.admin.fleets.wallet');
 
 //Dispatcher
 Route::view('/dispatchermanager', 'common.admin.dispatchermanager.index');
+
 Route::view('/dispatcher/create', 'common.admin.dispatchermanager.form');
+
 Route::get('/dispatcher/{id}/edit', function ($id) {
     return view('common.admin.dispatcher.form', compact('id'));
 });
 
 //Account Manager
 Route::view('/accountmanager', 'common.admin.account-manager.index');
+
 Route::view('/accountmanager/create', 'common.admin.account-manager.form');
+
 Route::get('/accountmanager/{id}/edit', function ($id) {
     return view('common.admin.account-manager.form', compact('id'));
 });
 
 // Notification
 Route::view('/notification', 'common.admin.notification.index');
+
 Route::view('/notification/create', 'common.admin.notification.form');
+
 Route::get('/notification/{id}/edit', function ($id) {
     return view('common.admin.notification.form', compact('id'));
 });
 
 Route::view('/notification/list', 'common.admin.notification.notification-days.index');
+
 Route::view('/notification/list/create', 'common.admin.notification.notification-days.form');
+
 Route::get('/notification/list/{id}/edit', function ($id) {
     return view('common.admin.notification.notification-days.form', compact('id'));
 });
 
 //Document
 Route::view('/document', 'common.admin.document.index');
+
 Route::view('/document/create', 'common.admin.document.form');
+
 Route::get('/document/{id}/edit', function ($id) {
     return view('common.admin.document.form', compact('id'));
 });
 
 //Reason
 Route::view('/reason', 'common.admin.reason.index');
+
 Route::view('/reason/create', 'common.admin.reason.form');
+
 Route::get('/reason/{id}/edit', function ($id) {
     return view('common.admin.reason.form', compact('id'));
 });
 //Dispute
 Route::view('/dispute_list', 'common.admin.dispute.index');
+
 Route::view('/dispute/create', 'common.admin.dispute.form');
+
 Route::get('/dispute/{id}/edit', function ($id) {
     return view('common.admin.dispute.form', compact('id'));
 });
@@ -240,12 +204,6 @@ Route::view('/peakhour/create', 'common.admin.peakhour.form');
 Route::get('/peakhour/{id}/edit', function ($id) {
     return view('common.admin.peakhour.form', compact('id'));
 });
-//CmsPage
-// Route::view('/cmspage', 'common.admin.cmspage.index');
-// Route::view('/cmspage/create', 'common.admin.cmspage.form');
-// Route::get('/cmspage/{id}/edit', function ($id) {
-//     return view('common.admin.cmspage.form', compact('id'));
-// });
 
 //CustomPush
 Route::view('/custompush', 'common.admin.custompush.index');
@@ -260,10 +218,9 @@ Route::get('/menu/{id}/edit', function ($id) {
     return view('common.admin.menu.form', compact('id'));
 });
 Route::get('/menucity/{id}/{service}', function ($id, $service) {
-    // return view('common.admin.menu.city', compact('id'));
     return view('common.admin.menu.citylistform', compact('id', 'service'));
 });
-//Accountsetting
+//Account setting
 Route::view('/profile', 'common.admin.account.profile');
 Route::view('/cmspage', 'common.admin.cmspage.form');
 Route::view('/password', 'common.admin.account.change-password');
@@ -310,24 +267,4 @@ Route::view('/bankdetails', 'common.admin.account.bankdetails');
 
 Route::view('/statement/user', 'common.admin.statement.user');
 Route::view('/statement/provider', 'common.admin.statement.provider');
-Route::get('/transactions', function () {
-    $from_date = $_REQUEST['from_date'] ?? '';
-    $to_date = $_REQUEST['to_date'] ?? '';
-    $country_id = $_REQUEST['country_id'] ?? '';
-    $dates['yesterday'] = Carbon::yesterday()->format('Y-m-d');
-    $dates['today'] = Carbon::today()->format('Y-m-d');
-    $dates['pre_week_start'] = date("Y-m-d", strtotime("last week monday"));
-    $dates['pre_week_end'] = date("Y-m-d", strtotime("last week sunday"));
-    $dates['cur_week_start'] = Carbon::today()->startOfWeek()->format('Y-m-d');
-    $dates['cur_week_end'] = Carbon::today()->endOfWeek()->format('Y-m-d');
-    $dates['pre_month_start'] = Carbon::parse('first day of last month')->format('Y-m-d');
-    $dates['pre_month_end'] = Carbon::parse('last day of last month')->format('Y-m-d');
-    $dates['cur_month_start'] = Carbon::parse('first day of this month')->format('Y-m-d');
-    $dates['cur_month_end'] = Carbon::parse('last day of this month')->format('Y-m-d');
-    $dates['pre_year_start'] = date("Y-m-d", strtotime("last year January 1st"));
-    $dates['pre_year_end'] = date("Y-m-d", strtotime("last year December 31st"));
-    $dates['cur_year_start'] = Carbon::parse('first day of January')->format('Y-m-d');
-    $dates['cur_year_end'] = Carbon::parse('last day of December')->format('Y-m-d');
-    $dates['nextWeek'] = Carbon::today()->addWeek()->format('Y-m-d');
-    return view('common.admin.statement.overall', compact('dates', 'from_date', 'to_date', 'country_id'));
-})->name('common.statement.range');
+Route::get('/transactions', [AdminController::class, 'transactions'])->name('common.statement.range');

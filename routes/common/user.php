@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Common\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,51 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/login', function () {
+Route::get('/login', [UserController::class, 'login']);
 
-    $base_url = \App\Helpers\Helper::getBaseUrl();
+Route::get('/forgot-password', [UserController::class, 'forgotPassword']);
 
-    $services = json_decode(\App\Helpers\Helper::getServiceBaseUrl(), true);
-
-    $settings = json_encode(\App\Helpers\Helper::getSettings());
-
-    $base = [];
-
-    foreach ($services as $key => $service) {
-        $base[$key] = $service;
-    }
-
-    $base = json_encode($base);
-
-    return view('common.user.auth.login', compact('base', 'base_url', 'settings'));
-});
-
-Route::get('/forgot-password', function () {
-    $base_url = \App\Helpers\Helper::getBaseUrl();
-    $services = json_decode(\App\Helpers\Helper::getServiceBaseUrl(), true);
-    $settings = json_encode(\App\Helpers\Helper::getSettings());
-    $base = [];
-    foreach ($services as $key => $service) {
-        $base[$key] = $service;
-    }
-    $base = json_encode($base);
-    return view('common.user.auth.forgot', compact('base', 'base_url', 'settings'));
-});
-Route::get('/reset-password', function () {
-    $urlparam = ($_GET);
-    $base_url = \App\Helpers\Helper::getBaseUrl();
-    $services = json_decode(\App\Helpers\Helper::getServiceBaseUrl(), true);
-    $settings = json_encode(\App\Helpers\Helper::getSettings());
-    $base = [];
-    foreach ($services as $key => $service) {
-        $base[$key] = $service;
-    }
-    $base = json_encode($base);
-    return view('common.user.auth.reset', compact('base', 'base_url', 'settings', 'urlparam'));
-});
+Route::get('/reset-password', [UserController::class, 'resetPassword']);
 
 Route::get('/profile/{type}', function ($type) {
-
     return view('common.user.account.profile', compact('type'));
 });
 
@@ -65,8 +28,6 @@ Route::view('/wallet', 'common.user.account.wallet');
 
 Route::view('/home', 'common.user.home');
 
-Route::redirect('/', '/user/login');
+Route::view('/logout', 'common.user.auth.logout');
 
-Route::get('/logout', function () {
-    return view('common.user.auth.logout');
-});
+Route::redirect('/', '/user/login');

@@ -1,5 +1,12 @@
 <?php
 
-include_once 'common/admin.php';
-include_once 'service/admin.php';
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+|
+*/
+
+require_once __DIR__ . '/common/admin.php';
+require_once __DIR__ . '/service/admin.php';
 

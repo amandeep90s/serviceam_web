@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::view('/service', 'service.provider.serve.serve');
-// SERVICE HISTORY FOR SERVICE
 
-Route::get('/trips/service/{type}', ['as' => 'servicehistory', function ($type) {
+// SERVICE HISTORY FOR SERVICE
+Route::get('/trips/service/{type}', function ($type) {
     return view('service.provider.serve.history', compact('type'));
-}]);
+})->name('servicehistory');

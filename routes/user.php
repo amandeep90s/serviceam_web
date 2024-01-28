@@ -1,4 +1,11 @@
 <?php
 
-include_once 'common/user.php';
-include_once 'service/user.php';
+/*
+|--------------------------------------------------------------------------
+| User Routes
+|--------------------------------------------------------------------------
+|
+*/
+
+require_once __DIR__ . '/common/user.php';
+require_once __DIR__ . '/service/user.php';

@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Route;
  */
 Route::view('/', 'common/web/home');
 
-Route::get('/step/{step?}', function ($step) {
-    return view('common.web.home');
-});
+Route::view('/step/{step?}', 'common.web.home');
 
 Route::view('/home', 'common/web/home');
 
@@ -30,21 +28,13 @@ Route::get('/track/{id}', function ($id) {
     return view('common.admin.track', compact('id'));
 });
 
-Route::get('/limit', function () {
-    return view('common.admin.limit.index');
-});
+Route::view('/limit', 'common.admin.limit.index');
 
-Route::get('/works', function () {
-    return view('common.web.works');
-});
+Route::view('/works', 'common.web.works');
 
-Route::get('/home_services', function () {
-    return view('common.web.home_services');
-});
+Route::view('/home_services', 'common.web.home_services');
 
-Route::get('/blog', function () {
-    return view('common.web.blog');
-});
+Route::view('/blog', 'common.web.blog');
 
 //Auth::routes();
 
