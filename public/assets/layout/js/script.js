@@ -1,26 +1,28 @@
-$(document).ready(function() {
+$(document).ready(function () {
     basicFunctions();
 
-    if(typeof localStorage.siteSettings == 'undefined') {
-        var formData = new FormData();
+    if (typeof localStorage.siteSettings == "undefined") {
+        let formData = new FormData();
 
-          formData.append('access_key', (window.country_id).replace(/&quot;/g, '')  );
-          formData.append('domain', location.hostname);
+        formData.append("access_key", window.country_id.replace(/&quot;/g, ""));
+        formData.append("domain", location.hostname);
 
         $.ajax({
-            url: (window.base_url).replace(/"/g, '') + "/verify",
+            url: window.base_url.replace(/"/g, "") + "/api/verify",
             type: "post",
             processData: false,
             contentType: false,
             data: formData,
             success: (response, textStatus, jqXHR) => {
-                var data = parseData(response);
-                if(data.settings) setSiteSettings(JSON.stringify(data.settings.settings_data));
+                let data = parseData(response);
+                if (data.settings)
+                    setSiteSettings(
+                        JSON.stringify(data.settings.settings_data)
+                    );
             },
-            error: (jqXHR, textStatus, errorThrown) => {}
+            error: (jqXHR, textStatus, errorThrown) => {},
         });
     }
-
 });
 
 function getToken(guard) {
@@ -65,11 +67,9 @@ function getSocketUrl() {
     return null;
 }
 
-
 function setSocketUrl(socketUrl) {
     localStorage.setItem("socketUrl", socketUrl);
 }
-
 
 function setBaseUrl(baseUrl) {
     localStorage.setItem("baseUrl", baseUrl);
@@ -131,14 +131,12 @@ function getProviderDetails() {
     return null;
 }
 
-function setProviderDetails(data) { 
+function setProviderDetails(data) {
     localStorage.setItem("provider", JSON.stringify(data));
-} 
+}
 
 function basicFunctions() {
-    //$(".tooltips").tooltip();
-
-    $("body").on("keypress", ".phone", function(e) {
+    $("body").on("keypress", ".phone", function (e) {
         if (
             e.which != 8 &&
             e.which != 0 &&
@@ -150,30 +148,34 @@ function basicFunctions() {
         }
     });
 
-    $("body").on("keypress", ".numbers", function(e) {
+    $("body").on("keypress", ".numbers", function (e) {
         if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
             return false;
         }
     });
 
-    $(".date-picker, .accounts-date-picker, .price").each(function(e) {
+    $(".date-picker, .accounts-date-picker, .price").each(function (e) {
         $(this).attr("autocomplete", "off");
     });
 
-    $("body").on("keypress", ".date-picker, .accounts-date-picker", function(e) {
-        if (
-            e.which != 8 &&
-            e.which != 0 &&
-            e.which != 45 &&
-            (e.which < 48 || e.which > 57)
-        ) {
-            return false;
+    $("body").on(
+        "keypress",
+        ".date-picker, .accounts-date-picker",
+        function (e) {
+            if (
+                e.which != 8 &&
+                e.which != 0 &&
+                e.which != 45 &&
+                (e.which < 48 || e.which > 57)
+            ) {
+                return false;
+            }
         }
-    });
+    );
 
-    $(".re-arrange-date").each(function() {
-        var data = $(this).val();
-        var mycustomdate = data.split("-");
+    $(".re-arrange-date").each(function () {
+        let data = $(this).val();
+        let mycustomdate = data.split("-");
         if (data != "") {
             $(this).attr(
                 "value",
@@ -186,9 +188,9 @@ function basicFunctions() {
         }
     });
 
-    $(".re-arrange-date-text").each(function() {
-        var data = $(this).text();
-        var mycustomdate = data.split("-");
+    $(".re-arrange-date-text").each(function () {
+        let data = $(this).text();
+        let mycustomdate = data.split("-");
         $(this).text(
             $.trim(mycustomdate[2]) +
                 "-" +
@@ -198,7 +200,7 @@ function basicFunctions() {
         );
     });
 
-    $(".text, .re-arrange-date-text, .datetype").each(function() {
+    $(".text, .re-arrange-date-text, .datetype").each(function () {
         if ($(this).text() == "00-00-0000" || $(this).text() == "0000-00-00") {
             $(this).text("");
         }
@@ -210,11 +212,11 @@ function basicFunctions() {
         rtl: false,
         orientation: "left",
         todayHighlight: true,
-        autoclose: true
+        autoclose: true,
     });
 
-    $(".price").each(function() {
-        var price = $(this);
+    $(".price").each(function () {
+        let price = $(this);
         if (price.val() != "") {
             if (price.val().indexOf(".00") == -1) {
                 price.val(parseFloat(price.val()).toFixed(2));
@@ -225,14 +227,14 @@ function basicFunctions() {
     });
 
     $(".price")
-        .on("focus", function() {
+        .on("focus", function () {
             if ($(this).val() == "0.00") {
                 $(this).val("");
             } else if ($(this).val().length > 0) {
                 $(this).val(parseFloat($(this).val()).toFixed(2));
             }
         })
-        .on("focusout", function() {
+        .on("focusout", function () {
             if ($(this).val() == "") {
                 $(this).val("0.00");
             } else if ($(this).val().length > 0) {
@@ -240,7 +242,7 @@ function basicFunctions() {
             }
         });
 
-    $("body").on("keypress", ".price", function(e) {
+    $("body").on("keypress", ".price", function (e) {
         if (
             e.which != 8 &&
             e.which != 0 &&
@@ -251,7 +253,7 @@ function basicFunctions() {
         }
     });
 
-    $("body").on("keypress", ".decimal", function(e) {
+    $("body").on("keypress", ".decimal", function (e) {
         if (
             e.which != 8 &&
             e.which != 0 &&
@@ -267,83 +269,85 @@ function basicFunctions() {
     $(".timepicker-default").timepicker({
         autoclose: !0,
         showSeconds: !0,
-        minuteStep: 1
+        minuteStep: 1,
     }),
-    $(".timepicker-no-seconds").timepicker({
-        autoclose: !0,
-        minuteStep: 5
-    }),
-    $(".timepicker-24").timepicker({
-        autoclose: !0,
-        minuteStep: 5,
-        showSeconds: !1,
-        defaultTime: false,
-        showMeridian: !1
-    }),
-    $(".timepicker")
-        .parent(".input-group")
-        .on("click", ".input-group-btn", function(t) {
-            t.preventDefault(),
-                $(this)
-                    .parent(".input-group")
-                    .find(".timepicker")
-                    .timepicker("showWidget");
-        });
+        $(".timepicker-no-seconds").timepicker({
+            autoclose: !0,
+            minuteStep: 5,
+        }),
+        $(".timepicker-24").timepicker({
+            autoclose: !0,
+            minuteStep: 5,
+            showSeconds: !1,
+            defaultTime: false,
+            showMeridian: !1,
+        }),
+        $(".timepicker")
+            .parent(".input-group")
+            .on("click", ".input-group-btn", function (t) {
+                t.preventDefault(),
+                    $(this)
+                        .parent(".input-group")
+                        .find(".timepicker")
+                        .timepicker("showWidget");
+            });
 
     $(".toast").animate({ height: "auto", opacity: 1 });
     $(".toast").fadeIn();
 
-    setTimeout(function() {
+    setTimeout(function () {
         $(".toast").animate(
             { height: "0px", opacity: 0 },
             {
                 easing: "swing",
                 duration: "slow",
-                complete: function() {
+                complete: function () {
                     $(".toast").remove();
-                }
+                },
             }
         );
     }, 6000);
 }
 
 function showLoader() {
-    if($('body').find('.loader-container').length == 0) {
-        $('body').prepend(`<div class="loader-container">
+    if ($("body").find(".loader-container").length == 0) {
+        $("body").prepend(`<div class="loader-container">
             <div class="lds-ripple"><div></div><div></div></div>
         </div>`);
     }
 }
 
 function validateEmail(email) {
-    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    let regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     return regex.test(email);
 }
 
 function hideLoader() {
-    setTimeout(function() {
-        if($('body').find('.loader-container').length > 0) {
-            $('body').find('.loader-container').remove();
-        } 
+    setTimeout(function () {
+        if ($("body").find(".loader-container").length > 0) {
+            $("body").find(".loader-container").remove();
+        }
     }, 100);
 }
 
 function showInlineLoader() {
-    if($('body').find('.lds-ripple').length == 0) {
-        $('body').prepend(`<div class="lds-ripple"><div></div><div></div></div>`);
+    if ($("body").find(".lds-ripple").length == 0) {
+        $("body").prepend(
+            `<div class="lds-ripple"><div></div><div></div></div>`
+        );
     }
 }
 
 function hideInlineLoader() {
-    setTimeout(function() {
-        if($('body').find('.lds-ripple').length > 0) {
-            $('body').find('.lds-ripple').remove();
-        } 
+    setTimeout(function () {
+        if ($("body").find(".lds-ripple").length > 0) {
+            $("body").find(".lds-ripple").remove();
+        }
     }, 100);
 }
 
 function alertMessage(title, message, type) {
-    var title = title.substr(0, 1).toUpperCase() + title.substr(1);
+    let title = title.substr(0, 1).toUpperCase() + title.substr(1);
 
     $(".toaster").append(
         `
@@ -355,7 +359,7 @@ function alertMessage(title, message, type) {
 		<span class="sr-only">Close</span></button>
 		<span class="title" style="font-weight: bold;">` +
             title +
-            `</span><br> 
+            `</span><br>
 		<span class="message">` +
             message +
             `</span>
@@ -364,55 +368,25 @@ function alertMessage(title, message, type) {
 
     $(".toast").animate({ height: "auto", opacity: 1 });
     $(".toast").fadeIn();
-
-    /*setTimeout(function() {
-        $(".toast").animate(
-            { height: "0px", opacity: 0 },
-            {
-                easing: "swing",
-                duration: "slow",
-                complete: function() {
-                    $(".toast").remove();
-                }
-            }
-        );
-    }, 3000);*/
 }
 
-var http = new XMLHttpRequest();
-var url = getBaseUrl() + '/user/socket';
-var params = 'url='+window.location.origin+'&key=5d2303e0d2a19';
-// http.open('POST', url, true);
-
-// http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-// http.onreadystatechange = function() {
-//     /* var result = response.srcElement.responseText;
-//     var json = JSON.parse(result);
-//     if(json.status == false) {
-//         var str = '/l_i_m_i_t';
-//         var url = str.replace(/_/g,"");
-//         if(window.location.href != url) window.location.href = url;
-//     }  */
-// }
-// http.send(params);
+let http = new XMLHttpRequest();
+let url = getBaseUrl() + "/user/socket";
+let params = "url=" + window.location.origin + "&key=5d2303e0d2a19";
 
 function readURL(input) {
-    var trigg_input = $(input);
+    let trigg_input = $(input);
     if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            trigg_input
-                .prev()
-                .show()
-                .attr("src", e.target.result);
+        let reader = new FileReader();
+        reader.onload = function (e) {
+            trigg_input.prev().show().attr("src", e.target.result);
         };
         reader.readAsDataURL(input.files[0]);
     }
 }
 
 function decodeHTMLEntities(text) {
-    var entities = [
+    let entities = [
         ["amp", "&"],
         ["apos", "'"],
         ["#x27", "'"],
@@ -422,10 +396,10 @@ function decodeHTMLEntities(text) {
         ["lt", "<"],
         ["gt", ">"],
         ["nbsp", " "],
-        ["quot", '"']
+        ["quot", '"'],
     ];
 
-    for (var i = 0, max = entities.length; i < max; ++i)
+    for (let i = 0, max = entities.length; i < max; ++i)
         text = text.replace(
             new RegExp("&" + entities[i][0] + ";", "g"),
             entities[i][1]
@@ -435,7 +409,7 @@ function decodeHTMLEntities(text) {
 }
 
 function removeStorage(prefix) {
-    for (var key in localStorage) {
+    for (let key in localStorage) {
         if (key.indexOf(prefix) == 0) {
             localStorage.removeItem(key);
         }
@@ -445,9 +419,9 @@ function removeStorage(prefix) {
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+    let regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
         results = regex.exec(url);
     if (!results) return null;
-    if (!results[2]) return '';
+    if (!results[2]) return "";
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }

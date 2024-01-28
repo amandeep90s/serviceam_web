@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
  */
+
 Route::view('/', 'common/web/home');
 
 Route::view('/step/{step?}', 'common.web.home');

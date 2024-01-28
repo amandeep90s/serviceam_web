@@ -12,10 +12,7 @@ class Helper
         return self::getCache()->settings?->settings_data?->site?->site_icon;
     }
 
-    /**
-     * @return string
-     */
-    public static function getCache(): string
+    public static function getCache()
     {
         $domain = $_SERVER["SERVER_NAME"];
 
@@ -49,7 +46,7 @@ class Helper
         return json_encode($services_base_url);
     }
 
-    public static function isDestination(): bool
+    public static function isDestination()
     {
         $destination = self::getSettings()?->transport?->destination ?? 1;
 
@@ -67,36 +64,36 @@ class Helper
         return !empty($settings->demo_mode) ? $settings->demo_mode : 0;
     }
 
-    public static function getChatmode(): int
+    public static function getChatmode()
     {
         $settings = self::getCache()->settings;
         return !empty($settings->chat) ? $settings->chat : 0;
     }
 
-    public static function getEncrypt(): int
+    public static function getEncrypt()
     {
         $settings = self::getCache()->settings;
         return !empty($settings->encrypt) ? $settings->encrypt : 0;
     }
 
-    public static function getBanner(): int
+    public static function getBanner()
     {
         $settings = self::getCache()->settings;
         return !empty($settings->banner) ? $settings->banner : 0;
     }
 
-    public static function getSaltKey(): ?string
+    public static function getSaltKey()
     {
         $settings = self::getCache()->settings;
         return !empty($settings) ? base64_encode($settings->company_id) : null;
     }
 
-    public static function checkService($type): bool
+    public static function checkService($type)
     {
         return in_array($type, self::getServiceList());
     }
 
-    public static function getServiceList(): array
+    public static function getServiceList()
     {
         $services = self::getCache()->services;
         $data = [];
@@ -111,7 +108,7 @@ class Helper
         return self::getCache()->cmspage;
     }
 
-    public static function checkPayment($type): bool
+    public static function checkPayment($type)
     {
         $paymentConfig = json_decode(
             json_encode(self::getSettings()->payment),
@@ -125,7 +122,7 @@ class Helper
         return !empty($payment) && $payment[0]["status"] == 1;
     }
 
-    public static function getCountryList(): array
+    public static function getCountryList()
     {
         $country_list = self::getCache()?->country;
         $data = [];

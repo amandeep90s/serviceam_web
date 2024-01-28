@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('service', function () {
             $args = func_get_args();
 
-            $services = Helper::getCache()?->services;
+            $services = Helper::getCache()->services;
 
             $data = [];
 
@@ -48,7 +48,6 @@ class AppServiceProvider extends ServiceProvider
                 return redirect('/admin/logout');
             }
             return in_array($permission, $permissions);
-
         });
     }
 }
