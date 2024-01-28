@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,6 +46,12 @@ Route::get('/blog', function () {
     return view('common.web.blog');
 });
 
-Auth::routes();
+//Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('admin')->as('admin.')->group(base_path('routes/admin.php'));
+
+Route::prefix('provider')->as('provider.')->group(base_path('routes/provider.php'));
+
+Route::prefix('user')->as('user.')->group(base_path('routes/user.php'));
