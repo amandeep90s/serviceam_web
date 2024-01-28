@@ -36,10 +36,6 @@ Route::view('/home_services', 'common.web.home_services');
 
 Route::view('/blog', 'common.web.blog');
 
-//Auth::routes();
-
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::prefix('admin')->as('admin.')->group(base_path('routes/admin.php'));
 
 Route::prefix('provider')->as('provider.')->group(base_path('routes/provider.php'));

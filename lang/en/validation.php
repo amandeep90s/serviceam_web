@@ -173,6 +173,12 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        's_latitude' => [
+            'required' => 'Source address required',
+        ],
+        'd_latitude' => [
+            'required' => 'Destination address required',
+        ],
     ],
 
     /*

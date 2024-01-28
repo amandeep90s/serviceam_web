@@ -4,6 +4,7 @@ namespace App\Rules;
 
 use Closure;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Translation\PotentiallyTranslatedString;
 
@@ -12,7 +13,8 @@ class ValidRecaptcha implements ValidationRule
     /**
      * Run the validation rule.
      *
-     * @param  \Closure(string): PotentiallyTranslatedString  $fail
+     * @param Closure(string): PotentiallyTranslatedString $fail
+     * @throws GuzzleException
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {

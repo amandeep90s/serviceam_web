@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="270.55" height="267.69" viewBox="0 0 270.55 267.69">
+  <g id="glow-1" transform="translate(-21.45 -7)">
+    <path id="Path_1" data-name="Path 1" d="M170.37,274.69H21.45v-8.86H52.37V43.39H21.45V34.53H47.28A348.546,348.546,0,0,0,89.6,31.61q23.66-2.91,50.8-17.43V265.83h30Z" fill="#4caf50"/>
+    <circle id="Ellipse_1" data-name="Ellipse 1" cx="3" cy="3" r="3" transform="translate(286 7)" fill="#c8dedc"/>
+    <circle id="Ellipse_2" data-name="Ellipse 2" cx="3" cy="3" r="3" transform="translate(266 7)" fill="#c8dedc"/>
+    <circle id="Ellipse_3" data-name="Ellipse 3" cx="3" cy="3" r="3" transform="translate(246 7)" fill="#c8dedc"/>
+    <circle id="Ellipse_4" data-name="Ellipse 4" cx="3" cy="3" r="3" transform="translate(286 23)" fill="#c8dedc"/>
+    <circle id="Ellipse_5" data-name="Ellipse 5" cx="3" cy="3" r="3" transform="translate(266 23)" fill="#c8dedc"/>
+    <circle id="Ellipse_6" data-name="Ellipse 6" cx="3" cy="3" r="3" transform="translate(246 23)" fill="#c8dedc"/>
+    <circle id="Ellipse_7" data-name="Ellipse 7" cx="3" cy="3" r="3" transform="translate(286 39)" fill="#c8dedc"/>
+    <circle id="Ellipse_8" data-name="Ellipse 8" cx="3" cy="3" r="3" transform="translate(266 39)" fill="#c8dedc"/>
+    <circle id="Ellipse_9" data-name="Ellipse 9" cx="3" cy="3" r="3" transform="translate(246 39)" fill="#c8dedc"/>
+    <circle id="Ellipse_10" data-name="Ellipse 10" cx="3" cy="3" r="3" transform="translate(286 55)" fill="#c8dedc"/>
+    <circle id="Ellipse_11" data-name="Ellipse 11" cx="3" cy="3" r="3" transform="translate(266 55)" fill="#c8dedc"/>
+    <circle id="Ellipse_12" data-name="Ellipse 12" cx="3" cy="3" r="3" transform="translate(246 55)" fill="#c8dedc"/>
+    <circle id="Ellipse_13" data-name="Ellipse 13" cx="3" cy="3" r="3" transform="translate(286 71)" fill="#c8dedc"/>
+    <circle id="Ellipse_14" data-name="Ellipse 14" cx="3" cy="3" r="3" transform="translate(266 71)" fill="#c8dedc"/>
+    <circle id="Ellipse_15" data-name="Ellipse 15" cx="3" cy="3" r="3" transform="translate(246 71)" fill="#c8dedc"/>
+    <path id="Path_5" data-name="Path 5" d="M192.35,152.93a2.1,2.1,0,1,0,.61,1.48A2.1,2.1,0,0,0,192.35,152.93Zm0,0" fill="#fff" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+  </g>
+</svg>
