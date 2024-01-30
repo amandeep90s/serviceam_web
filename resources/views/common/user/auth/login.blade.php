@@ -1,15 +1,12 @@
 @extends('common.user.layout.auth')
-@section('styles')
 
-    @parent
-@stop
 @section('content')
     @include('common.alert')
     <section id="login-form" class="">
         <div class="login-bg ">
             <div class="login-content">
                 <div class="logo-section dis-center">
-                    <a href="{{ URL::to('') }}">
+                    <a href="{{ url('/') }}">
                         <img src="{{ Helper::getSiteLogo() }}" class="" width="100" alt="logo">
                     </a>
                 </div>
@@ -33,15 +30,17 @@
 
                                 </div>
                                 <input id="email" name="email" class="form-control required email mb-4" style=""
-                                    placeholder="@lang('auth.email')" type="email" aria-required="true">
+                                       placeholder="@lang('auth.email')" type="email" aria-required="true">
 
 
                                 <input id="password" name="password" class="form-control mb-4" value=""
-                                    placeholder="@lang('auth.password')" type="password" autocomplete="current-password">
+                                       placeholder="{{__('auth.enter_password')}}" type="password"
+                                       autocomplete="current-password">
 
                                 <button type="submit" class="btn btn-primary btn-md mb-4">@lang('auth.login')<i
                                         class="fa fa-arrow-circle-right ml-2" aria-hidden="true"></i></button>
-                                <a href="{{ url('user/forgot-password') }}" class="forgot-link">@lang('auth.forgot_password')</a>
+                                <a href="{{ url('user/forgot-password') }}"
+                                   class="forgot-link">@lang('auth.forgot_password')</a>
 
                                 @if (Helper::getSettings()->site->social_login == 1)
                                     <div class="or-section mt-2 mb-3">
@@ -69,30 +68,30 @@
                                 <div id="toaster" class="toaster w-100"></div>
 
                                 <input name="email" id="email" class="form-control mb-4"
-                                    placeholder="@lang('auth.email')" type="email" required />
+                                       placeholder="@lang('auth.email')" type="email" required/>
 
                                 <p class="show_message"></p>
                                 <p class="new_show_message"></p>
-                                </p>
 
                                 <input id="enterOtp" name="otp" class="form-control mb-4 enterOtp"
-                                    placeholder="@lang('auth.enter_otp_received')" type="text" aria-required="true" required
-                                    style="display:none">
+                                       placeholder="@lang('auth.enter_otp_received')" type="text" aria-required="true"
+                                       required
+                                       style="display:none">
                                 <div class="account_kit" style="display:none">
 
                                     <div class="col-sm-12 col-md-12 col-lg-12 p-0 d-flex">
                                         <div class="col-sm-6 p-0 mr-1">
                                             <input id="first_name" name="first_name" class="form-control mb-4"
-                                                value="" placeholder="@lang('auth.first_name')" type="text" required>
+                                                   value="" placeholder="@lang('auth.first_name')" type="text" required>
                                         </div>
                                         <div class="col-sm-6 p-0">
                                             <input id="last_name" name="last_name" class="form-control mb-4" value=""
-                                                placeholder="@lang('auth.last_name')" type="text" required>
+                                                   placeholder="@lang('auth.last_name')" type="text" required>
                                         </div>
                                     </div>
 
                                     <input id="suite" name="suite" class="form-control mb-4" value=""
-                                        placeholder="@lang('auth.suite')" type="text" required>
+                                           placeholder="@lang('auth.suite')" type="text" required>
                                     <!--  w-100 -->
                                     <select name="gender" class="form-control mb-4">
                                         <option value="">@lang('auth.select_gender')</option>
@@ -101,11 +100,12 @@
                                         <option value="GENERAL">@lang('auth.GENERAL')</option>
                                     </select>
                                     <input id="signin_password" name="password" class="form-control mb-4" value=""
-                                        placeholder="@lang('auth.password')" type="password" required
-                                        autocomplete="new-password">
+                                           placeholder="@lang('auth.enter_password')" type="password" required
+                                           autocomplete="new-password">
                                     <input id="password_confirmation" name="password_confirmation"
-                                        class="form-control mb-4" value="" placeholder="@lang('auth.confirm_password')"
-                                        type="password" required autocomplete="new-password">
+                                           class="form-control mb-4" value=""
+                                           placeholder="@lang('auth.confirm_password')"
+                                           type="password" required autocomplete="new-password">
                                     <select name="country_id" class=" mb-4 form-control">
                                         <option value="">@lang('auth.select_country')</option>
                                     </select>
@@ -113,24 +113,25 @@
                                         <option value="">@lang('auth.select_city')</option>
                                     </select>
                                     <input id="picture" name="picture" class="form-control mt-4" placeholder="Picture"
-                                        type="file">
+                                           type="file">
                                     <input id="referral_code" name="referral_code" class="form-control mt-4"
-                                        placeholder="Referral Code" type="text">
+                                           placeholder="Referral Code" type="text">
                                     <div class="form-group float-left">
                                         <div class="g-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}"></div>
                                     </div>
                                 </div>
 
                                 <input type="hidden" name="data_otp" class="data_otp">
-                                <a class="btn btn-block btn-secondary btn-md mt-2 get_otp">Next<i
+                                <a class="btn btn-block btn-secondary btn-md mt-2 get_otp">
+                                    {{ __('next') }}<i
                                         class="fa fa-sign-in ml-2" aria-hidden="true"></i></a>
 
                                 <a class="btn btn-block btn-secondary btn-md mt-2 verify_btn"
-                                    style="display:none !important">@lang('auth.verify')<i
+                                   style="display:none !important">@lang('auth.verify')<i
                                         class="fa fa-arrow-circle-right ml-2" aria-hidden="true"></i></a>
 
                                 <button type="submit" class="btn btn-block btn-secondary btn-md mt-2 signup account_kit"
-                                    style="display:none !important">@lang('auth.signup')<i
+                                        style="display:none !important">@lang('auth.signup')<i
                                         class="fa fa-arrow-circle-right ml-2" aria-hidden="true"></i></button>
 
                                 <div class="or-section mt-2 mb-3">
@@ -158,10 +159,10 @@
                         <div class="dis-reverse">
                             <form class="signin-section h-100 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                 <input name="mobile" maxlength="15" autocomplete="off"
-                                    class="intl-tel phone form-control mb-4 d-none" placeholder="Phone Number"
-                                    value="" type="text">
+                                       class="intl-tel phone form-control mb-4 d-none" placeholder="Phone Number"
+                                       value="" type="text">
                                 <input name="email" autocomplete="off" class="form-control mb-4 d-none"
-                                    placeholder="E-mail Address" value="" type="email" aria-required="true">
+                                       placeholder="E-mail Address" value="" type="email" aria-required="true">
                                 <select name="gender" class="w-100 mb-3 d-none" autocomplete="off">
                                     <option value="">@lang('auth.select_gender')</option>
                                     <option value="MALE">@lang('auth.MALE')</option>
@@ -188,81 +189,81 @@
 
         </div>
     </section>
-@stop
-@section('scripts')
+@endsection
+
+@push('scripts')
     @parent
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="https://apis.google.com/js/api:client.js"></script>
     <script>
         @if (Helper::getSettings()->site->social_login == 1)
 
-            startApp();
+        startApp();
 
-            var setdata = "";
+        var setdata = "";
 
-            $('#sign-up input[name=mobile]').val('');
-            $('#sign-up input[name=email]').val('');
+        $('#sign-up input[name=mobile]').val('');
+        $('#sign-up input[name=email]').val('');
 
-            $('#sign-up input[name=otp]').val('');
+        $('#sign-up input[name=otp]').val('');
 
-            var googleUser = {};
+        var googleUser = {};
 
-            function startApp() {
-                gapi.load('auth2', function() {
-                    // Retrieve the singleton for the GoogleAuth library and set up the client.
-                    auth2 = gapi.auth2.init({
-                        client_id: '{{ Helper::getSettings()->site->google_client_id }}',
-                        cookiepolicy: 'single_host_origin',
-                        // Request scopes in addition to 'profile' and 'email'
-                        //scope: 'additional_scope'
-                    });
-                    attachSignin(document.getElementById('glogin'));
-                    attachSignin(document.getElementById('glogin1'));
+        function startApp() {
+            gapi.load('auth2', function () {
+                // Retrieve the singleton for the GoogleAuth library and set up the client.
+                auth2 = gapi.auth2.init({
+                    client_id: '{{ Helper::getSettings()->site->google_client_id }}',
+                    cookiepolicy: 'single_host_origin',
+                    // Request scopes in addition to 'profile' and 'email'
+                    //scope: 'additional_scope'
                 });
-            };
+                attachSignin(document.getElementById('glogin'));
+                attachSignin(document.getElementById('glogin1'));
+            });
+        }
 
-            function attachSignin(element) {
-                auth2.attachClickHandler(element, {}, function() {
+        function attachSignin(element) {
+            auth2.attachClickHandler(element, {}, function () {
 
-                        gapi.client.load('oauth2', 'v2', function() {
-                            var request = gapi.client.oauth2.userinfo.get({
-                                'userId': 'me'
-                            });
-                            request.execute(function(response) {
-                                // Display the user details
-                                saveData(response.id, 'GOOGLE', response.given_name, response
-                                    .family_name, response.email, response.picture);
-                            });
+                    gapi.client.load('oauth2', 'v2', function () {
+                        var request = gapi.client.oauth2.userinfo.get({
+                            'userId': 'me'
                         });
-                    }, function(error) {
-                        console.log(JSON.stringify(error, undefined, 2));
-                    }
-
-                );
-            }
-
-            window.fbAsyncInit = function() {
-                FB.init({
-                    appId: '{{ Helper::getSettings()->site->facebook_app_id }}',
-                    cookie: true,
-                    xfbml: true,
-                    version: 'v3.2'
-                });
-
-                FB.AppEvents.logPageView();
-
-            };
-
-            (function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) {
-                    return;
+                        request.execute(function (response) {
+                            // Display the user details
+                            saveData(response.id, 'GOOGLE', response.given_name, response
+                                .family_name, response.email, response.picture);
+                        });
+                    });
+                }, function (error) {
+                    console.log(JSON.stringify(error, undefined, 2));
                 }
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "https://connect.facebook.net/en_US/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
+            );
+        }
+
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '{{ Helper::getSettings()->site->facebook_app_id }}',
+                cookie: true,
+                xfbml: true,
+                version: 'v3.2'
+            });
+
+            FB.AppEvents.logPageView();
+
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
         @endif
         function saveData(social_unique_id, login_by, first_name, last_name, email, picture) {
 
@@ -300,9 +301,9 @@
                                 'd-none');
                         }
 
-                        $('.social_login').on('click', function() {
+                        $('.social_login').on('click', function () {
                             $('#social-login .signin-section input, #social-login .signin-section select')
-                                .each(function() {
+                                .each(function () {
                                     if ($(this).val() == "" && $(this).is(':visible')) {
                                         $('.social_error').remove();
                                         $('#social-login .signin-section').prepend(
@@ -324,7 +325,7 @@
                                 processData: false,
                                 contentType: false,
                                 data: formData,
-                                beforeSend: function() {
+                                beforeSend: function () {
                                     showLoader();
                                 },
                                 success: (newResponse, textStatus, jqXHR) => {
@@ -356,7 +357,7 @@
         }
 
         function fbLogin() {
-            FB.login(function(response) {
+            FB.login(function (response) {
                 if (response.authResponse) {
                     // Get and display the user profile data
                     getFbUserData();
@@ -373,14 +374,14 @@
                     locale: 'en_US',
                     fields: 'id,first_name,last_name,email,link,gender,locale,picture'
                 },
-                function(response) {
+                function (response) {
                     saveData(response.id, 'FACEBOOK', response.first_name, response.last_name, response.email, response
                         .picture.data.url);
                 });
         }
 
         // phone form submission handler
-        $('.get_otp').on('click', function() {
+        $('.get_otp').on('click', function () {
 
             var salt_key = "{{ Helper::getSaltKey() }}";
 
@@ -427,7 +428,7 @@
                             }
                         }
                     },
-                    error: function(jqXHR, textStatus, errorThrown) {
+                    error: function (jqXHR, textStatus, errorThrown) {
                         hideLoader();
                         alertMessage(textStatus, jqXHR.responseJSON.message, "danger");
                     }
@@ -471,7 +472,7 @@
                             }
                         }
                     },
-                    error: function(jqXHR, textStatus, errorThrown) {
+                    error: function (jqXHR, textStatus, errorThrown) {
                         hideLoader();
                         alertMessage(textStatus, jqXHR.responseJSON.message, "danger");
                     }
@@ -482,7 +483,7 @@
         });
 
 
-        $('.verify_btn').on('click', function() {
+        $('.verify_btn').on('click', function () {
             var old_otp = $('.data_otp').val();
 
             var otp = $('.enterOtp').val();
@@ -512,7 +513,7 @@
             }
         });
 
-        $(document).ready(function() {
+        $(document).ready(function () {
 
             var base_url_data = JSON.parse(decodeHTMLEntities('{{ $base }}'));
 
@@ -537,7 +538,7 @@
                             countries[i].country_name + `</option>`);
                     }
 
-                    $('select[name=country_id]').on('change', function() {
+                    $('select[name=country_id]').on('change', function () {
                         $('select[name=city_id]').html("");
                         $('select[name=city_id]').append(
                             `<option value="">{{ __('auth.select_city') }}</option>`);
@@ -552,7 +553,7 @@
 
                     });
                 },
-                error: function(jqXHR, textStatus, errorThrown) {
+                error: function (jqXHR, textStatus, errorThrown) {
                     hideLoader();
                     alertMessage(textStatus, jqXHR.responseJSON.message, "danger");
                 }
@@ -587,16 +588,16 @@
                     },
                 },
 
-                highlight: function(element) {
+                highlight: function (element) {
                     $(element).closest('.form-group').addClass('has-error');
                 },
 
-                success: function(label) {
+                success: function (label) {
                     label.closest('.form-group').removeClass('has-error');
                     label.remove();
                 },
 
-                submitHandler: function(form) {
+                submitHandler: function (form) {
 
                     var formGroup = $(".validateForm").find(
                         "input[type='hidden'], select, :input:not(:hidden)").serialize().split("&");
@@ -621,17 +622,17 @@
                         data: data,
                         processData: false,
                         contentType: false,
-                        beforeSend: function() {
+                        beforeSend: function () {
                             showLoader();
                         },
-                        success: function(response, textStatus, jqXHR) {
+                        success: function (response, textStatus, jqXHR) {
                             var data = parseData(response);
                             setToken("user", data.responseData.access_token);
                             setUserDetails(data.responseData.user);
                             window.location.replace("{{ url('/user') }}");
                             hideLoader();
                         },
-                        error: function(jqXHR, textStatus, errorThrown) {
+                        error: function (jqXHR, textStatus, errorThrown) {
                             alertMessage(textStatus, jqXHR.responseJSON.message, "danger");
                             hideLoader();
                         }
@@ -646,7 +647,7 @@
                 onlyCountries: ['us']
             });
 
-            $('input[name=filter]').on('change', function() {
+            $('input[name=filter]').on('change', function () {
                 console.log("hiiiii");
                 var value = $(this).val();
                 $("#login #email, #login .intl-tel-input").hide();
@@ -657,7 +658,7 @@
                 }
             });
 
-            $('input[name=sfilter]').on('change', function() {
+            $('input[name=sfilter]').on('change', function () {
                 var value = $(this).val();
                 $("#sign-up #email, #sign-up .intl-tel-input").hide();
                 if (value == "email") {
@@ -726,17 +727,18 @@
                     },
                 },
 
-                highlight: function(element) {
+                highlight: function (element) {
                     $(element).closest('.form-group').addClass('has-error');
-                    $(element).removeClass('mb-4').addClass('mb-0').addClass('mt-4');;
+                    $(element).removeClass('mb-4').addClass('mb-0').addClass('mt-4');
+
                 },
 
-                success: function(label) {
+                success: function (label) {
                     label.closest('.form-group').removeClass('has-error');
                     label.remove();
                 },
 
-                submitHandler: function(form) {
+                submitHandler: function (form) {
 
                     var SignupFormGroup = $(".validateSignForm").serialize().split("&");
 
@@ -760,10 +762,10 @@
                         data: SignupData,
                         processData: false,
                         contentType: false,
-                        beforeSend: function() {
+                        beforeSend: function () {
                             showLoader();
                         },
-                        success: function(response, textStatus, jqXHR) {
+                        success: function (response, textStatus, jqXHR) {
                             var data = parseData(response);
                             setToken("user", data.responseData.access_token);
                             setUserDetails(data.responseData.user);
@@ -771,7 +773,7 @@
 
                             hideLoader();
                         },
-                        error: function(jqXHR, textStatus, errorThrown) {
+                        error: function (jqXHR, textStatus, errorThrown) {
                             hideLoader();
                             alertMessage(textStatus, jqXHR.responseJSON.message, "danger");
                         }
@@ -782,4 +784,4 @@
 
         });
     </script>
-@stop
+@endpush

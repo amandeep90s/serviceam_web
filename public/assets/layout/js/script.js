@@ -20,7 +20,8 @@ $(document).ready(function () {
                         JSON.stringify(data.settings.settings_data)
                     );
             },
-            error: (jqXHR, textStatus, errorThrown) => {},
+            error: (jqXHR, textStatus, errorThrown) => {
+            },
         });
     }
 });
@@ -180,10 +181,10 @@ function basicFunctions() {
             $(this).attr(
                 "value",
                 $.trim(mycustomdate[2]) +
-                    "-" +
-                    $.trim(mycustomdate[1]) +
-                    "-" +
-                    $.trim(mycustomdate[0])
+                "-" +
+                $.trim(mycustomdate[1]) +
+                "-" +
+                $.trim(mycustomdate[0])
             );
         }
     });
@@ -193,10 +194,10 @@ function basicFunctions() {
         let mycustomdate = data.split("-");
         $(this).text(
             $.trim(mycustomdate[2]) +
-                "-" +
-                $.trim(mycustomdate[1]) +
-                "-" +
-                $.trim(mycustomdate[0])
+            "-" +
+            $.trim(mycustomdate[1]) +
+            "-" +
+            $.trim(mycustomdate[0])
         );
     });
 
@@ -292,12 +293,12 @@ function basicFunctions() {
                         .timepicker("showWidget");
             });
 
-    $(".toast").animate({ height: "auto", opacity: 1 });
+    $(".toast").animate({height: "auto", opacity: 1});
     $(".toast").fadeIn();
 
     setTimeout(function () {
         $(".toast").animate(
-            { height: "0px", opacity: 0 },
+            {height: "0px", opacity: 0},
             {
                 easing: "swing",
                 duration: "slow",
@@ -347,27 +348,26 @@ function hideInlineLoader() {
 }
 
 function alertMessage(title, message, type) {
-    let title = title.substr(0, 1).toUpperCase() + title.substr(1);
+    let parsedTitle = title.slice(0, 1).toUpperCase() + title.slice(1);
 
     $(".toaster").append(
         `
 		<div style="display: none;" class="toast alert alert-` +
-            type +
-            ` alert-dismissible" role="alert" >
+        type +
+        ` alert-dismissible" role="alert" >
 		<button type="button" class="close" data-dismiss="alert">
 		<span aria-hidden="true">×</span>
 		<span class="sr-only">Close</span></button>
 		<span class="title" style="font-weight: bold;">` +
-            title +
-            `</span><br>
+        parsedTitle +
+        `</span><br>
 		<span class="message">` +
-            message +
-            `</span>
+        message +
+        `</span>
 		</div>`
     );
 
-    $(".toast").animate({ height: "auto", opacity: 1 });
-    $(".toast").fadeIn();
+    $(".toast").animate({height: "auto", opacity: 1}).fadeIn();
 }
 
 let http = new XMLHttpRequest();

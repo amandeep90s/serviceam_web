@@ -40,7 +40,7 @@ class AdminController extends Controller
     public function permissionList($id, $token): void
     {
         $client = new Client();
-        $result = $client->post(env('BASE_URL') . '/api/v1/admin/permission_list', [
+        $result = $client->post(env('BASE_URL') . '/api/admin/permission_list', [
             'headers' => ['Authorization' => 'Bearer ' . $token],
         ]);
         Session::put('user_id', $id);
@@ -102,7 +102,7 @@ class AdminController extends Controller
         $from_date = $_REQUEST['from_date'] ?? '';
         $to_date = $_REQUEST['to_date'] ?? '';
         $country_id = $_REQUEST['country_id'] ?? '';
-        
+
         $dates['yesterday'] = Carbon::yesterday()->format('Y-m-d');
         $dates['today'] = Carbon::today()->format('Y-m-d');
         $dates['pre_week_start'] = date("Y-m-d", strtotime("last week monday"));

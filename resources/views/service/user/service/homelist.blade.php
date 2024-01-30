@@ -117,17 +117,13 @@
                     <div class="col-md-12 col-sm-12 col-lg-12 p-0 dis-reverse align-items-start">
                         <div id="map" class="col-sm-12 col-md-12 col-lg-6 map-section"
                             style="width:100%; height: 500px; margin-left:15px; box-shadow: 2px 2px 10px #ccc;">
-                            <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.652981076582!2d-87.63116368463953!3d41.87881207334865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2cbcb88d3b45%3A0x37ef3145a8a1c23d!2sUnited+States+Attorney&#39;s+Office!5e0!3m2!1sen!2sin!4v1549101057336" width="0" height="0" frameborder="0" style="border:0" allowfullscreen></iframe> -->
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-6 form-section">
                             <div class="col-md-12 col-sm-12 col-lg-12 p-0">
                                 <h5 class="text-left mb-3">Book Service</h5>
                                 <div class="field-box col-md-12 col-sm-12 col-lg-12 p-0">
-                                    <!-- <span class="fa fa-location-arrow" style=" position: absolute; left: 2%; top: 35%;color: #ffa200;font-size: 18px;"></span> -->
                                     <input id="origin-input" name="s_address" class="form-control" type="text"
                                         placeholder=" Enter Service Location" autocomplete="off">
-
-                                    <!-- <i class="fa fa-heart-o" style=" color: #000;"></i> -->
                                 </div>
                             </div>
 
@@ -398,15 +394,11 @@
         }
         // <!--end map!-->
     </script>
-    <!-- <script type="text/javascript" src="{{ asset('assets/layout/js/map.js') }}"></script> -->
     <script
         src="https://maps.googleapis.com/maps/api/js?key={{ Helper::getSettings()->site->browser_key }}&libraries=places&callback=initAutocomplete"
         async defer></script>
 
     <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
-    <!-- <script crossorigin src="https://unpkg.com/react@16.8.0/umd/react.production.min.js"></script>
-        <script crossorigin src="https://unpkg.com/react-dom@16.8.0/umd/react-dom.production.min.js"></script> -->
-
     <script crossorigin src="https://unpkg.com/react@16.8.0/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16.8.0/umd/react-dom.development.js"></script>
     <script type="text/babel" src="{{ asset('assets/layout/js/service/waiting.js') }}"></script>
@@ -480,15 +472,15 @@
                                           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 p-0">
                                              <img src="` + item.picture + `" class="user-img">
                                              <div class="user-right">
-                                                <h5 class="d-inline">` + item.first_name + `</h5> 
-                                                <a class="float-right c-pointer txt-primary review reviewModal" data-toggle="modal" 
+                                                <h5 class="d-inline">` + item.first_name + `</h5>
+                                                <a class="float-right c-pointer txt-primary review reviewModal" data-toggle="modal"
                                                 data-id =` + item.id + `> View reviews <i class="fa fa-eye"></i></a>
                                                 <div class="rating-outer">
                                                    <span style="cursor: default;">
                                                       ` + starvalue + `
                                                    </span>
                                                    <input type="hidden" class="rating" value="1" disabled="disabled">
-                                                
+
                                                 </div>
                                              </div>
                                           </div>
@@ -542,7 +534,7 @@
                                  <li class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 p-0">
                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 p-0">
-                                          <h5 class="d-inline"> Providers Not Found For the Location</h5> 
+                                          <h5 class="d-inline"> Providers Not Found For the Location</h5>
                                        </div>
                                     </div>
                                  </li>
@@ -605,28 +597,6 @@
         //Modal show the value
         $(document).on('click', '.reviewModal', function() {
             provider_id = $(this).data('id');
-            // $.ajax({
-            //       type:"GET",
-            //       url: getBaseUrl() + "/user/reviewlist/"+provider_id,
-            //       headers: {
-            //             Authorization: "Bearer " + getToken("user")
-            //       },
-            //       success:function(data){
-            //          var result = data.responseData;
-            //          var check_desc =$('#allow_description').val();
-            //          if(check_desc!='undefined' || check_desc.length<0){
-            //            $("#requestdescriptionModal").modal('show');
-            //         }else{
-            //             if(result.allow_desc==1){
-            //               $("#requestdescriptionModal").modal('show');
-            //             }
-            //             else{
-            //               sendRequest();
-            //             }
-            //          }
-            //       }
-            //    });
-            // $("#reviewModal").modal('show'); 
         });
         $(document).on('click', '#schedule_service', function() {
             provider_id = $(this).data('id');
@@ -740,25 +710,25 @@
                                          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 p-0">
                                             <img src="` + item.user.picture + `" class="user-img">
                                             <div class="user-right">
-                                               <h5 class="d-inline">` + ratedUsername + `</h5> 
+                                               <h5 class="d-inline">` + ratedUsername + `</h5>
                                                <div class="rating-outer">
                                                   <span style="cursor: default;">
                                                   ` + starvalue + `
                                                   </span>
                                                   <input class="rating" value="1" disabled="disabled" type="hidden">
-                                                 
+
                                                </div>
                                             </div>
                                          </div>
                                          <div class="dis-row">
                                                <span>` + item.user_comment + `</span>
                                          </div>
-                                         
+
                                       </div>
                                    </li> `;
 
                             // $('.user-img').attr('src',result.user.picture);
-                            // $('.first_name').text(result.user.first_name); 
+                            // $('.first_name').text(result.user.first_name);
                             $('.star').html(starvalue);
 
                         });

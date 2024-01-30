@@ -144,7 +144,8 @@
 
                                 <input type="file" id="allow_image" name="allow_image" class="pointer"
                                     style="cursor: pointer!important;" />
-                                <img id="image" src="" height="50px" width="50px" class="d-none" />
+                                <img id="image" src="" height="50px" width="50px" class="d-none"
+                                    alt="" />
                                 <div id="doc_preview">@lang('service.user.upload_description_image')</div>
                             </div>
                         </div>
@@ -171,18 +172,14 @@
                     <div class="col-md-12 col-sm-12 col-lg-12 p-0 dis-reverse align-items-start">
                         <div id="map" class="col-sm-12 col-md-12 col-lg-6 map-section"
                             style="width:100%; height: 500px; margin-left:15px; box-shadow: 2px 2px 10px #ccc;">
-                            <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.652981076582!2d-87.63116368463953!3d41.87881207334865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2cbcb88d3b45%3A0x37ef3145a8a1c23d!2sUnited+States+Attorney&#39;s+Office!5e0!3m2!1sen!2sin!4v1549101057336" width="0" height="0" frameborder="0" style="border:0" allowfullscreen></iframe> -->
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-6 form-section srchlist-bfr">
                             <div class="col-md-12 col-sm-12 col-lg-12 p-0">
                                 <br />
                                 <h5 class="text-left mb-3">Book Service</h5>
                                 <div class="field-box col-md-12 col-sm-12 col-lg-12 p-0">
-                                    <!-- <span class="fa fa-location-arrow" style=" position: absolute; left: 2%; top: 35%;color: #ffa200;font-size: 18px;"></span> -->
                                     <input id="origin-input" name="s_address" class="form-control" type="text"
                                         placeholder=" Enter Service Location" autocomplete="off">
-
-                                    <!-- <i class="fa fa-heart-o" style=" color: #000;"></i> -->
                                 </div>
                             </div>
 
@@ -233,11 +230,8 @@
                                                 class="fa fa-arrow-left" aria-hidden="true"></i> </a> </b> &nbsp; &nbsp;
                                     Providers Available </h5>
                                 <div class="field-box col-md-12 col-sm-12 col-lg-12 p-2">
-                                    <!-- <span class="fa fa-location-arrow" style=" position: absolute; left: 2%; top: 35%;color: #ffa200;font-size: 18px;"></span> -->
                                     <input id="q" name="q" class="form-control" type="text"
                                         placeholder="Search......">
-
-                                    <!-- <i class="fa fa-heart-o" style=" color: #000;"></i> -->
                                 </div>
                             </div>
                             <div id ="provider_list" class="col-md-12 col-lg-12 col-sm-12 p-0">
@@ -477,7 +471,6 @@
                                     placeName = results[0].address_components[0].long_name,
                                     latlng = new google.maps.LatLng(lat, lng);
                                 moveMarker(placeName, latlng);
-                                // $("#s_address").val(firstResult);
                             }
                         });
                     }
@@ -527,14 +520,11 @@
         };
         // <!--end map!-->
     </script>
-    <!-- <script type="text/javascript" src="{{ asset('assets/layout/js/map.js') }}"></script> -->
     <script
         src="https://maps.googleapis.com/maps/api/js?key={{ Helper::getSettings()->site->browser_key }}&libraries=places&callback=initAutocomplete"
         async defer></script>
 
     <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
-    <!-- <script crossorigin src="https://unpkg.com/react@16.8.0/umd/react.production.min.js"></script>
-            <script crossorigin src="https://unpkg.com/react-dom@16.8.0/umd/react-dom.production.min.js"></script> -->
 
     <script crossorigin src="https://unpkg.com/react@16.8.0/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16.8.0/umd/react-dom.development.js"></script>
@@ -596,7 +586,6 @@
                     var userwallet = userSettings.message.wallet_balance;
                     if (userwallet <= 0) {
                         $("#use_wallet").attr("disabled", true);
-                        // $("#walletBox").hide();
                     } else {
                         $("#use_wallet").attr("disabled", false);
                     }
@@ -627,11 +616,9 @@
             }, 700);
         });
         $('#q').keyup(function(event) {
-            //setTimeout(function(){
             var lat = $('input[name=s_latitude]').val();
             var long = $('input[name=s_longitude]').val();
             var name = $(this).val();
-            //showLoader();
             $.ajax({
                 url: getBaseUrl() + "/user/list?lat=" + lat + "&long=" + long + "&id=" +
                     {{ $id }} + '&name=' + name,
@@ -646,12 +633,8 @@
                     var result = data.responseData.provider_service;
                     provider_result = result;
                     showResults();
-                    //hideLoader();
                 }
-
             });
-            // }, 700);
-
         });
 
         function showResults() {
@@ -694,9 +677,7 @@
                                     <h2>` + currency + ` ` + item.base_fare + ` </h2>
                                  </div>
                               </div>`;
-
                     }
-
 
                     if (item.fare_type == 'HOURLY') {
                         html += `<div class=" top small-box green mb-2 position-relative col-xl-6 col-md-6 sol-sm-12">
@@ -758,11 +739,7 @@
                   </ul>`;
             }
             $('#provider_list').html(html);
-
-
         }
-
-
 
         //For promocode details
         $('#promocode').on('change', function() {
@@ -811,13 +788,7 @@
                 success: function(data) {
                     var result = data.responseData;
                     var check_desc = $('#allow_description').val();
-                    /*if(check_desc!='undefined' || check_desc.length<0  || result.allow_desc==0){
-                            $('#allow_description').val(" ");
-                            $("#myModal").modal('hide');
-                           $("#requestdescriptionModal").modal('show');
 
-                           hideLoader();
-                        }else{*/
                     if (result.allow_desc == 1) {
                         $('#allow_description').val(" ");
                         $("#myModal").modal('hide');
@@ -832,9 +803,7 @@
             });
         }
 
-
         $(document).on('click', '#before_comment_details', function() {
-
             var description = $.trim($('#allow_description').val());
             var image = $('#allow_image').val();
             description = $.trim(description);
@@ -850,9 +819,7 @@
             } else {
                 alertMessage("error", "Please Enter Description", "danger");
             }
-
         });
-
 
         $(document).on('click', '#schedule_service', function() {
             $('input[name=date]').val('');
@@ -867,7 +834,6 @@
         //Save the record details
         function sendRequest(data, type) {
             showLoader();
-            //var data = {};
             var form = $('#devis')[0];
             var data = new FormData(form);
             var provider_id = $('#provider').val();
@@ -885,19 +851,8 @@
                 data.append(decodeURIComponent('use_wallet'), decodeURIComponent($('#use_wallet').val()));
             }
             data.append(decodeURIComponent('quantity'), decodeURIComponent($('#quantity').val()));
-            /* data["service_id"] = "{{ $id }}";
-             data["s_latitude"] = $('#origin_latitude').val();
-             data["s_longitude"] = $('#origin_longitude').val();
-             data["s_address"] = $('input[name=s_address]').val();
-             data["promocode_id"] = $('#promocode').val();
-             data["payment_mode"] = $('select[name=payment]').val();
-             data["allow_description"] = $('#allow_description').val();*/
-            //data["allow_image"] = file;
-
 
             if (request_type == "schedule-later") {
-                //data["schedule_date"] = $('input[name=date]').val();
-                //data["schedule_time"] = $('input[name=time]').val();
                 data.append(decodeURIComponent('schedule_date'), decodeURIComponent($('input[name=date]').val()));
                 data.append(decodeURIComponent('schedule_time'), decodeURIComponent($('input[name=time]').val()));
             }
@@ -989,9 +944,6 @@
 
                                       </div>
                                    </li> `;
-
-                            // $('.user-img').attr('src',result.user.picture);
-                            // $('.first_name').text(result.user.first_name);
                             $('.star').html(starvalue);
 
                         });

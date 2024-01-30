@@ -88,17 +88,6 @@
                 $(".user_image").attr('src', userSettings.picture);
             });
 
-            /* function showLoader() {
-               if($('body').find('span.loader').length == 0) {
-                  $('body').append(`<span class="loader" style="position: fixed; left: 50%; top: 30%; transform: translate(-50%, 0); z-index: 99;"><img style="width: 100px" src="{{ asset('assets/layout/images/common/loader.gif') }}" /></span>`);
-               }
-            }
-
-            function hideLoader() {
-               if($('body').find('span.loader').length > 0) {
-                  $('body').find('span.loader').remove();
-               }
-            } */
             @if (count(Helper::getServiceList()) > 1)
                 $('#history-detail').click(function() {
                     $(".subnav").toggle();
