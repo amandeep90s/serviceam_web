@@ -28,55 +28,55 @@
             success: function(data) {
 
                 var getData = data.responseData;
-                var beforeImageShow = `<dt>@lang('admin.request.before')</dt>
+                var beforeImageShow = `<dt>{{ __('admin.request.before') }}</dt>
                                 <dt> &nbsp;&nbsp;&nbsp;&nbsp;No Image available</dt>`;
-                var afterImageShow = `<dt>@lang('admin.request.after')</dt>
+                var afterImageShow = `<dt>{{ __('admin.request.after') }}</dt>
                                 <dt>&nbsp;&nbsp;&nbsp;&nbsp; No Image available</dt>`;
                 if (getData.before_image != null) {
-                    beforeImageShow = `<dt>@lang('admin.request.before')</dt>
+                    beforeImageShow = `<dt>{{ __('admin.request.before') }}</dt>
                                 <dt> <img src="` + getData.before_image + `" style="width:280px;" /></dt>`;
                 }
                 if (getData.after_image != null) {
-                    afterImageShow = `<dt>@lang('admin.request.after')</dt>
+                    afterImageShow = `<dt>{{ __('admin.request.after') }}</dt>
                                 <dt> <img src="` + getData.after_image + `" style="width:280px;" /></dt>`;
                 }
                 body = `   <div class="col-md-6">
                         <dl class="row">
 
-                        <dt class="col-sm-5">@lang('admin.request.Booking_ID') </dt>
+                        <dt class="col-sm-5">{{ __('admin.request.Booking_ID')  }}</dt>
                         <dt class="col-sm-1"> : </dt>
                         <dd class="col-sm-6">` + getData.booking_id + `</dd>
 
-                        <dt class="col-sm-5">@lang('admin.request.User_Name') </dt>
+                        <dt class="col-sm-5">{{ __('admin.request.User_Name')  }}</dt>
                         <dt class="col-sm-1"> : </dt>
                         <dd class="col-sm-6">` + getData.user.first_name + ` ` + getData.user.last_name + `</dd>
 
-                        <dt class="col-sm-5">@lang('admin.request.Provider_Name') </dt>
+                        <dt class="col-sm-5">{{ __('admin.request.Provider_Name')  }}</dt>
                         <dt class="col-sm-1"> : </dt>
                         <dd class="col-sm-6">` + (getData.provider != null ? getData.provider.first_name : '') + ` ` +
                     (getData.provider != null ? getData.provider.last_name : '') + `</dd>
 
-                        <dt class="col-sm-5">@lang('admin.request.total_distance') </dt>
+                        <dt class="col-sm-5">{{ __('admin.request.total_distance')  }}</dt>
                         <dt class="col-sm-1"> : </dt>
                         <dd class="col-sm-6">` + getData.distance + `</dd>
 
-                        <dt class="col-sm-5">@lang('admin.request.service.service_name')</dt>
+                        <dt class="col-sm-5">{{ __('admin.request.service.service_name') }}</dt>
                         <dt class="col-sm-1"> : </dt>
                         <dd class="col-sm-6">` + getData.service.service_name + `</dd>
 
-                        <dt class="col-sm-5">@lang('admin.request.service.category')</dt>
+                        <dt class="col-sm-5">{{ __('admin.request.service.category') }}</dt>
                         <dt class="col-sm-1"> : </dt>
                         <dd class="col-sm-6">` + getData.service_category.service_category_name + `</dd>
 
-                        <dt class="col-sm-5">@lang('admin.request.service.user_rating')</dt>
+                        <dt class="col-sm-5">{{ __('admin.request.service.user_rating') }}</dt>
                         <dt class="col-sm-1"> : </dt>
                         <dd class="col-sm-6">` + (getData.user ? getData.user.rating : '') + `</dd>
 
-                        <dt class="col-sm-5">@lang('admin.request.service.provider_rating')</dt>
+                        <dt class="col-sm-5">{{ __('admin.request.service.provider_rating') }}</dt>
                         <dt class="col-sm-1"> : </dt>
                         <dd class="col-sm-6">` + (getData.provider ? getData.provider.rating : '') + `</dd>
 
-                        <dt class="col-sm-5">@lang('admin.request.service.status')</dt>
+                        <dt class="col-sm-5">{{ __('admin.request.service.status') }}</dt>
                         <dt class="col-sm-1"> : </dt>
                         <dd class="col-sm-6">` + getData.status + `</dd>
 

@@ -16,13 +16,13 @@
                     <table id="service_grid" class="table  table-striped table-bordered w-100">
                         <thead>
                             <tr>
-                                <th>@lang('provider.s.no')</th>
-                                <th>@lang('provider.booking_id')</th>
-                                <th>@lang('provider.date')</th>
-                                <th>@lang('provider.category')</th>
-                                <th>@lang('provider.amount')</th>
-                                <th>@lang('provider.status')</th>
-                                <th>@lang('provider.action')</th>
+                                <th>{{ __('provider.s.no') }}</th>
+                                <th>{{ __('provider.booking_id') }}</th>
+                                <th>{{ __('provider.date') }}</th>
+                                <th>{{ __('provider.category') }}</th>
+                                <th>{{ __('provider.amount') }}</th>
+                                <th>{{ __('provider.status') }}</th>
+                                <th>{{ __('provider.action') }}</th>
                             </tr>
                         </thead>
                         <tbody>

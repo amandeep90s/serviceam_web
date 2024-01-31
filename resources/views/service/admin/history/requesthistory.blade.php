@@ -36,16 +36,16 @@
                     <table id="data-table" class="table table-hover table_width display">
                         <thead>
                             <tr>
-                                <th data-value="id">@lang('admin.id')</th>
-                                <th data-value="booking_id">@lang('admin.request.Booking_ID')</th>
-                                <th data-value="user_id">@lang('admin.request.User_Name')</th>
-                                <th data-value="provider_id">@lang('admin.request.Provider_Name')</th>
-                                <th data-value="created_at">@lang('admin.request.Date_Time')</th>
-                                <th data-value="status">@lang('admin.status')</th>
-                                <th>@lang('admin.amount')</th>
-                                <th data-value="payment_mode">@lang('admin.request.Payment_Mode')</th>
-                                <th data-value="paid">@lang('admin.request.Payment_Status')</th>
-                                <th data-value="action">@lang('admin.action')</th>
+                                <th data-value="id">{{ __('admin.id') }}</th>
+                                <th data-value="booking_id">{{ __('admin.request.Booking_ID') }}</th>
+                                <th data-value="user_id">{{ __('admin.request.User_Name') }}</th>
+                                <th data-value="provider_id">{{ __('admin.request.Provider_Name') }}</th>
+                                <th data-value="created_at">{{ __('admin.request.Date_Time') }}</th>
+                                <th data-value="status">{{ __('admin.status') }}</th>
+                                <th>{{ __('admin.amount') }}</th>
+                                <th data-value="payment_mode">{{ __('admin.request.Payment_Mode') }}</th>
+                                <th data-value="paid">{{ __('admin.request.Payment_Status') }}</th>
+                                <th data-value="action">{{ __('admin.action') }}</th>
                             </tr>
                         </thead>
                     </table>

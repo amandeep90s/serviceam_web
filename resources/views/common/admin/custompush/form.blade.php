@@ -20,7 +20,7 @@
                
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <label class="col-xs-2 col-form-label">@lang('admin.push.Sent_to')</label>
+                        <label class="col-xs-2 col-form-label">{{ __('admin.push.Sent_to') }}</label>
 						<div class="col-xs-10">
 							<select class="form-control" name="send_to" onchange="switch_send(this.value)">
 								<option value="ALL">All Users and Providers</option>
@@ -102,7 +102,7 @@
 				</div>
                 <div class="form-row">
                     <div class="form-group col-md-12">  
-                        <label for="message" class="col-xs-2 col-form-label">@lang('admin.push.message')</label>
+                        <label for="message" class="col-xs-2 col-form-label">{{ __('admin.push.message') }}</label>
 						<div class="col-xs-10">
 							<textarea maxlength="200" class="form-control" rows="3" name="message" required id="message" placeholder="Enter Message" ></textarea>
 							<div id="characterLeftDesc"></div>
@@ -114,9 +114,9 @@
                         <!-- <label for="zipcode" class="col-xs-2 col-form-label"></label> -->
 						<div class="col-xs-12">	
 						   						
-							<button type="submit" class="btn btn-primary">{{$action_text}} @lang('admin.push.Push_Now')</button>
+							<button type="submit" class="btn btn-primary">{{$action_text}} {{ __('admin.push.Push_Now') }}</button>
 							&nbsp;
-							<button data-toggle="modal" data-target="#schedule_modal" type="button" class="btn btn-success">@lang('admin.push.Schedule_Push')</button>
+							<button data-toggle="modal" data-target="#schedule_modal" type="button" class="btn btn-success">{{ __('admin.push.Schedule_Push') }}</button>
 						   <button type="reset" class="btn btn-danger cancel pull-right">Cancel</button>
 						</div>  
                     </div> 

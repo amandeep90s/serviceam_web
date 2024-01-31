@@ -56,10 +56,10 @@
                 <table id="bankform-table" class="table table-hover">
                     <thead>
                         <tr>
-                            <th>@lang('admin.country.type')</th>
-                            <th>@lang('admin.country.label')</th>
-                            <th>@lang('admin.country.min')</th>
-                            <th>@lang('admin.country.max')</th>
+                            <th>{{ __('admin.country.type') }}</th>
+                            <th>{{ __('admin.country.label') }}</th>
+                            <th>{{ __('admin.country.min') }}</th>
+                            <th>{{ __('admin.country.max') }}</th>
                             <th>{{ __('admin.action') }}</th>
                             <th></th>
                         </tr>

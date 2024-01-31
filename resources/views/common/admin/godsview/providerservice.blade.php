@@ -227,7 +227,7 @@
                            <th>Sno</th>
                            <th>Document Name</th>
                            <th>Status</th>
-                           <th>@lang('admin.action')</th>
+                           <th>{{ __('admin.action') }}</th>
                         </tr>
                     </thead>`;
 

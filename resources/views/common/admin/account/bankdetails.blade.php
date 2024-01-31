@@ -1,6 +1,6 @@
 @extends('common.admin.layout.base')
 
-@section('title') @lang('admin.account.bank_details') @stop
+@section('title') {{ __('admin.account.bank_details') }} @stop
 
 @section('styles')
     @parent
@@ -13,15 +13,15 @@
     <div class="main-content-container container-fluid px-4">
         <div class="page-header row no-gutters py-4">
             <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
-                <span class="text-uppercase page-subtitle">@lang('admin.account.bank_details')</span>
-                <h3 class="page-title">@lang('admin.account.bank_details')</h3>
+                <span class="text-uppercase page-subtitle">{{ __('admin.account.bank_details') }}</span>
+                <h3 class="page-title">{{ __('admin.account.bank_details') }}</h3>
             </div>
         </div>
         <div class="row mb-4 mt-20">
             <div class="col-md-12">
                 <div class="card card-small">
                     <div class="card-header border-bottom">
-                        <h6 class="m-0">@lang('admin.account.bank_details')</h6>
+                        <h6 class="m-0">{{ __('admin.account.bank_details') }}</h6>
                     </div>
                     <div class="col-md-12">
                         <form class="bankForm" style= "color:red;">

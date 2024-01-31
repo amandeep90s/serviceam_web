@@ -584,13 +584,12 @@
                     <table id="data-table" class="table table-hover table_width display">
                         <thead>
                             <tr>
-                                <th data-value="id">@lang('admin.id')</th>
-                                <th data-value="country_id">@lang('admin.city.country')</th>
-                                <th data-value="state_id">@lang('admin.city.state')</th>
-                                <th data-value="city_id">@lang('admin.city.city')</th>
-                                <!--  <th data-value="admin_service">@lang('admin.city.admin_service')</th> -->
-                                <th data-value="status">@lang('admin.city.status')</th>
-                                <th>@lang('admin.action')</th>
+                                <th data-value="id">{{ __('admin.id') }}</th>
+                                <th data-value="country_id">{{ __('admin.city.country') }}</th>
+                                <th data-value="state_id">{{ __('admin.city.state') }}</th>
+                                <th data-value="city_id">{{ __('admin.city.city') }}</th>
+                                <th data-value="status">{{ __('admin.city.status') }}</th>
+                                <th>{{ __('admin.action') }}</th>
                             </tr>
                         </thead>
 

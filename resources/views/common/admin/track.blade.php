@@ -30,7 +30,7 @@
 
                 <div class="dis-space-btw m-b-20">
                     <h3 class="txt-primary user_name"></h3>
-                    <p class="txt-primary ">@lang('user.ride.ride_now')</p>
+                    <p class="txt-primary ">{{ __('user.ride.ride_now') }}</p>
                 </div>
                 <div class="col-md-12 col-sm-12 col-lg-12 p-0 dis-column ">
                     <div class="col-md-12 col-sm-12 col-lg-12 p-0">

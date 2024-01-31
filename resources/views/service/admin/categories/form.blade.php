@@ -54,17 +54,10 @@
                         </select>
                     </div>
                 </div>
-                <!-- <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="service_category_order">{{ __('service.admin.categories.order') }}</label>
-                        <input type="text" class="form-control" id="service_category_order" name="service_category_order" placeholder="{{ __('service.admin.categories.order') }}" value="0">
-                    </div>
-                </div> -->
-
-
+                
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="service_category_status" class="col-xs-2 col-form-label">@lang('service.admin.categories.status')</label>
+                        <label for="service_category_status" class="col-xs-2 col-form-label">{{ __('service.admin.categories.status') }}</label>
                         <select name="service_category_status" class="form-control">
                             <option value="1">Active</option>
                             <option value="0">Inactive</option>

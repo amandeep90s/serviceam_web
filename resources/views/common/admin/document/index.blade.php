@@ -41,11 +41,11 @@
           <table id="data-table" class="table table-hover table_width display">
             <thead>
               <tr>
-                <th data-value="id">@lang('admin.id')</th>
-                <th data-value="name">@lang('admin.document.document_name')</th>
+                <th data-value="id">{{ __('admin.id') }}</th>
+                <th data-value="name">{{ __('admin.document.document_name') }}</th>
                 <th data-value="type">Service Type</th>
-                <th data-value="status">@lang('admin.status')</th>
-                <th>@lang('admin.action')</th>
+                <th data-value="status">{{ __('admin.status') }}</th>
+                <th>{{ __('admin.action') }}</th>
               </tr>
             </thead>
 

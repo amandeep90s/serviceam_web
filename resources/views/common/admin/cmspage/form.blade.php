@@ -60,14 +60,12 @@
                                     <label for="description"
                                         class="col-xs-2 col-form-label">{{ __('admin.pages.description') }}</label>
                                     <div class="col-lg-12 p-0" id="load_cont">
-                                        <!-- <textarea class="form-control" id="content" name="content"></textarea> -->
-
                                     </div>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="status" class="col-xs-2 col-form-label">@lang('admin.pages.status')</label>
+                                    <label for="status" class="col-xs-2 col-form-label">{{ __('admin.pages.status') }}</label>
                                     <select name="status" id="status" class="form-control">
 
                                         <option value="1">Active</option>

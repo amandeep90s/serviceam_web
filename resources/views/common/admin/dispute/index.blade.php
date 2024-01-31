@@ -42,12 +42,12 @@
           <table id="data-table" class="table table-hover table_width display">
             <thead>
               <tr>
-                <th data-value="id">@lang('admin.id')</th>
-                <th data-value="dispute_name">@lang('admin.dispute.dispute_reason')</th>
-                <th data-value="dispute_type">@lang('admin.dispute.dispute_type')</th>
-                <th data-value="service">@lang('admin.dispute.dispute_services')</th>
-                <th data-value="status">@lang('admin.dispute.dispute_status')</th>
-                <th>@lang('admin.action')</th>
+                <th data-value="id">{{ __('admin.id') }}</th>
+                <th data-value="dispute_name">{{ __('admin.dispute.dispute_reason') }}</th>
+                <th data-value="dispute_type">{{ __('admin.dispute.dispute_type') }}</th>
+                <th data-value="service">{{ __('admin.dispute.dispute_services') }}</th>
+                <th data-value="status">{{ __('admin.dispute.dispute_status') }}</th>
+                <th>{{ __('admin.action') }}</th>
               </tr>
             </thead>
           </table>

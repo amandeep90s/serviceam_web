@@ -43,10 +43,10 @@
           <table id="data-table" class="table table-hover table_width display">
             <thead>
               <tr>
-                <th>@lang('admin.id')</th>
-                <th>@lang('admin.custompush.send_to')</th>
-                <th>@lang('admin.custompush.message')</th>
-                <th>@lang('admin.custompush.condition')</th>
+                <th>{{ __('admin.id') }}</th>
+                <th>{{ __('admin.custompush.send_to') }}</th>
+                <th>{{ __('admin.custompush.message') }}</th>
+                <th>{{ __('admin.custompush.condition') }}</th>
 
 
               </tr>

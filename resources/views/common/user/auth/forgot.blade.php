@@ -17,12 +17,6 @@
 
                 <div class="col-sm-12 col-md-12 col-lg-12 dis-row">
                     <ul class="nav nav-tabs b-0 dis-row">
-                        <!--  <li class="nav-item">
-                             <a class="nav-link active" data-toggle="tab" href="#emailtab">@lang('auth.email_id')</a>
-                          </li>
-                          <li class="nav-item">
-                             <a class="nav-link" data-toggle="tab" href="#mobiletab">@lang('auth.mobile_number')</a>
-                          </li> -->
                     </ul>
                 </div>
                 <div class="tab-content">
@@ -37,10 +31,10 @@
                                 <span class="errMail"></span>
                                 <input id="accountType" name="account_type" type="hidden" value="email">
                                 <button type="submit"
-                                    class="btn btn-block btn-secondary btn-md mb-2 signup">@lang('auth.continue')<i
+                                    class="btn btn-block btn-secondary btn-md mb-2 signup">{{ __('auth.continue') }}<i
                                         class="fa fa-arrow-circle-right ml-2" aria-hidden="true"></i></button>
                                 <a href="{{ url('user/login') }}" id="sign" class="txt-secondary sign-up-link"><i
-                                        class="fa fa-arrow-circle-left mr-2" aria-hidden="true"></i>@lang('auth.back_to_login')</a>
+                                        class="fa fa-arrow-circle-left mr-2" aria-hidden="true"></i>{{ __('auth.back_to_login') }}</a>
                             </div>
                         </form>
 
@@ -53,13 +47,13 @@
                             <div class="col-md-12 p-0 ">
                                 <div id="toaster" class="toaster"></div>
                                 <input id="mobile" maxlength="15" required name="mobile"
-                                    class="intl-tel phone form-control mb-4" placeholder="@lang('auth.mobile_number')" type="text">
+                                    class="intl-tel phone form-control mb-4" placeholder="{{ __('auth.mobile_number') }}" type="text">
                                 <input id="accountType" name="account_type" type="hidden" value="mobile">
                                 <button type="submit"
-                                    class="btn btn-block btn-secondary btn-md mb-2 signup">@lang('auth.continue')<i
+                                    class="btn btn-block btn-secondary btn-md mb-2 signup">{{ __('auth.continue') }}<i
                                         class="fa fa-arrow-circle-right ml-2" aria-hidden="true"></i></button>
                                 <a href="{{ url('user/login') }}" id="sign" class="txt-secondary sign-up-link"><i
-                                        class="fa fa-arrow-circle-left mr-2" aria-hidden="true"></i>@lang('auth.back_to_login')</a>
+                                        class="fa fa-arrow-circle-left mr-2" aria-hidden="true"></i>{{ __('auth.back_to_login') }}</a>
                             </div>
                         </form>
                     </div>

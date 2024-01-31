@@ -50,7 +50,7 @@
             <div class="modal-content">
                 <!-- Schedule Service Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">@lang('service.user.schedule_service')</h4>
+                    <h4 class="modal-title">{{ __('service.user.schedule_service') }}</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <!-- Schedule Service body -->
@@ -64,7 +64,7 @@
                 <!-- Schedule Service footer -->
                 <div class="modal-footer">
                     <a id="schedule-later" data-value="schedule-later"
-                        class="btn btn-primary btn-block ">@lang('service.user.schedule_later')</a>
+                        class="btn btn-primary btn-block ">{{ __('service.user.schedule_later') }}</a>
                 </div>
             </div>
         </div>
@@ -74,13 +74,13 @@
             <div class="modal-content">
                 <!-- Emergency Contact Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">@lang('service.user.reason_for_cancellation')</h4>
+                    <h4 class="modal-title">{{ __('service.user.reason_for_cancellation') }}</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <!-- Emergency Contact body -->
                 <div class="modal-body">
                     <div class="c-pointer dis-column">
-                        <h5 class="text-left mb-2">@lang('service.user.upload_image')</h5>
+                        <h5 class="text-left mb-2">{{ __('service.user.upload_image') }}</h5>
                         <div class="add-document">
                             <img src="../img/svg/add.svg" alt="add_document">
                         </div>
@@ -94,7 +94,7 @@
                 <!-- Emergency Contact footer -->
                 <div class="modal-footer">
                     <a class="btn btn-primary btn-block description" data-toggle="modal"
-                        data-target="#descriptionModal">@lang('service.submit') <i class="fa fa-check" aria-hidden="true"></i></a>
+                        data-target="#descriptionModal">{{ __('service.submit') }} <i class="fa fa-check" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
@@ -106,7 +106,7 @@
             <div class="modal-content">
                 <!-- Reviews Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">@lang('service.user.reviews') </h4>
+                    <h4 class="modal-title">{{ __('service.user.reviews') }}</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <!-- Reviews body -->
@@ -128,7 +128,7 @@
             <div class="modal-content">
                 <!-- Emergency Contact Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">@lang('service.user.description_details')</h4>
+                    <h4 class="modal-title">{{ __('service.user.description_details') }}</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <!-- Emergency Contact body -->
@@ -146,7 +146,7 @@
                                     style="cursor: pointer!important;" />
                                 <img id="image" src="" height="50px" width="50px" class="d-none"
                                     alt="" />
-                                <div id="doc_preview">@lang('service.user.upload_description_image')</div>
+                                <div id="doc_preview">{{ __('service.user.upload_description_image') }}</div>
                             </div>
                         </div>
 
@@ -154,7 +154,7 @@
                     <!-- Emergency Contact footer -->
                     <div class="modal-footer">
                         <a id ="before_comment_details" class="btn btn-primary btn-block" data-toggle="modal"
-                            data-target="#contactModal">@lang('service.submit') <i class="fa fa-check"
+                            data-target="#contactModal">{{ __('service.submit') }} <i class="fa fa-check"
                                 aria-hidden="true"></i></a>
                     </div>
                 </form>
@@ -208,12 +208,12 @@
                                     <option value="" data-percent="0" data-max="0">Select Promocode</option>
                                 </select>
                                 <div id="walletBox">
-                                    <h5>@lang('transport.user.use_wallet') <small> (Available : <span id="wallet_avail"></span>)</small>
+                                    <h5>{{ __('transport.user.use_wallet') }} <small> (Available : <span id="wallet_avail"></span>)</small>
                                     </h5>
                                     <div class="choose-mode mb-3 col-sm-12 col-md-12 col-xl-12 p-0">
                                         <span class="radio-box pl-3">
                                             <input type="checkbox" name="use_wallet" value="1" id="use_wallet">
-                                            <label for="use_wallet">@lang('transport.user.yes')</label>
+                                            <label for="use_wallet">{{ __('transport.user.yes') }} </label>
                                         </span>
                                     </div>
                                 </div>

@@ -50,11 +50,11 @@
                     <table id="data-table" class="table table-hover table_width display">
                         <thead>
                             <tr>
-                                <th>@lang('admin.id')</th>
-                                <th>@lang('admin.pages.name')</th>
-                                <th>@lang('admin.pages.description')</th>
-                                <th>@lang('admin.pages.status')</th>
-                                <th>@lang('admin.action')</th>
+                                <th>{{ __('admin.id') }}</th>
+                                <th>{{ __('admin.pages.name') }}</th>
+                                <th>{{ __('admin.pages.description') }}</th>
+                                <th>{{ __('admin.pages.status') }}</th>
+                                <th>{{ __('admin.action') }}</th>
                             </tr>
                         </thead>
 

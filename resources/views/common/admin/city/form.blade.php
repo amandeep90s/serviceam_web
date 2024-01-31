@@ -44,14 +44,6 @@
                             <option value="0">Inactive</option>
                         </select>
                     </div>
-                    <!-- <div class="form-group col-md-6">
-                        <label for="admin_service" class="col-xs-2 col-form-label">{{ __('admin.city.admin_service') }}</label>
-                        <select multiple="multiple" name="admin_service[]" id ="admin_service" class="form-control">
-                        @foreach (Helper::getServiceList() as $key => $value)
-<option value="{{ $key }}">{{ $value }}</option>
-@endforeach
-                        </select>
-                    </div> -->
                 </div>
 
                 <div class="form-row  others d-none">
@@ -61,18 +53,6 @@
                         <input type="text" class="form-control" id="other_city" name="other_city" />
                     </div>
                 </div>
-
-                <!-- <div class="form-row">
-                <div class="form-group col-md-6">
-     <label for="notify_status" class="col-xs-2 col-form-label">@lang('admin.dispute.dispute_status')</label>
-      <select name="status" id = "status" class="form-control">
-                            <option value="">Select</option>
-       <option value="1">Active</option>
-       <option value="0">Inactive</option>
-      </select>
-     </div>
-    </div> -->
-
                 <button type="submit" class="btn btn-accent">{{ $action_text }} City</button>
                 <button type="reset" class="btn btn-danger cancel">Cancel</button>
 

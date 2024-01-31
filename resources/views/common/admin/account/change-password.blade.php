@@ -1,6 +1,6 @@
 @extends('common.admin.layout.base')
 
-@section('title') @lang('admin.account.change_password') @stop
+@section('title') {{ __('admin.account.change_password') }} @stop
 
 @section('styles')
     @parent
@@ -13,15 +13,15 @@
     <div class="main-content-container container-fluid px-4">
         <div class="page-header row no-gutters py-4">
             <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
-                <span class="text-uppercase page-subtitle">@lang('admin.account.change_password')</span>
-                <h3 class="page-title">@lang('admin.account.change_password')</h3>
+                <span class="text-uppercase page-subtitle">{{ __('admin.account.change_password') }}</span>
+                <h3 class="page-title">{{ __('admin.account.change_password') }}</h3>
             </div>
         </div>
         <div class="row mb-4 mt-20">
             <div class="col-md-12">
                 <div class="card card-small">
                     <div class="card-header border-bottom">
-                        <h6 class="m-0">@lang('admin.account.change_password')</h6>
+                        <h6 class="m-0">{{ __('admin.account.change_password') }}</h6>
                     </div>
                     <div class="col-md-12">
                         <form class="validateForm">
@@ -32,21 +32,21 @@
                             @endif
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <label for="name">@lang('admin.account.old_password')</label>
+                                    <label for="name">{{ __('admin.account.old_password') }} </label>
                                     <input class="form-control" type="password" name="old_password" id="old_password"
                                         placeholder="Old Password">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <label for="email">@lang('admin.account.password')</label>
+                                    <label for="email">{{ __('admin.account.password') }} </label>
                                     <input class="form-control" type="password" name="password" id="password"
                                         placeholder="New Password">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <label for="email">@lang('admin.account.password')</label>
+                                    <label for="email">{{ __('admin.account.password') }} </label>
                                     <input class="form-control" type="password" name="password_confirmation"
                                         id="password_confirmation" placeholder="Re-type New Password">
                                 </div>

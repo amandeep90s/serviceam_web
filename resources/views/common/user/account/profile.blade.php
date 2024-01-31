@@ -43,16 +43,16 @@
                 <ul class="nav nav-tabs " role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active general" data-toggle="tab" href="#general_info" role="tab"
-                            data-toggle="tab">@lang('user.profile.general_information')</a>
+                            data-toggle="tab">{{ __('user.profile.general_information') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link password" data-toggle="tab" href="#password" role="tab"
-                            data-toggle="tab">@lang('user.profile.change_password')</a>
+                            data-toggle="tab">{{ __('user.profile.change_password') }}</a>
                     </li>
                     @if ($card == 1)
                         <li class="nav-item">
                             <a class="nav-link payment-method payment_method" data-toggle="tab" href="#payment_method"
-                                role="tab" data-toggle="tab">@lang('user.payment_method')</a>
+                                role="tab" data-toggle="tab">{{ __('user.payment_method') }}</a>
                         </li>
                     @endif
 
@@ -68,7 +68,7 @@
                                 <form class="w-100 validateForm" style= "color:red;">
                                     <div class="col-md-12 col-sm-12 pro-form dis-ver-center p-0">
                                         <div class="col-md-6 col-sm-12">
-                                            <h5 class=""><strong>@lang('user.profile.profile_picture')</strong></h5>
+                                            <h5 class=""><strong>{{ __('user.profile.profile_picture') }}</strong></h5>
                                             <div class="photo-section">
                                                 <img class="user-img" height ="200px;" width ="200px;" alt="" />
                                                 <div class="fileUpload up-btn profile-up-btn">
@@ -77,44 +77,35 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- <div class="col-md-6 col-lg-4 col-sm-12 p-1 m-3">
-                                                      <div class=" top small-box green">
-                                                         <div class="left">
-                                                            <h2>@lang('user.profile.wallet_balance')</h2>
-                                                            <h4><i class="material-icons">account_balance_wallet</i></h4>
-                                                            <h1 class="account_balance_wallet"></h1>
-                                                         </div>
-                                                      </div>
-                                                   </div> -->
                                     </div>
                                     <div class="col-md-12 col-sm-12 pro-form dis-ver-center p-0">
                                         <div class="col-md-6 col-sm-12">
-                                            <h5 class=""><strong>@lang('user.profile.first_name')</strong></h5>
+                                            <h5 class=""><strong>{{ __('user.profile.first_name') }}</strong></h5>
                                             <input class="form-control" type="text" id ="first_name" name="first_name"
-                                                placeholder="@lang('user.profile.first_name')">
+                                                placeholder="{{ __('user.profile.first_name') }}">
                                         </div>
                                         <div class="col-md-6 col-sm-12">
-                                            <h5 class=" no-padding"><strong>@lang('user.profile.last_name')</strong></h5>
+                                            <h5 class=" no-padding"><strong>{{ __('user.profile.last_name') }}</strong></h5>
                                             <input class="form-control" type="text" id ="last_name" name="last_name"
-                                                placeholder="@lang('user.profile.last_name')">
+                                                placeholder="{{ __('user.profile.last_name') }}">
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-sm-12">
-                                        <h5 class=""><strong>@lang('user.profile.suite')</strong></h5>
+                                        <h5 class=""><strong>{{ __('user.profile.suite') }}</strong></h5>
                                         <input class="form-control" type="suite" id ="suite" name="suite"
-                                            placeholder="@lang('user.profile.suite')">
+                                            placeholder="{{ __('user.profile.suite') }}">
                                     </div>
                                     <div class="col-md-12 pro-form dis-ver-center p-0">
                                         <div class="col-md-6 col-sm-12">
-                                            <h5 class=""><strong>@lang('user.profile.email')</strong></h5>
+                                            <h5 class=""><strong>{{ __('user.profile.email') }}</strong></h5>
                                             <input class="form-control" type="email" id ="profile_email" name="email"
-                                                placeholder="@lang('user.profile.email')">
+                                                placeholder="{{ __('user.profile.email') }}">
                                         </div>
 
                                         <div class="col-md-6 col-sm-12">
-                                            <h5 class=""><strong>@lang('user.profile.mobile')</strong></h5>
+                                            <h5 class=""><strong>{{ __('user.profile.mobile') }}</strong></h5>
                                             <input class="form-control numbers" type="text" id ="mobile" name="mobile"
-                                                placeholder="@lang('user.profile.mobile')" readonly>
+                                                placeholder="{{ __('user.profile.mobile') }}" readonly>
                                             <input type="hidden" class="mobile_number" value="">
                                             <input type="hidden" class="country_code" value="">
                                             <span>
@@ -132,9 +123,9 @@
 
                                         </div>
                                         <div class="col-md-6 col-sm-12">
-                                            <h5 class=""><strong>@lang('user.profile.otp')</strong></h5>
+                                            <h5 class=""><strong>{{ __('user.profile.otp') }}</strong></h5>
                                             <input class="form-control numbers" type="text" id ="otp"
-                                                placeholder="@lang('user.profile.otp')">
+                                                placeholder="{{ __('user.profile.otp') }}">
                                             <span>
                                                 <i class="fa fa-check verify_otp"
                                                     style=" position: absolute; right: 5%; top: 61%;color: #495057;font-size: 18px;cursor: pointer;"></i>
@@ -143,23 +134,23 @@
                                     </div>
                                     <div class="col-md-12 pro-form dis-ver-center p-0">
                                         <div class="col-md-6 col-sm-12">
-                                            <h5 class=""><strong>@lang('user.profile.country')</strong></h5>
+                                            <h5 class=""><strong>{{ __('user.profile.country') }}</strong></h5>
                                             <select id="country" name="country_id" class=" mb-4 form-control">
-                                                <option value="">@lang('user.profile.select_country')</option>
+                                                <option value="">{{ __('user.profile.select_country') }}</option>
                                             </select>
                                         </div>
                                         <div class="col-md-6 col-sm-12">
-                                            <h5 class=""><strong>@lang('user.profile.city')</strong></h5>
+                                            <h5 class=""><strong>{{ __('user.profile.city') }}</strong></h5>
                                             <select id="city" name="city_id"
                                                 @if (Helper::getDemomode() == 1) disabled="disabled" @endif
                                                 class=" mb-4 form-control">
-                                                <option value="">@lang('user.profile.select_city')</option>
+                                                <option value="">{{ __('user.profile.select_city') }}</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-12 pro-form dis-ver-center p-0">
                                         <div class="col-md-6 col-sm-12">
-                                            <h5 class=""><strong>@lang('user.profile.language')</strong></h5>
+                                            <h5 class=""><strong>{{ __('user.profile.language') }}</strong></h5>
                                             <select class="form-control" name="language" id="language"
                                                 @if (Helper::getDemomode() == 1) disabled="true" @endif>
                                                 @foreach (Helper::getSettings()->site->language as $language)
@@ -169,7 +160,7 @@
                                         </div>
                                     </div>
                                     <button type="submit"
-                                        class="btn btn-secondary edit-profile mt-5 save">@lang('user.save')</button>
+                                        class="btn btn-secondary edit-profile mt-5 save">{{ __('user.save') }}</button>
                                 </form>
                             </div>
                         </div>
@@ -190,27 +181,27 @@
                                 <form class="w-100 validatepasswordForm" style= "color:red;">
                                     <div class="col-md-12 pro-form p-0">
                                         <div class="col-md-6">
-                                            <h5 class=""><strong>@lang('user.profile.old_password')</strong></h5>
+                                            <h5 class=""><strong>{{ __('user.profile.old_password') }}</strong></h5>
                                             <input class="form-control" type="password" name="old_password"
                                                 placeholder="Old Password">
                                         </div>
                                     </div>
                                     <div class="col-md-12 pro-form p-0">
                                         <div class="col-md-6">
-                                            <h5 class=""><strong>@lang('user.profile.new_password')</strong></h5>
+                                            <h5 class=""><strong>{{ __('user.profile.new_password') }}</strong></h5>
                                             <input class="form-control" id="password1" type="password" name="password"
                                                 placeholder="Password">
                                         </div>
                                     </div>
                                     <div class="col-md-12 pro-form p-0">
                                         <div class="col-md-6">
-                                            <h5 class=""><strong>@lang('user.profile.confirm_password')</strong></h5>
+                                            <h5 class=""><strong>{{ __('user.profile.confirm_password') }}</strong></h5>
                                             <input class="form-control" type="password" name="password_confirmation"
                                                 placeholder="Confirm Password">
                                         </div>
                                     </div>
                                     <button type="submit"
-                                        class="btn btn-secondary change-pswrd mt-5">@lang('user.save')</button>
+                                        class="btn btn-secondary change-pswrd mt-5">{{ __('user.save') }}</button>
                                 </form>
                             </div>
                         </div>
@@ -221,7 +212,7 @@
                         id="payment_method">
                         <div class="col-lg-12 col-md-12 col-sm-12 p-0 dis-column payment">
                             <div class="col-lg-12 col-md-12 col-sm-12 p-0 ">
-                                <h5 class="mb-2 mt-2"><strong>@lang('user.add_card')</strong></h5>
+                                <h5 class="mb-2 mt-2"><strong>{{ __('user.add_card') }}</strong></h5>
                             </div>
                             <div class=" col-lg-12 col-md-12 col-sm-12 p-0 dis-ver-center flex-wrap">
                                 <!-- For add credit card added!-->
@@ -240,7 +231,7 @@
                                         <div class="modal-content ">
                                             <!-- Add Card Header -->
                                             <div class="modal-header">
-                                                <h4 class="modal-title">@lang('user.add_card')</h4>
+                                                <h4 class="modal-title">{{ __('user.add_card') }}('user.add_card')</h4>
                                                 <button type="button" class="close"
                                                     data-dismiss="modal">&times;</button>
                                             </div>
@@ -252,20 +243,20 @@
                                                         <div class ="payment-errors"></div>
                                                         <div class="col-sm-12 p-0 card-form">
                                                             <div class="col-sm-12 p-0">
-                                                                <h5 class=""><strong>@lang('user.card.fullname')</strong></h5>
+                                                                <h5 class=""><strong>{{ __('user.card.fullname') }}</strong></h5>
                                                                 <input data-stripe="name" autocomplete="off" required
                                                                     class="form-control" type="text"
-                                                                    placeholder="@lang('user.card.fullname')">
+                                                                    placeholder="{{ __('user.card.fullname') }}">
                                                             </div>
                                                             <div class="col-sm-12 p-0">
-                                                                <h5 class=""><strong>@lang('user.card.card_no')</strong></h5>
+                                                                <h5 class=""><strong>{{ __('user.card.card_no') }}</strong></h5>
                                                                 <input class="form-control numbers" type="text"
                                                                     data-stripe="number" required autocomplete="off"
-                                                                    maxlength="16" placeholder="@lang('user.card.card_no')">
+                                                                    maxlength="16" placeholder="{{ __('user.card.card_no') }}">
                                                             </div>
                                                             <div class="col-sm-12 dis-row p-0">
                                                                 <div class="col-sm-4">
-                                                                    <h5 class=""><strong>@lang('user.card.month')</strong>
+                                                                    <h5 class=""><strong>{{ __('user.card.month') }}</strong>
                                                                     </h5>
                                                                     <input class="form-control numbers" type="text"
                                                                         maxlength="2" required autocomplete="off"
@@ -273,7 +264,7 @@
                                                                         placeholder="MM">
                                                                 </div>
                                                                 <div class="col-sm-4">
-                                                                    <h5 class=""><strong>@lang('user.card.year')</strong>
+                                                                    <h5 class=""><strong>{{ __('user.card.year') }}</strong>
                                                                     </h5>
                                                                     <input class="form-control numbers" type="text"
                                                                         maxlength="2" required autocomplete="off"
@@ -281,11 +272,11 @@
                                                                         placeholder="YY">
                                                                 </div>
                                                                 <div class="ml-2 col-sm-4">
-                                                                    <h5 class=""><strong>@lang('user.card.cvv')</strong>
+                                                                    <h5 class=""><strong>{{ __('user.card.cvv') }}</strong>
                                                                     </h5>
                                                                     <input class="form-control numbers" type="text"
                                                                         data-stripe="cvc" required autocomplete="off"
-                                                                        maxlength="4" placeholder="@lang('user.card.cvv')">
+                                                                        maxlength="4" placeholder="{{ __('user.card.cvv') }}">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -293,7 +284,7 @@
                                                     @if (Helper::getDemomode() == 0)
                                                         <div class="modal-footer">
                                                             <button type="submit"
-                                                                class="btn btn-secondary  btn-block change-pswrd payment-method">@lang('user.save')</button>
+                                                                class="btn btn-secondary  btn-block change-pswrd payment-method">{{ __('user.save') }}</button>
                                                         </div>
                                                     @endif
                                                 </form>
@@ -310,7 +301,7 @@
                 <div role="tabpanel" class="tab-pane col-sm-12 col-md-12 col-lg-12 p-0  min-46vh" id="user_address">
                     <div class="col-lg-12 col-md-12 col-sm-12 p-0 dis-column">
                         <div class="col-lg-12 col-md-12 col-sm-12 p-0 ">
-                            <h5 class="mb-2"><strong>@lang('user.address')</strong></h5>
+                            <h5 class="mb-2"><strong>{{ __('user.address') }}</strong></h5>
                             <!-- <div class="money-img">
                                              <img src="{{ asset('assets/layout/images/common/svg/money.svg') }}">
                                              </div> -->
@@ -325,7 +316,7 @@
                                 <div class="modal-content password-change">
                                     <!-- Add Card Header -->
                                     <div class="modal-header">
-                                        <h4 class="modal-title">@lang('user.address')</h4>
+                                        <h4 class="modal-title">{{ __('user.address') }}</h4>
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     </div>
                                     <!-- Add Card body -->
@@ -353,24 +344,24 @@
                                                 </div>
                                                 <div class="col-sm-12 col-xl-6 p-0 card-form">
                                                     <div class="col-sm-12 p-0">
-                                                        <h5 class=""><strong>@lang('user.flat_no')</strong></h5>
+                                                        <h5 class=""><strong>{{ __('user.flat_no') }}</strong></h5>
                                                         <input name="flat_no" id="flat_no" required
                                                             class="form-control" type="text"
-                                                            placeholder="@lang('user.flat_no')">
+                                                            placeholder="{{ __('user.flat_no') }}">
                                                     </div>
                                                     <div class="col-sm-12 p-0">
-                                                        <h5 class=""><strong>@lang('user.street')</strong></h5>
+                                                        <h5 class=""><strong>{{ __('user.street') }}</strong></h5>
                                                         <input name="street" id="street" required
                                                             class="form-control" type="text"
-                                                            placeholder="@lang('user.street')">
+                                                            placeholder="{{ __('user.street') }}">
                                                     </div>
                                                     <div class="col-sm-12 p-0">
-                                                        <h5 class=""><strong>@lang('user.type')</strong></h5>
+                                                        <h5 class=""><strong>{{ __('user.type') }}</strong></h5>
                                                         <select name="address_type" id="address_type"
                                                             class="form-control">
-                                                            <option value="Home">@lang('user.Home')</option>
-                                                            <option value="Work">@lang('user.Work')</option>
-                                                            <option value="Other">@lang('user.Other')</option>
+                                                            <option value="Home">{{ __('user.Home') }}</option>
+                                                            <option value="Work">{{ __('user.Work') }}</option>
+                                                            <option value="Other">{{ __('user.Other') }}</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -378,7 +369,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="submit"
-                                            class="btn btn-secondary  btn-block change-pswrd payment-method ">@lang('user.save')</button>
+                                            class="btn btn-secondary  btn-block change-pswrd payment-method ">{{ __('user.save') }}</button>
                                     </div>
                                     </form>
                                 </div>
@@ -401,14 +392,14 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">@lang('user.confirm_changes')</h4>
+                    <h4 class="modal-title">{{ __('user.confirm_changes') }}</h4>
                 </div>
                 <div class="modal-body p-2 text-center">
-                    @lang('user.are_u_sure')
+                    {{ __('user.are_u_sure') }}
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">@lang('user.close')</button>
-                    <button type="button" class="btn btn-danger delete-modal-btn">@lang('user.delete')</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">{{ __('user.close') }}</button>
+                    <button type="button" class="btn btn-danger delete-modal-btn">{{ __('user.delete') }}</button>
                 </div>
             </div>
             <!-- /.modal-content -->

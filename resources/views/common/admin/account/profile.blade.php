@@ -38,21 +38,21 @@
                             @endif
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <label for="name">@lang('admin.name')</label>
+                                    <label for="name">{{ __('admin.name') }} </label>
                                     <input class="form-control" type="text" value="" name="name" id="name"
                                         placeholder=" Name">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <label for="email">@lang('admin.email')</label>
+                                    <label for="email">{{ __('admin.email') }} </label>
                                     <input class="form-control" type="text" value="" name="email" id="email"
                                         placeholder=" email">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <label for="picture">@lang('admin.picture')</label>
+                                    <label for="picture">{{ __('admin.picture') }} </label>
                                     <div class="image-placeholder w-100">
                                         <img width="100" height="100" />
                                         <input type="file" name="picture" class="upload-btn picture_upload">

@@ -18,7 +18,7 @@
         @if (count(Helper::getServiceList()) > 0)
           <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="notify_type" class="col-xs-2 col-form-label">@lang('admin.service') </label>
+              <label for="notify_type" class="col-xs-2 col-form-label">{{ __('admin.service') }} </label>
               <select name="service" class="form-control">
                 <option value="">Select</option>
                 @foreach (Helper::getServiceList() as $service)
@@ -43,7 +43,7 @@
               value="" autocomplete="off">
           </div>
           <div class="form-group col-md-6">
-            <label for="notify_status" class="col-xs-2 col-form-label">@lang('admin.dispute.dispute_status')</label>
+            <label for="notify_status" class="col-xs-2 col-form-label">{{ __('admin.dispute.dispute_status') }}</label>
             <select name="status" class="form-control">
               <option value="active">Active</option>
               <option value="inactive">Inactive</option>

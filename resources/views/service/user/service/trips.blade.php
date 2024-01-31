@@ -12,7 +12,7 @@
             <div class="modal-content">
                 <!-- Schedule Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title m-0">@lang('service.user.my_service')</h4>
+                    <h4 class="modal-title m-0">{{ __('service.user.my_service') }}</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <!-- Schedule body -->
@@ -25,9 +25,9 @@
                             </h4>
                             <div class="from-to row m-0">
                                 <div class="from">
-                                    <h5>@lang('service.user.service_location') :<span class ="from_address"></h5>
-                                    <h5>@lang('service.user.service_type') : <span class ="service_type"></h5>
-                                    <h5>@lang('service.user.payment_mode'): <span class ="payment_mode"></h5>
+                                    <h5>{{ __('service.user.service_location') }} :<span class ="from_address"></h5>
+                                    <h5>{{ __('service.user.service_type') }} : <span class ="service_type"></h5>
+                                    <h5>{{ __('service.user.payment_mode') }}: <span class ="payment_mode"></h5>
                                     <!-- <h5>Schedule Date :<span class ="pickup_date"></h5>
                                       <h5>Schedule Time :<span class ="pickup_time"></h5> -->
                                 </div>
@@ -36,34 +36,34 @@
                         <div class="mytrip-right my_trips">
                             <ul class="invoice">
                                 <li>
-                                    <span class="fare">@lang('service.user.booking_id')</span>
+                                    <span class="fare">{{ __('service.user.booking_id') }}</span>
                                     <span class="txt"><span class ="booking_id"></span></span>
                                 </li>
                                 <li>
-                                    <span class="fare">@lang('service.user.base_fare')</span>
+                                    <span class="fare">{{ __('service.user.base_fare') }}</span>
                                     <span class =" txt base_fare"></span><span class="pricing">$</span>
                                 </li>
                                 <li>
-                                    <span class="fare">@lang('service.user.tax_fare')</span>
+                                    <span class="fare">{{ __('service.user.tax_fare') }}</span>
                                     <span class ="txt tax_fare"></span><span class="pricing">$</span>
                                 </li>
                                 <li>
-                                    <span class="fare">@lang('service.user.hourly_fare')</span>
+                                    <span class="fare">{{ __('service.user.hourly_fare') }}</span>
                                     <span class ="txt hourly_fare"></span><span class="pricing">$</span>
                                 </li>
                                 <li>
-                                    <span class="fare">@lang('service.user.wallet_detection')</span>
+                                    <span class="fare">{{ __('service.user.wallet_detection') }}</span>
                                     <span class ="txt wallet_detection"></span><span class="pricing">$</span>
                                 </li>
                                 <li class="promo_code">
-                                    <span class="fare">@lang('service.user.promocode_discount')</span>
+                                    <span class="fare">{{ __('service.user.promocode_discount') }}</span>
                                     <span class ="txt discount_fare"></span>
                                     <span class="txt-green pricing">
-                                        @lang('service.user.get')
+                                        {{ __('service.user.get') }}
                                     </span>
                                 </li>
                                 <li class="extra_charge">
-                                    <span class="fare">@lang('service.user.extra_charge')</span>
+                                    <span class="fare">{{ __('service.user.extra_charge') }}</span>
                                     <span class ="txt extra_charges"></span>
                                     <span class="pricing">
                                         <span class ="currency"></span>
@@ -72,7 +72,7 @@
                                 </li>
                                 <li>
                                     <hr>
-                                    <span class="fare">@lang('service.user.total')</span>
+                                    <span class="fare">{{ __('service.user.total') }}</span>
                                     <span class="txt-blue pull-right">
                                         <span class ="txt total_fare"></span>
                                         <span class ="pricing"></span>
@@ -82,7 +82,7 @@
                             </ul>
                         </div>
                         <div class="mytrip-right txt-white b-0 bg-red my_trips_cancelled">
-                            <strong>@lang('service.user.cancelled')</strong>
+                            <strong>{{ __('service.user.cancelled') }}</strong>
                         </div>
                         <div>
                         </div>
@@ -90,13 +90,13 @@
                     <div class="col-md-6 float-right">
                         <div class="header-section image_description">
                             <div class="c-pointer dis-column" style="width:200px">
-                                <h5 class="text-left">@lang('service.user.before')</h5>
+                                <h5 class="text-left">{{ __('service.user.before') }}</h5>
                                 <div class="dis-center">
                                     <img class="w-100 p-2 before-img" alt="add_document" height ="200px;" width ="100px;">
                                 </div>
                             </div>
                             <div class="c-pointer dis-column" style="width:200px">
-                                <h5 class="text-left">@lang('service.user.after')</h5>
+                                <h5 class="text-left">{{ __('service.user.after') }}</h5>
                                 <div class="dis-center">
                                     <img src="" class="w-100 p-2 after-img" alt="add_document" height ="200px;"
                                         width ="100px;">
@@ -125,7 +125,7 @@
             <div class="modal-content">
                 <!-- Schedule Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title m-0">@lang('service.user.service_details')</h4>
+                    <h4 class="modal-title m-0">{{ __('service.user.service_details') }}</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <!-- Schedule body -->
@@ -137,84 +137,28 @@
                             </h4>
                             <div class="from-to row m-0">
                                 <div class="from">
-                                    <h5>@lang('service.user.service_location') :<span class ="from_address"></h5>
-                                    <h5>@lang('service.user.service_type') : <span class ="service_type"></h5>
-                                    <h5>@lang('service.user.payment_mode'): <span class ="payment_mode"></h5>
-                                    <h5>@lang('service.user.schedule_date') :<span class ="pickup_date"></h5>
-                                    <h5>@lang('service.user.schedule_time') :<span class ="pickup_time"></h5>
+                                    <h5>{{ __('service.user.service_location') }}: <span class ="from_address"></h5>
+                                    <h5>{{ __('service.user.service_type') }}: <span class ="service_type"></h5>
+                                    <h5>{{ __('service.user.payment_mode') }}: <span class ="payment_mode"></h5>
+                                    <h5>{{ __('service.user.schedule_date') }}: <span class ="pickup_date"></h5>
+                                    <h5>{{ __('service.user.schedule_time') }}: <span class ="pickup_time"></h5>
                                     <button type="button" id="cancel_req" data-id=""
-                                        class="btn btn-primary btn-block">@lang('service.user.cancel') <i class="fa fa-check"
-                                            aria-hidden="true"></i></button>
-
-
+                                        class="btn btn-primary btn-block">{{ __('service.user.cancel') }} <i class="fa fa-check" aria-hidden="true"></i></button>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- <div class="mytrip-right  my_trips">
-                                <div class="fare-break">
-                                <ul class="invoice">
-                                   <li>
-                                      <span class="fare">Base Fare</span>
-                                        <span class="pricing">
-                                            <span class ="currency"></span> <span class ="base_fare"></span>
-                                         </span>
-                                   </li>
-                                   <li>
-                                      <span class="fare">Tax Fare</span>
-                                      <span class="pricing">
-                                          <span class ="currency"></span> <span class ="minute_fare"></span>
-                                      </span>
-                                   </li>
-                                   <li>
-                                      <span class="fare">Hourly Fare</span>
-                                      <span class="pricing">
-                                         <span class ="currency"></span> <span class ="hourly_fare"></span>
-                                      </span>
-                                   </li>
-                                   <li>
-                                      <span class="fare">Wallet Detection</span>
-                                      <span class="pricing">
-                                         <span class ="currency"></span> <span class ="wallet_fare"></span>
-                                      </span>
-                                   </li>
-                                   <li class="promo_code">
-                                      <span class="fare">Promocode Discount</span>
-                                      <span class="txt-green pricing">
-                                            GET <span class ="discount_fare"></span>
-                                      </span>
-                                   </li>
-                                   <li class="extra_charge">
-                                      <span class="fare">Extra Charge</span>
-                                      <span class="pricing">
-                                      <span class ="currency"></span><span class ="extra_charges"></span>
-                                      </span>
-                                      
-                                   </li>
-                                   <li>
-                                      <hr>
-                                      <span class="fare" >Total</span>
-                                      <span class="txt-blue pull-right">
-                                            <span class ="currency"></span> <span class ="total_fare"></span>
-                                      </span>
-                                      <hr>
-                                   </li>
-                                </ul>
-                                </div>
-                             </div>
-                             -->
                     </div>
                     <div class="col-md-6 float-right my_trips">
                         <div class="header-section image_description">
                             <div class="c-pointer dis-column">
-                                <h5 class="text-left">@lang('service.user.before')</h5>
+                                <h5 class="text-left">{{ __('service.user.before') }}</h5>
                                 <div class="dis-center">
                                     <img class="w-100 p-2 before-img" alt="add_document" height ="200px;"
                                         width ="100px;">
                                 </div>
                             </div>
                             <div class="c-pointer dis-column">
-                                <h5 class="text-left">@lang('service.user.after')</h5>
+                                <h5 class="text-left">{{ __('service.user.after') }}</h5>
                                 <div class="dis-center">
                                     <img src="" class="w-100 p-2 after-img" alt="add_document" height ="200px;"
                                         width ="100px;">
@@ -245,16 +189,16 @@
                 <!-- Dispute Header -->
                 <input type="hidden" name="id" value="id">
                 <div class="modal-header">
-                    <h4 class="modal-title">@lang('service.user.dispute_details')</h4>
+                    <h4 class="modal-title">{{ __('service.user.dispute_details') }}</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="from-to row m-0 getdisputedetails">
                     <div class="from">
-                        <h5 class="text-left">@lang('service.admin.dispute.dispute_name') : <span class ="dispute_name txt-blue ml-2"></span></h5>
-                        <h5 class="text-left">@lang('service.user.date') :<span class ="created_at txt-blue ml-2"></span></h5>
-                        <h5 class="text-left">@lang('service.user.status') :<span class ="status txt-blue ml-2"></span></h5>
-                        <h5 class="text-left">@lang('service.user.commented_by') :<span class ="comments_by txt-blue ml-2"></span></h5>
-                        <h5 class="text-left">@lang('service.user.comments') :<span class ="comments txt-blue ml-2"></span></h5>
+                        <h5 class="text-left">{{ __('service.admin.dispute.dispute_name') }} : <span class ="dispute_name txt-blue ml-2"></span></h5>
+                        <h5 class="text-left">{{ __('service.user.date') }} :<span class ="created_at txt-blue ml-2"></span></h5>
+                        <h5 class="text-left">{{ __('service.user.status') }} :<span class ="status txt-blue ml-2"></span></h5>
+                        <h5 class="text-left">{{ __('service.user.commented_by') }} :<span class ="comments_by txt-blue ml-2"></span></h5>
+                        <h5 class="text-left">{{ __('service.user.comments') }} :<span class ="comments txt-blue ml-2"></span></h5>
                     </div>
 
                 </div>
@@ -262,9 +206,9 @@
                 <form class="validateForm getdispute" style="color:red;">
                     <input type ="hidden" name="dispute_type" value ="user" />
                     <div class="col-md-12 col-sm-12">
-                        <h5 class=" no-padding"><strong>@lang('service.admin.dispute.dispute_name')</strong></h5>
+                        <h5 class=" no-padding"><strong>{{ __('service.admin.dispute.dispute_name') }}</strong></h5>
                         <select name="dispute_name" id="dispute_name" class="form-control" autocomplete="off">
-                            <option value="">@lang('service.user.select')</option>
+                            <option value="">{{ __('service.user.select') }}</option>
                         </select>
                     </div>
                     <div class="comments-section field-box mt-3 col-12 dispute_comments">
@@ -273,7 +217,7 @@
                     </div>
                     <div class="modal-footer">
                         <!-- <a  class="btn btn-primary btn-block" data-toggle="modal" data-target="#disputeModal" >Submit <i class="fa fa-check" aria-hidden="true"></i></a> -->
-                        <button type="submit" class="btn btn-primary btn-block">@lang('service.submit') <i
+                        <button type="submit" class="btn btn-primary btn-block">{{ __('service.submit') }} <i
                                 class="fa fa-check" aria-hidden="true"></i></button>
 
                     </div>
@@ -288,7 +232,6 @@
                 <div class="dis-center col-md-12 p-0 dis-center">
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
-                            <!-- <a class="nav-link active" data-toggle="tab" href="#my_trips">@lang('service.user.my_service')ALL</a> -->
                             <a class="nav-link active" data-toggle="tab" href="#my_trips">ALL</a>
                         </li>
                         <li class="nav-item">
@@ -302,7 +245,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#upcoming_trips">@lang('service.user.upcoming_service')</a>
+                            <a class="nav-link" data-toggle="tab" href="#upcoming_trips">{{ __('service.user.upcoming_service') }}</a>
                         </li>
                     </ul>
                 </div>
@@ -315,15 +258,15 @@
                                 <table id="my_services" class="table  table-striped table-bordered w-100">
                                     <thead>
                                         <tr>
-                                            <th>&nbsp;@lang('user.s.no')</th>
-                                            <th>@lang('user.booking_id')</th>
-                                            <th>@lang('user.date')</th>
-                                            <th>@lang('user.profile.name')</th>
-                                            <th>@lang('user.amount')</th>
-                                            <th>@lang('user.service_type')</th>
-                                            <th>@lang('user.payment')</th>
-                                            <th>@lang('user.status')</th>
-                                            <th>@lang('user.action')</th>
+                                            <th>&nbsp;{{ __('user.s.no') }}</th>
+                                            <th>{{ __('user.booking_id') }}</th>
+                                            <th>{{ __('user.date') }}</th>
+                                            <th>{{ __('user.profile.name') }}</th>
+                                            <th>{{ __('user.amount') }}</th>
+                                            <th>{{ __('user.service_type') }}</th>
+                                            <th>{{ __('user.payment') }}</th>
+                                            <th>{{ __('user.status') }}</th>
+                                            <th>{{ __('user.action') }}</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -332,21 +275,21 @@
                     </div>
                     <div id="schedule" class="tab-pane col-sm-12 col-md-12 col-lg-12">
                         <div class="row ride-details">
-                            <h4>@lang('service.user.scheduled')</h4>
+                            <h4>{{ __('service.user.scheduled') }}</h4>
                             <div class="col-md-12 col-lg-12 col-sm-12 p-0 table-responsive-sm mt-4">
                                 <table id="upcoming_services" class="table table-striped table-bordered w-100">
                                     <thead>
                                         <tr>
-                                            <th>&nbsp;@lang('user.s.no')</th>
-                                            <th>@lang('user.booking_id')</th>
-                                            <th>@lang('user.date')</th>
-                                            <th>@lang('user.profile.name')</th>
-                                            <th>@lang('user.amount')</th>
-                                            <th>@lang('user.service_type')</th>
-                                            <th>@lang('user.payment')</th>
-                                            <th>@lang('user.status')</th>
-                                            <th>@lang('user.action')</th>
-                                            <th>@lang('user.chat')</th>
+                                            <th>&nbsp;{{ __('user.s.no') }}</th>
+                                            <th>{{ __('user.booking_id') }}</th>
+                                            <th>{{ __('user.date') }}</th>
+                                            <th>{{ __('user.profile.name') }}</th>
+                                            <th>{{ __('user.amount') }}</th>
+                                            <th>{{ __('user.service_type') }}</th>
+                                            <th>{{ __('user.payment') }}</th>
+                                            <th>{{ __('user.status') }}</th>
+                                            <th>{{ __('user.action') }}</th>
+                                            <th>{{ __('user.chat') }}</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -355,19 +298,19 @@
                     </div>
                     <div id="inprogress" class="tab-pane col-sm-12 col-md-12 col-lg-12">
                         <div class="row ride-details">
-                            <h4>@lang('service.user.inprogress')</h4>
+                            <h4>{{ __('service.user.inprogress') }}</h4>
                             <div class="col-md-12 col-lg-12 col-sm-12 p-0 table-responsive-sm mt-4">
                                 <table id="upcoming_services" class="table table-striped table-bordered w-100">
                                     <thead>
                                         <tr>
-                                            <th>&nbsp;@lang('user.s.no')</th>
-                                            <th>@lang('user.booking_id')</th>
-                                            <th>@lang('user.date')</th>
-                                            <th>@lang('user.profile.name')</th>
-                                            <th>@lang('user.amount')</th>
-                                            <th>@lang('user.service_type')</th>
-                                            <th>@lang('user.action')</th>
-                                            <th>@lang('user.chat')</th>
+                                            <th>&nbsp;{{ __('user.s.no') }}</th>
+                                            <th>{{ __('user.booking_id') }}</th>
+                                            <th>{{ __('user.date') }}</th>
+                                            <th>{{ __('user.profile.name') }}</th>
+                                            <th>{{ __('user.amount') }}</th>
+                                            <th>{{ __('user.service_type') }}</th>
+                                            <th>{{ __('user.action') }}</th>
+                                            <th>{{ __('user.chat') }}</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -376,19 +319,19 @@
                     </div>
                     <div id="completed" class="tab-pane col-sm-12 col-md-12 col-lg-12">
                         <div class="row ride-details">
-                            <h4>@lang('service.user.completed')</h4>
+                            <h4>{{ __('service.user.completed') }}</h4>
                             <div class="col-md-12 col-lg-12 col-sm-12 p-0 table-responsive-sm mt-4">
                                 <table id="upcoming_services" class="table table-striped table-bordered w-100">
                                     <thead>
                                         <tr>
-                                            <th>&nbsp;@lang('user.s.no')</th>
-                                            <th>@lang('user.booking_id')</th>
-                                            <th>@lang('user.date')</th>
-                                            <th>@lang('user.profile.name')</th>
-                                            <th>@lang('user.amount')</th>
-                                            <th>@lang('user.service_type')</th>
-                                            <th>@lang('user.action')</th>
-                                            <th>@lang('user.chat')</th>
+                                            <th>&nbsp;{{ __('user.s.no') }}</th>
+                                            <th>{{ __('user.booking_id') }}</th>
+                                            <th>{{ __('user.date') }}</th>
+                                            <th>{{ __('user.profile.name') }}</th>
+                                            <th>{{ __('user.amount') }}</th>
+                                            <th>{{ __('user.service_type') }}</th>
+                                            <th>{{ __('user.action') }}</th>
+                                            <th>{{ __('user.chat') }}</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -398,18 +341,18 @@
                     <div id
                   ="upcoming_trips" class="tab-pane col-sm-12 col-md-12 col-lg-12">
                         <div class="row ride-details">
-                            <h4>@lang('service.user.upcoming_service')</h4>
+                            <h4>{{ __('service.user.upcoming_service') }}</h4>
                             <div class="col-md-12 col-lg-12 col-sm-12 p-0 table-responsive-sm mt-4">
                                 <table id="upcoming_services" class="table table-striped table-bordered w-100">
                                     <thead>
                                         <tr>
-                                            <th>&nbsp;@lang('user.s.no')</th>
-                                            <th>@lang('user.booking_id')</th>
-                                            <th>@lang('user.date')</th>
-                                            <th>@lang('user.profile.name')</th>
-                                            <th>@lang('user.amount')</th>
-                                            <th>@lang('user.service_type')</th>
-                                            <th>@lang('user.action')</th>
+                                            <th>&nbsp;{{ __('user.s.no') }}</th>
+                                            <th>{{ __('user.booking_id') }}</th>
+                                            <th>{{ __('user.date') }}</th>
+                                            <th>{{ __('user.profile.name') }}</th>
+                                            <th>{{ __('user.amount') }}</th>
+                                            <th>{{ __('user.service_type') }}</th>
+                                            <th>{{ __('user.action') }}</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -487,15 +430,6 @@
             }
         });
 
-
-
-        //  setTimeout(function(){
-
-        //      $('.subnav').show(); 
-        //      $('.subnav > .menu-two').addClass('menu-active');
-        //      $('.content-box').addClass('content-box-2');
-
-        //    }, 1000);
         $.ajax({
             url: getBaseUrl() + "/user/services/dispute",
             type: "GET",
@@ -517,11 +451,6 @@
 
             }
         });
-
-
-
-
-
 
         //Submit dispute details
         $('.validateForm').validate({

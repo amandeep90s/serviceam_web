@@ -10,7 +10,7 @@
     <div class="container-fluid">
       <div class="box box-block bg-white">
         <div class="clearfix mb-1 card-header border-bottom">
-          <h6 class="float-xs-left">@lang('admin.heatmap.Ride_Heatmap')</h6>
+          <h6 class="float-xs-left">{{ __('admin.heatmap.Ride_Heatmap') }}</h6>
           <div class="col-md-12">
             <div class="note_txt">
               @if (Helper::getDemomode() == 1)

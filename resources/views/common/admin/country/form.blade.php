@@ -38,14 +38,6 @@
                         <input type="text" class="form-control" id="currency_code" name="currency_code"
                             placeholder="{{ __('admin.country.currency_code') }}" value="" autocomplete="off">
                     </div>
-                    <!-- <div class="form-group col-md-6">
-     <label for="notify_status" class="col-xs-2 col-form-label">@lang('admin.status')</label>
-      <select name="status" class="form-control">
-                        <option value="">select</option>
-       <option value="1">Active</option>
-       <option value="0">Inactive</option>
-      </select>
-     </div> -->
                 </div>
                 <button type="submit" class="btn btn-accent">{{ $action_text }} Country</button>
                 <button type="reset" class="btn btn-danger cancel">Cancel</button>

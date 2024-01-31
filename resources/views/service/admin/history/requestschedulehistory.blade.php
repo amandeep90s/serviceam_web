@@ -36,16 +36,16 @@
                     <table id="data-table" class="table table-hover table_width display">
                         <thead>
                             <tr>
-                                <th>@lang('admin.id')</th>
-                                <th>@lang('admin.request.Booking_ID')</th>
-                                <th>@lang('admin.request.User_Name')</th>
-                                <th>@lang('admin.request.Provider_Name')</th>
-                                <th>@lang('admin.request.Date_Time')</th>
-                                <th>@lang('admin.status')</th>
-                                <th>@lang('admin.amount')</th>
-                                <th>@lang('admin.request.Payment_Mode')</th>
-                                <th>@lang('admin.request.Payment_Status')</th>
-                                <th>@lang('admin.action')</th>
+                                <th>{{ __('admin.id') }}</th>
+                                <th>{{ __('admin.request.Booking_ID') }}</th>
+                                <th>{{ __('admin.request.User_Name') }}</th>
+                                <th>{{ __('admin.request.Provider_Name') }}</th>
+                                <th>{{ __('admin.request.Date_Time') }}</th>
+                                <th>{{ __('admin.status') }}</th>
+                                <th>{{ __('admin.amount') }}</th>
+                                <th>{{ __('admin.request.Payment_Mode') }}</th>
+                                <th>{{ __('admin.request.Payment_Status') }}</th>
+                                <th>{{ __('admin.action') }}</th>
                             </tr>
                         </thead>
                     </table>

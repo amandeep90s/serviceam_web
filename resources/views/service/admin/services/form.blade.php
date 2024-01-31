@@ -35,18 +35,9 @@
                         </select>
                     </div>
                 </div>
-                <!-- <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="picture">{{ __('service.admin.services.image') }}</label>
-                        <div class="image-placeholder w-100">
-                            <img width="100" height="100" />
-                            <input type="file" name="picture" class="upload-btn picture_upload">
-                        </div>
-                    </div>
-                </div> -->
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="service_status" class="col-xs-2 col-form-label">@lang('service.admin.services.status')</label>
+                        <label for="service_status" class="col-xs-2 col-form-label">{{ __('service.admin.services.status') }}</label>
                         <select name="service_status" class="form-control">
                             <option value="1">Active</option>
                             <option value="0">Inactive</option>
