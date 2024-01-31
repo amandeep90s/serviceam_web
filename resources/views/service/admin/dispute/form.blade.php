@@ -16,7 +16,8 @@
                 @endif
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="user" class="col-xs-2 col-form-label">@lang('admin.dispute.dispute_type')</label>
+                        <label for="user"
+                            class="col-xs-2 col-form-label">{{ __('admin.dispute.dispute_type') }}</label>
                         <select class="form-control" name="dispute_type" id="dispute_type">
                             <option value="user">User</option>
                             <option value="provider">Provider</option>
@@ -26,8 +27,8 @@
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="user" class="col-xs-2 col-form-label">@lang('admin.dispute.dispute_user') /
-                            @lang('admin.dispute.dispute_provider')</label>
+                        <label for="user" class="col-xs-2 col-form-label">{{ __('admin.dispute.dispute_user') }} /
+                            {{ __('admin.dispute.dispute_provider') }}</label>
                         <input class="form-control" type="text" value="{{ old('name') }}" name="name"
                             id="namesearch" placeholder="Search Name" required="" aria-describedby="basic-addon2"
                             autocomplete="off">
@@ -38,7 +39,8 @@
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="lost_item_name" class="col-xs-2 col-form-label">@lang('admin.lostitem.request')</label>
+                        <label for="lost_item_name"
+                            class="col-xs-2 col-form-label">{{ __('admin.lostitem.request') }}</label>
                         <table class="table table-striped table-bordered dataTable requestList">
                             <thead>
                                 <tr>
@@ -58,12 +60,13 @@
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="lost_item_name" class="col-xs-2 col-form-label">@lang('admin.dispute.dispute_name')</label>
+                        <label for="lost_item_name"
+                            class="col-xs-2 col-form-label">{{ __('admin.dispute.dispute_name') }}</label>
                         <select class="form-control" name="dispute_name" id="dispute_name" required="">
                             <option value="">Select</option>
                         </select>
                         <textarea style="display: none;margin-top:5px;" class="form-control" name="dispute_other" required id="dispute_other"
-                            placeholder="@lang('admin.dispute.dispute_name')">{{ old('dispute_other') }}</textarea>
+                            placeholder="{{ __('admin.dispute.dispute_name') }}">{{ old('dispute_other') }}</textarea>
                     </div>
                 </div>
 
@@ -186,7 +189,7 @@
                         var data = [];
                         data.push({
                             id: 0,
-                            label: "@lang('No Records')"
+                            label: "{{ __('No Records') }}"
                         });
                         response(data);
                     } else {
@@ -229,7 +232,8 @@
                 },
                 success: function(data, textStatus, jqXHR) {
                     var requestList = $('.requestList tbody');
-                    requestList.html(`<tr><td colspan="4">@lang('No Records')</td></tr>`);
+                    requestList.html(
+                        `<tr><td colspan="4">{{ __('No Records')</td></tr>`);
                     var html = ``;
                     if (data.data.length > 0) {
                         var result = data.data;

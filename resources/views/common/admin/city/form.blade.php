@@ -37,7 +37,8 @@
                         </select>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="notify_status" class="col-xs-2 col-form-label">@lang('admin.dispute.dispute_status')</label>
+                        <label for="notify_status"
+                            class="col-xs-2 col-form-label">{{ __('admin.dispute.dispute_status') }}</label>
                         <select name="status" id = "status" class="form-control">
 
                             <option value="1">Active</option>
@@ -49,7 +50,7 @@
                 <div class="form-row  others d-none">
                     <div class="form-group col-md-6">
                         <label for="notify_status" class="col-xs-2 col-form-label">{{ __('admin.city.city') }}
-                            @lang('admin.name')</label>
+                            {{ __('admin.name') }}</label>
                         <input type="text" class="form-control" id="other_city" name="other_city" />
                     </div>
                 </div>

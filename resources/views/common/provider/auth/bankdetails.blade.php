@@ -7,13 +7,10 @@
     @include('common.admin.includes.image-modal')
     <section class="z-1 content-box" id="profile-form">
         <div class="clearfix ">
-            <h4><strong class="title-bor">@lang('provider.bank_details')</strong></h4>
+            <h4><strong class="title-bor">{{ __('provider.bank_details') }}</strong></h4>
             <!--Add card and amount details!-->
             <div class="col-md-12">
-                <form class="validateForm" style= "color:red;">
-
-
-                </form>
+                <form class="validateForm" style= "color:red;"></form>
             </div>
         </div>
 

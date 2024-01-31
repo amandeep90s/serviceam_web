@@ -107,10 +107,11 @@
                     <div class=" row m-0  transport_append"> </div>
                     <form class="transportForm  col-md-12 col-lg-12 col-sm-12 p-0 tranport">
                         <div class="col-md-12 col-sm-12 pro-form vechile-form d-none">
-                            <h5 class="word-breakwrap"><strong>@lang('provider.add_vehicle')</strong></h5>
+                            <h5 class="word-breakwrap"><strong>{{ __('provider.add_vehicle') }}</strong></h5>
                             <div class="col-md-12 col-sm-12 pro-form dis-ver-center p-0">
                                 <div class="col-md-12 col-sm-12 col-xl-6">
-                                    <h5 class="word-breakwrap"><strong>@lang('provider.vehicle_make')</strong></h5>
+                                    <h5 class="word-breakwrap"><strong>{{ __('provider.vehicle_make') }}</strong>
+                                    </h5>
                                     <input class="form-control vehicle_make" type="text" name="vehicle_make"
                                         placeholder="Make" required>
                                     <input type="hidden" name="admin_service" class="admin_service">
@@ -118,51 +119,62 @@
                                     <input type="hidden" name="category_id" class="category_id">
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-xl-6">
-                                    <h5 class=" no-padding"><strong>@lang('provider.vehicle_model')</strong></h5>
+                                    <h5 class=" no-padding"><strong>{{ __('provider.vehicle_model') }}</strong>
+                                    </h5>
                                     <input class="form-control vehicle_model" type="text" name="vehicle_model"
                                         placeholder="Model" required>
                                 </div>
                             </div>
                             <div class="col-md-12 pro-form dis-ver-center p-0">
                                 <div class="col-md-12 col-sm-12 col-xl-6">
-                                    <h5 class="word-breakwrap"><strong>@lang('provider.vehicle_year')</strong></h5>
+                                    <h5 class="word-breakwrap"><strong>{{ __('provider.vehicle_year') }}</strong>
+                                    </h5>
                                     <input class="form-control vehicle_year" type="text" name="vehicle_year"
                                         placeholder=" Year" required>
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-xl-6">
-                                    <h5 class="word-breakwrap"><strong>@lang('provider.vehicle_color')</strong></h5>
+                                    <h5 class="word-breakwrap">
+                                        <strong>{{ __('provider.vehicle_color') }}</strong>
+                                    </h5>
                                     <input class="form-control vehicle_color " type="text" name="vehicle_color"
                                         placeholder="Color" required>
                                 </div>
                             </div>
                             <div class="col-md-12 pro-form dis-ver-center p-0">
                                 <div class="col-md-12 col-sm-12 col-xl-6">
-                                    <h5 class="word-breakwrap"><strong>@lang('provider.vehicle_type')</strong></h5>
+                                    <h5 class="word-breakwrap">
+                                        <strong>{{ __('provider.vehicle_type') }}</strong>
+                                    </h5>
                                     <select name="vehicle_id" class="form-control vehicle_id">
-                                        <option value=''> @lang('provider.select_vehicle_type')</option>
+                                        <option value=''> {{ __('provider.select_vehicle_type') }}
+                                        </option>
                                     </select>
 
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-xl-6">
-                                    <h5 class="word-breakwrap"><strong>@lang('provider.vehicle_number')Vehicle Number</strong></h5>
+                                    <h5 class="word-breakwrap">
+                                        <strong>{{ __('provider.vehicle_number') }}Vehicle Number</strong>
+                                    </h5>
                                     <input class="form-control vehicle_no" type="text" name="vehicle_no"
                                         class="vehicle_no" placeholder="Number" required>
                                 </div>
                             </div>
                             <div class="col-md-12 pro-form dis-ver-center chair p-0 d-none">
                                 <div class="col-md-12 col-sm-12 col-xl-6">
-                                    <h5 class="word-breakwrap"><strong>@lang('provider.wheel_chair')</strong></h5>
+                                    <h5 class="word-breakwrap"><strong>{{ __('provider.wheel_chair') }}</strong>
+                                    </h5>
                                     <input type="checkbox" id="wheel_chair" name="wheel_chair" value="1">
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-xl-6">
-                                    <h5 class="word-breakwrap"><strong>@lang('provider.child_seat')</strong></h5>
+                                    <h5 class="word-breakwrap"><strong>{{ __('provider.child_seat') }}</strong>
+                                    </h5>
                                     <input type="checkbox" id="child_seat" name="child_seat" value="1">
                                 </div>
                             </div>
                             <div class="col-md-12 pro-form dis-ver-center p-0 mt-2">
                                 <div class="col-md-12 col-sm-12">
-                                    <h6><strong>@lang('provider.upload_image')</strong></h6>
-                                    <p>@lang('provider.upload_insurance')</p>
+                                    <h6><strong>{{ __('provider.upload_image') }}</strong></h6>
+                                    <p>{{ __('provider.upload_insurance') }}</p>
                                     <div class="col-sm-12 col-md-12 col-lg-12 p-0 document-upload">
 
                                         <div class="col-sm-12 col-md-6 col-xl-6 pl-0  mt-2">
@@ -189,7 +201,8 @@
                                 </div>
                             </div>
                             <br>
-                            <button type="submit" class="btn btn-primary edit-profile mt-3 ml-3">@lang('provider.save') <i
+                            <button type="submit"
+                                class="btn btn-primary edit-profile mt-3 ml-3">{{ __('provider.save') }} <i
                                     class="fa fa-check" aria-hidden="true"></i></button>
                         </div>
                     </form>
@@ -200,10 +213,12 @@
                     </div>
                     <form class="orderForm  col-md-12 col-sm-12 pro-form order_vechile-form d-none">
                         <div class="col-md-12 col-sm-12 pro-form order_vechile-form d-none">
-                            <h5 class="word-breakwrap"><strong>@lang('provider.add_vehicle')</strong></h5>
+                            <h5 class="word-breakwrap"><strong>{{ __('provider.add_vehicle') }}</strong></h5>
                             <div class="col-md-12 col-sm-12 pro-form dis-ver-center p-0">
                                 <div class="col-md-12 col-sm-12 col-xl-6">
-                                    <h5 class="word-breakwrap"><strong>@lang('provider.vehicle_make')</strong></h5>
+                                    <h5 class="word-breakwrap">
+                                        <strong>{{ __('provider.vehicle_make') }}</strong>
+                                    </h5>
                                     <input class="form-control vehicle_make" type="text" name="vehicle_make"
                                         placeholder="" required>
                                     <input type="hidden" name="admin_service" class="admin_service">
@@ -211,15 +226,17 @@
                                     <input type="hidden" name="category_id" class="category_id">
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-xl-6">
-                                    <h5 class="word-breakwrap"><strong>@lang('provider.vehicle_number')</strong></h5>
+                                    <h5 class="word-breakwrap">
+                                        <strong>{{ __('provider.vehicle_number') }}</strong>
+                                    </h5>
                                     <input class="form-control vehicle_no" type="text" name="vehicle_no"
                                         placeholder="" required>
                                 </div>
                             </div>
                             <div class="col-md-12 pro-form dis-ver-center p-0 mt-2">
                                 <div class="col-md-12 col-sm-12">
-                                    <h6><strong>@lang('provider.upload_image')</strong></h6>
-                                    <p>@lang('provider.upload_insurance')</p>
+                                    <h6><strong>{{ __('provider.upload_image') }}</strong></h6>
+                                    <p>{{ __('provider.upload_insurance') }}</p>
                                     <div class="col-sm-12 col-md-12 col-lg-12 p-0 document-upload">
 
                                         <div class="col-sm-12 col-md-6 col-xl-6 pl-0  mt-2">
@@ -247,16 +264,17 @@
                                 </div>
                             </div>
                             <br>
-                            <button type="submit" class="btn btn-primary edit-profile mt-3 ml-3">@lang('provider.save') <i
+                            <button type="submit"
+                                class="btn btn-primary edit-profile mt-3 ml-3">{{ __('provider.save') }} <i
                                     class="fa fa-check" aria-hidden="true"></i></button>
 
                         </div>
                     </form>
                 </div>
                 <!-- <form class=" serviceForm  col-md-12 col-lg-12 col-sm-12 p-0 services  d-none">
-                                <div class="col-md-12 col-lg-12 col-sm-12 p-0 services  services_append d-none height70vh">
+                                            <div class="col-md-12 col-lg-12 col-sm-12 p-0 services  services_append d-none height70vh">
 
-                                </div> -->
+                                            </div> -->
                 <form class=" serviceForm  col-md-12 col-lg-12 col-sm-12 p-0">
 
                     <input type="hidden" name="admin_service" class="admin_service" value="SERVICE">
@@ -403,13 +421,13 @@
                 <table id="service_grid" class="table  table-striped table-bordered w-100">
                     <thead>
                         <tr>
-                            <th>@lang('provider.s.no')</th>
+                            <th>{{ __('provider.s.no') }}</th>
                             <th>{{ __('Service Category') }}</th>
                             <th>{{ __('Service SubCategory') }}</th>
                             <th>{{ __('Service') }}</th>
                             <th>{{ __('Fare') }}</th>
                             <th>{{ __('Status') }}</th>
-                            <th>@lang('provider.action')</th>
+                            <th>{{ __('provider.action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -578,12 +596,6 @@
                                     '<button class="btn btn-primary btn-block">ACTIVE</button>';
                             }
                         });
-
-                        //var provider_service_count = data.providerservices.length > 0 ?  data.providerservices[0].id : null;
-
-                        /*var button ='<label class="switch"><input type="checkbox" ' + checked + ' value="" class="enable"><span class="slider round"></span></label>';*/
-
-                        //var button = ;
                         return button;
                     }
                 },

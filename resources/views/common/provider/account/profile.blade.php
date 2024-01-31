@@ -39,20 +39,12 @@
                 <ul class="nav nav-tabs " role="tablist">
                     <li class="nav-item col-sm-12 col-md-3 col-lg-3 p-0">
                         <a class="nav-link active general" data-toggle="tab" href="#general_info" role="tab"
-                            data-toggle="tab">@lang('provider.general_info')</a>
+                            data-toggle="tab">{{ __('provider.general_info') }}</a>
                     </li>
                     <li class="nav-item col-sm-12 col-md-3 col-lg-3 p-0">
                         <a class="nav-link password" data-toggle="tab" href="#password" role="tab"
-                            data-toggle="tab">@lang('provider.change_password') </a>
+                            data-toggle="tab">{{ __('provider.change_password') }}</a>
                     </li>
-                    <!-- <li class="nav-item col-sm-12 col-md-3 col-lg-3 p-0">
-                                 <a class="nav-link payment-method payment_method" data-toggle="tab" href="#payment_method" role="tab" data-toggle="tab">@lang('provider.payment_methods')</a>
-                              </li>
-
-                              <li class="nav-item col-sm-12 col-md-3 col-lg-3 p-0">
-                                 <a class="nav-link timings provider_timings" data-toggle="tab" href="#provider_timings" role="tab" data-toggle="tab">@lang('provider.provider_timings')</a>
-                              </li> -->
-
                 </ul>
             </div>
             <div class="clearfix tab-content">
@@ -63,11 +55,10 @@
                                 <form class="w-100 validateForm" style= "color:red;">
                                     <div class="col-md-12 col-sm-12 pro-form dis-ver-center p-0">
                                         <div class="col-md-6 col-sm-12">
-                                            <h5 class=""><strong>@lang('provider.profile_picture')</strong></h5>
+                                            <h5 class="">
+                                                <strong>{{ __('provider.profile_picture') }}</strong>
+                                            </h5>
                                             <div class="photo-section">
-                                                <!-- <div class="img-outer">
-                                                      <img src="../img/svg/user-2.svg" alt="user">
-                                                   </div> -->
                                                 <img class = "user-img" height ="200px;" width ="200px;" />
                                                 <div class="fileUpload up-btn profile-up-btn">
                                                     <input type="file" id="profile_img_upload_btn" name="picture"
@@ -75,82 +66,57 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- <div class="col-md-6 col-lg-4 col-sm-12 p-0">
-                                             <div class=" top small-box green">
-                                                      <div class="left">
-                                                         <h2>@lang('provider.balance')</h2>
-                                                         <h4><i class="material-icons">account_balance_wallet</i></h4>
-                                                         <h1 class='account_balance_wallet'></h1>
-                                                      </div>
-                                                   </div>
-                                             </div> -->
                                     </div>
                                     <div class="col-md-12 col-sm-12 pro-form dis-ver-center p-0">
                                         <div class="col-md-6 col-sm-12">
-                                            <h5 class=""><strong>@lang('provider.profile.first_name')</strong></h5>
+                                            <h5 class="">
+                                                <strong>{{ __('provider.profile.first_name') }}</strong>
+                                            </h5>
                                             <input class="form-control" type="text" id ="first_name" name="first_name"
                                                 placeholder="First Name">
                                         </div>
                                         <div class="col-md-6 col-sm-12">
-                                            <h5 class=" no-padding"><strong>@lang('provider.profile.last_name')</strong></h5>
+                                            <h5 class=" no-padding">
+                                                <strong>{{ __('provider.profile.last_name') }}</strong>
+                                            </h5>
                                             <input class="form-control" id ="last_name" name="last_name"
                                                 placeholder="Last Name">
                                         </div>
                                     </div>
                                     <div class="col-md-12 pro-form dis-ver-center p-0">
                                         <div class="col-md-6 col-sm-12">
-                                            <h5 class=""><strong>@lang('provider.email')</strong></h5>
+                                            <h5 class=""><strong>{{ __('provider.email') }}</strong></h5>
                                             <input class="form-control" type="email" id ="profile_email" name="email"
                                                 placeholder="Email">
                                         </div>
-                                        <!-- <div class="col-md-6 col-sm-12">
-                                                <h5 class=""><strong>@lang('provider.profile.phone')</strong></h5>
-                                                <input class="form-control numbers" type="text" id ="mobile" name="mobile" placeholder="Mobile" readonly>
-                                                <input type="hidden" class="mobile_number" value="">
-                                                <input type="hidden" class="country_code" value="">
-                                                <span>
-                                                   <i class="fa fa-edit  user_edit" style=" position: absolute; right: 10%; top: 61%;color: #495057;font-size: 18px;cursor: pointer;"></i>
-                                               </span>
-                                               <span>
-                                                   <i class="fa fa-check user_update" style=" position: absolute; right: 5%; top: 61%;color: #495057;font-size: 18px;cursor: pointer;"></i>
-                                               </span>
-                                             </div> -->
-                                    </div>
-                                    <!-- <div class="col-md-12 pro-form dis-ver-center p-0 otp d-none">
-                                             <div class="col-md-6 col-sm-12">
 
-                                             </div>
-                                             <div class="col-md-6 col-sm-12">
-                                                <h5 class=""><strong>@lang('user.profile.otp')</strong></h5>
-                                                <input class="form-control numbers" type="text" id ="otp" placeholder="@lang('user.profile.otp')">
-                                                <span>
-                                                <i class="fa fa-check verify_otp" style=" position: absolute; right: 5%; top: 61%;color: #495057;font-size: 18px;cursor: pointer;"></i>
-                                                </span>
-                                             </div>
-                                          </div> -->
+                                    </div>
                                     <div class="col-md-12 pro-form dis-ver-center p-0">
                                         <div class="col-md-6 col-sm-12">
-                                            <h5 class=""><strong>@lang('provider.profile.country')</strong></h5>
+                                            <h5 class="">
+                                                <strong>{{ __('provider.profile.country') }}</strong>
+                                            </h5>
                                             <select id="country" name="country_id" class=" mb-4 form-control">
-                                                <option>@lang('provider.select_country')</option>
+                                                <option>{{ __('provider.select_country') }}</option>
                                             </select>
                                         </div>
                                         <div class="col-md-6 col-sm-12">
-                                            <h5 class=""><strong>@lang('provider.profile.city')</strong></h5>
+                                            <h5 class="">
+                                                <strong>{{ __('provider.profile.city') }}</strong>
+                                            </h5>
                                             <select id="city" name="city_id"
                                                 @if (Helper::getDemomode() == 1) disabled="disabled" @endif required=""
                                                 class=" mb-4 form-control">
-                                                <option value="">@lang('provider.select_city')</option>
+                                                <option value="">{{ __('provider.select_city') }}
+                                                </option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-12 pro-form dis-ver-center p-0">
-                                        <!-- <div class="col-md-6 col-sm-12">
-                                                <h5 class=""><strong>Wallet Balance</strong></h5>
-                                                <input class="form-control" type="number" name="$0.00" placeholder="" required>
-                                             </div> -->
                                         <div class="col-md-6 col-sm-12">
-                                            <h5 class=""><strong>@lang('provider.profile.language')</strong></h5>
+                                            <h5 class="">
+                                                <strong>{{ __('provider.profile.language') }}</strong>
+                                            </h5>
                                             <select class="form-control" name="language" id="language"
                                                 @if (Helper::getDemomode() == 1) disabled="true" @endif>
                                                 @foreach (Helper::getSettings()->site->language as $language)
@@ -159,7 +125,9 @@
                                             </select>
                                         </div>
                                         <div class="col-md-6 col-sm-12">
-                                            <h5 class=""><strong>@lang('provider.profile.update_location')</strong></h5>
+                                            <h5 class="">
+                                                <strong>{{ __('provider.profile.update_location') }}</strong>
+                                            </h5>
                                             <input type="text" class="form-control current_location"
                                                 name="current_location" id="address" placeholder="Location">
                                             <input type="hidden" name="latitude" id="latitude" />
@@ -167,7 +135,7 @@
                                         </div>
                                     </div>
                                     <button type="submit"
-                                        class="btn btn-success edit-profile mt-5 save">@lang('provider.save')</button>
+                                        class="btn btn-success edit-profile mt-5 save">{{ __('provider.save') }}</button>
                                 </form>
                             </div>
                         </div>
@@ -188,27 +156,33 @@
                                 <form class="w-100 validatepasswordForm" style= "color:red;">
                                     <div class="col-md-12 pro-form p-0">
                                         <div class="col-md-6">
-                                            <h5 class=""><strong>@lang('provider.old_password')</strong></h5>
+                                            <h5 class="">
+                                                <strong>{{ __('provider.old_password') }}</strong>
+                                            </h5>
                                             <input class="form-control" type="password" name="old_password"
                                                 placeholder="Old Password">
                                         </div>
                                     </div>
                                     <div class="col-md-12 pro-form p-0">
                                         <div class="col-md-6">
-                                            <h5 class=""><strong>@lang('provider.new_password')</strong></h5>
+                                            <h5 class="">
+                                                <strong>{{ __('provider.new_password') }}</strong>
+                                            </h5>
                                             <input class="form-control" id="password1" type="password" name="password"
                                                 placeholder="Password">
                                         </div>
                                     </div>
                                     <div class="col-md-12 pro-form p-0">
                                         <div class="col-md-6">
-                                            <h5 class=""><strong>@lang('provider.confirm_password')</strong></h5>
+                                            <h5 class="">
+                                                <strong>{{ __('provider.confirm_password') }}</strong>
+                                            </h5>
                                             <input class="form-control" type="password" name="password_confirmation"
                                                 placeholder="Confirm Password">
                                         </div>
                                     </div>
                                     <button type="submit"
-                                        class="btn btn-primary edit-profile mt-5">@lang('provider.save')</button>
+                                        class="btn btn-primary edit-profile mt-5">{{ __('provider.save') }}</button>
                                 </form>
                             </div>
                         </div>
@@ -220,7 +194,7 @@
                     id="payment_method">
                     <div class="col-lg-12 col-md-12 col-sm-12 p-0 dis-column payment border-bottom pb-3">
                         <div class="col-lg-12 col-md-12 col-sm-12 p-0">
-                            <h4><strong class="title-bor">@lang('provider.bank_details')</strong></h4> <br>
+                            <h4><strong class="title-bor">{{ __('provider.bank_details') }}</strong></h4> <br>
                             <form class="bankForm" style= "color:red;">
                             </form>
                         </div>
@@ -240,7 +214,7 @@
                                         <div class="modal-content password-change">
                                             <!-- Add Card Header -->
                                             <div class="modal-header">
-                                                <h4 class="modal-title">@lang('provider.card.add_card')</h4>
+                                                <h4 class="modal-title">{{ __('provider.card.add_card') }}</h4>
                                                 <button type="button" class="close"
                                                     data-dismiss="modal">&times;</button>
                                             </div>
@@ -252,22 +226,28 @@
                                                         <div class ="payment-errors"></div>
                                                         <div class="col-sm-12 p-0 card-form">
                                                             <div class="col-sm-12 p-0">
-                                                                <h5 class=""><strong>@lang('user.card.fullname')</strong></h5>
+                                                                <h5 class="">
+                                                                    <strong>{{ __('user.card.fullname') }}</strong>
+                                                                </h5>
                                                                 <input data-stripe="name" autocomplete="off"
                                                                     class="form-control" type="text" required
-                                                                    placeholder="@lang('user.card.fullname')">
+                                                                    placeholder="{{ __('user.card.fullname') }}">
                                                                 <input type="hidden" data-stripe="currency"
                                                                     value="USD" />
                                                             </div>
                                                             <div class="col-sm-12 p-0">
-                                                                <h5 class=""><strong>@lang('user.card.card_no')</strong></h5>
+                                                                <h5 class="">
+                                                                    <strong>{{ __('user.card.card_no') }}</strong>
+                                                                </h5>
                                                                 <input class="form-control numbers" type="text"
                                                                     data-stripe="number" required autocomplete="off"
-                                                                    maxlength="16" placeholder="@lang('user.card.card_no')">
+                                                                    maxlength="16"
+                                                                    placeholder="{{ __('user.card.card_no') }}">
                                                             </div>
                                                             <div class="col-sm-12 dis-row p-0">
                                                                 <div class="col-sm-4">
-                                                                    <h5 class=""><strong>@lang('user.card.month')</strong>
+                                                                    <h5 class="">
+                                                                        <strong>{{ __('user.card.month') }}</strong>
                                                                     </h5>
                                                                     <input class="form-control numbers" type="text"
                                                                         maxlength="2" required autocomplete="off"
@@ -282,11 +262,13 @@
                                                                         placeholder="YY">
                                                                 </div>
                                                                 <div class="ml-2 col-sm-4">
-                                                                    <h5 class=""><strong>@lang('user.card.cvv')</strong>
+                                                                    <h5 class="">
+                                                                        <strong>{{ __('user.card.cvv') }}</strong>
                                                                     </h5>
                                                                     <input class="form-control numbers" type="text"
                                                                         data-stripe="cvc" autocomplete="off" required
-                                                                        maxlength="4" placeholder="@lang('user.card.cvv')">
+                                                                        maxlength="4"
+                                                                        placeholder="{{ __('user.card.cvv') }}">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -294,13 +276,12 @@
                                                     @if (Helper::getDemomode() == 0)
                                                         <div class="modal-footer">
                                                             <button type="submit"
-                                                                class="btn btn-primary btn-block">@lang('provider.save')</button>
+                                                                class="btn btn-primary btn-block">{{ __('provider.save') }}</button>
                                                         </div>
                                                     @endif
                                                 </form>
                                             </div>
                                             <!-- Add Card body -->
-
                                         </div>
                                     </div>
                                 </div>
@@ -322,7 +303,7 @@
                                     <div class="col-md-12 col-sm-12 pro-form dis-ver-center p-0">
                                         <div class="col-md-3 col-sm-12">
                                             <h5 class="" style="padding-top: 0px;">
-                                                <strong>@lang('provider.profile.sunday')</strong>
+                                                <strong>{{ __('provider.profile.sunday') }}</strong>
                                             </h5>
                                         </div>
 
@@ -343,7 +324,7 @@
                                     <div class="col-md-12 col-sm-12 pro-form dis-ver-center p-0">
                                         <div class="col-md-3 col-sm-12">
                                             <h5 class="" style="padding-top: 0px;">
-                                                <strong>@lang('provider.profile.monday')</strong>
+                                                <strong>{{ __('provider.profile.monday') }}</strong>
                                             </h5>
                                         </div>
 
@@ -364,7 +345,7 @@
                                     <div class="col-md-12 col-sm-12 pro-form dis-ver-center p-0">
                                         <div class="col-md-3 col-sm-12">
                                             <h5 class="" style="padding-top: 0px;">
-                                                <strong>@lang('provider.profile.tuesday')</strong>
+                                                <strong>{{ __('provider.profile.tuesday') }}</strong>
                                             </h5>
                                         </div>
 
@@ -385,7 +366,7 @@
                                     <div class="col-md-12 col-sm-12 pro-form dis-ver-center p-0">
                                         <div class="col-md-3 col-sm-12">
                                             <h5 class="" style="padding-top: 0px;">
-                                                <strong>@lang('provider.profile.wednesday')</strong>
+                                                <strong>{{ __('provider.profile.wednesday') }}</strong>
                                             </h5>
                                         </div>
 
@@ -406,7 +387,7 @@
                                     <div class="col-md-12 col-sm-12 pro-form dis-ver-center p-0">
                                         <div class="col-md-3 col-sm-12">
                                             <h5 class="" style="padding-top: 0px;">
-                                                <strong>@lang('provider.profile.thursday')</strong>
+                                                <strong>{{ __('provider.profile.thursday') }}</strong>
                                             </h5>
                                         </div>
 
@@ -427,7 +408,7 @@
                                     <div class="col-md-12 col-sm-12 pro-form dis-ver-center p-0">
                                         <div class="col-md-3 col-sm-12">
                                             <h5 class="" style="padding-top: 0px;">
-                                                <strong>@lang('provider.profile.friday')</strong>
+                                                <strong>{{ __('provider.profile.friday') }}</strong>
                                             </h5>
                                         </div>
 
@@ -448,7 +429,7 @@
                                     <div class="col-md-12 col-sm-12 pro-form dis-ver-center p-0">
                                         <div class="col-md-3 col-sm-12">
                                             <h5 class="" style="padding-top: 0px;">
-                                                <strong>@lang('provider.profile.saturday')</strong>
+                                                <strong>{{ __('provider.profile.saturday') }}</strong>
                                             </h5>
                                         </div>
 
@@ -466,7 +447,7 @@
                                     </div>
 
                                     <button type="submit"
-                                        class="btn btn-success edit-profile mt-5 save">@lang('provider.save')</button>
+                                        class="btn btn-success edit-profile mt-5 save">{{ __('provider.save') }}</button>
                                 </form>
                             </div>
                         </div>

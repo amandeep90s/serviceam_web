@@ -102,13 +102,13 @@
                     <table id="data-table" class="table table-hover table_width display">
                         <thead>
                             <tr>
-                                <th data-value="id">@lang('admin.id')</th>
-                                <th>@lang('admin.transaction_ref')</th>
-                                <th>@lang('admin.admin_service')</th>
-                                <th>@lang('admin.datetime')</th>
-                                <th>@lang('admin.transaction_desc')</th>
-                                <th>@lang('admin.amount_type')</th>
-                                <th>@lang('admin.amount')</th>
+                                <th data-value="id">{{ __('admin.id') }}</th>
+                                <th>{{ __('admin.transaction_ref') }}</th>
+                                <th>{{ __('admin.admin_service') }}</th>
+                                <th>{{ __('admin.datetime') }}</th>
+                                <th>{{ __('admin.transaction_desc') }}</th>
+                                <th>{{ __('admin.amount_type') }}</th>
+                                <th>{{ __('admin.amount') }}</th>
                             </tr>
                         </thead>
                     </table>
@@ -173,7 +173,7 @@
             $('body').on('click', '.view', function(e) {
                 e.preventDefault();
                 $.get("{{ url('admin/requestdetails/') }}/" + $(this).data('id') + "/view", function(
-                data) {
+                    data) {
                     $('.crud-modal .modal-container').html("");
                     $('.crud-modal .modal-container').html(data);
                 });
@@ -206,7 +206,8 @@
                         data.page = info.page + 1;
                         data.search_text = data.search['value'];
                         data.order_by = $(tableName + ' tr').eq(0).find('th').eq(data.order[0][
-                            'column']).data('value');
+                            'column'
+                        ]).data('value');
                         data.order_direction = data.order[0]['dir'];
                     },
                     dataFilter: function(data) {

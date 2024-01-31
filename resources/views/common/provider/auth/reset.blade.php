@@ -16,38 +16,41 @@
 
                     <div class="h-100 col-sm-12 col-md-12 col-lg-12 dis-column">
                         <main class="">
-                            <h5 class="text-center mb-3">@lang('auth.reset_your_password')</h5>
+                            <h5 class="text-center mb-3">{{ __('auth.reset_your_password') }}</h5>
                             <form class=" validateForm">
                                 <div class="col-md-12 p-0 ">
                                     <div id="toaster" class="toaster"></div>
                                     @if (isset($urlparam['at']))
                                         @if ($urlparam['at'] == 'mobile')
                                             <input id="mobile" required name="username" maxlength="15"
-                                                class="intl-tel phone form-control mb-4" placeholder="@lang('auth.phone_number')"
-                                                type="text">
+                                                class="intl-tel phone form-control mb-4"
+                                                placeholder="{{ __('auth.phone_number') }}" type="text">
                                         @else
                                             <input id="email" name="username" class="form-control mb-4"
-                                                placeholder="@lang('auth.email_address')" type="email" aria-required="true"
-                                                required>
+                                                placeholder="{{ __('auth.email_address') }}" type="email"
+                                                aria-required="true" required>
                                         @endif
                                     @endif
                                     <input id="enterOtp" name="otp" class="form-control mb-4"
-                                        placeholder="@lang('auth.enter_otp_received')" type="text" aria-required="true" required>
+                                        placeholder="{{ __('auth.enter_otp_received') }}" type="text"
+                                        aria-required="true" required>
                                     <input id="newPass" name="password" class="form-control mb-4"
-                                        placeholder="@lang('auth.new_password')" type="password" aria-required="true" required
-                                        autocomplete="fa">
+                                        placeholder="{{ __('auth.new_password') }}" type="password" aria-required="true"
+                                        required autocomplete="fa">
                                     <input id="confirmPass" name="password_confirmation" class="form-control mb-4"
-                                        placeholder="@lang('auth.confirm_password')" type="password" aria-required="true" required>
+                                        placeholder="{{ __('auth.confirm_password') }}" type="password" aria-required="true"
+                                        required>
                                     <input id="accountType" name="account_type" type="hidden"
                                         value="{{ isset($urlparam['at']) ? $urlparam['at'] : '' }}">
                                     <button type="submit"
-                                        class="btn btn-block btn-secondary btn-md mb-2 signup">@lang('auth.continue')<i
+                                        class="btn btn-block btn-secondary btn-md mb-2 signup">{{ __('auth.continue') }}<i
                                             class="fa fa-arrow-circle-right ml-2" aria-hidden="true"></i></button>
                                 </div>
                             </form>
                             <div class="mt-2">
                                 <a href="{{ url('user/login') }}" id="sign" class="txt-secondary sign-up-link"><i
-                                        class="fa fa-arrow-circle-left mr-2" aria-hidden="true"></i>@lang('auth.back_to_login')</a>
+                                        class="fa fa-arrow-circle-left mr-2"
+                                        aria-hidden="true"></i>{{ __('auth.back_to_login') }}</a>
                             </div>
                         </main>
                     </div>

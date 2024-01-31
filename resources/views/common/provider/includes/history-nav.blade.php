@@ -1,7 +1,7 @@
 <div class="sidebar clearfix m-b-20">
     <div class="main-block">
         <div class="sidebar-title white-txt">
-            <h6>@lang('provider.history')</h6>
+            <h6>{{ __('provider.history') }}</h6>
             <i class="fa fa-history pull-right"></i>
         </div>
         <form>

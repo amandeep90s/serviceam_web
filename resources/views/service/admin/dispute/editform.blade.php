@@ -11,22 +11,26 @@
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="dispute_type" class="col-xs-2 col-form-label">@lang('admin.dispute.dispute_type')</label>
+                        <label for="dispute_type"
+                            class="col-xs-2 col-form-label">{{ __('admin.dispute.dispute_type') }}</label>
                         <input class="form-control" type="text" name="name" id="dispute_type" disabled="">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="dispute_user" class="col-xs-2 col-form-label">@lang('admin.dispute.dispute_user') /
-                            @lang('admin.dispute.dispute_provider')</label>
+                        <label for="dispute_user" class="col-xs-2 col-form-label">{{ __('admin.dispute.dispute_user') }}
+                            /
+                            {{ __('admin.dispute.dispute_provider') }}</label>
                         <input class="form-control" type="text" name="name" id="dispute_user" disabled="">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="lost_item_name" class="col-xs-2 col-form-label">@lang('admin.lostitem.request')</label>
+                        <label for="lost_item_name" class="col-xs-2 col-form-label">
+                            {{ __('admin.lostitem.request') }}
+                        </label>
                         <table class="table table-striped table-bordered dataTable requestList">
                             <thead>
                                 <tr>
@@ -34,31 +38,33 @@
                                     <th>Service Type </th>
                                 </tr>
                             </thead>
-                            <tbody id="tbody">
-
-                            </tbody>
-
+                            <tbody id="tbody"></tbody>
                         </table>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="lost_item_name" class="col-xs-2 col-form-label">@lang('admin.dispute.dispute_name')</label>
-                        <textarea class="form-control" name="dispute_other" id ="dispute_name" placeholder="@lang('admin.dispute.dispute_name')" disabled=""></textarea>
+                        <label for="lost_item_name"
+                            class="col-xs-2 col-form-label">{{ __('admin.dispute.dispute_name') }}</label>
+                        <textarea class="form-control" name="dispute_other" id ="dispute_name"
+                            placeholder="{{ __('admin.dispute.dispute_name') }}" disabled=""></textarea>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="lost_item_name" class="col-xs-2 col-form-label">@lang('admin.dispute.dispute_comments')</label>
-                        <textarea class="form-control" name="comments" id="dispute_comments" placeholder="@lang('admin.dispute.dispute_comments')" required=""></textarea>
+                        <label for="lost_item_name"
+                            class="col-xs-2 col-form-label">{{ __('admin.dispute.dispute_comments') }}</label>
+                        <textarea class="form-control" name="comments" id="dispute_comments"
+                            placeholder="{{ __('admin.dispute.dispute_comments') }}" required=""></textarea>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="lost_item_name" class="col-xs-2 col-form-label">@lang('admin.dispute.dispute_refund') <span
+                        <label for="lost_item_name"
+                            class="col-xs-2 col-form-label">{{ __('admin.dispute.dispute_refund') }} <span
                                 class="currency"></span></label>
                         <input class="form-control decimal" type="text" name="refund_amount" id="refund_amount">
                     </div>
@@ -66,23 +72,20 @@
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="status" class="col-xs-2 col-form-label">@lang('admin.dispute.dispute_status')</label>
+                        <label for="status"
+                            class="col-xs-2 col-form-label">{{ __('admin.dispute.dispute_status') }}</label>
                         <input class="form-control" type="text" readonly value="" id="editstatus"
                             name="status">
                     </div>
                 </div>
-
-
-
                 <br>
-                <button type="submit" class="btn btn-accent ">@lang('admin.dispute.update_service_dispute')</button>
+                <button type="submit"
+                    class="btn btn-accent ">{{ __('admin.dispute.update_service_dispute') }}</button>
                 <button type="reset" class="btn btn-danger cancel">Cancel</button>
-
             </form>
         </div>
     </div>
 </div>
-
 
 <script>
     $(document).ready(function() {

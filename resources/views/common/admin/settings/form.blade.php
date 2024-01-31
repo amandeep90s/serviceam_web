@@ -92,7 +92,8 @@
                                 <div class="form-row">
 
                                     <div class="col-xl-12">
-                                        <label for="site_title" class="col-form-label">@lang('admin.setting.Site_Name')</label>
+                                        <label for="site_title"
+                                            class="col-form-label">{{ __('admin.setting.Site_Name') }}</label>
                                         <input class="form-control" type="text"
                                             value="{{ Helper::getSettings()->site->site_title }}" name="site_title" required
                                             id="site_title" placeholder="Site Name">
@@ -103,7 +104,8 @@
 
                                 <div class="form-row">
                                     <div class="col-xl-6">
-                                        <label for="site_icon" class="col-form-label">@lang('admin.setting.Site_Icon')</label>
+                                        <label for="site_icon"
+                                            class="col-form-label">{{ __('admin.setting.Site_Icon') }}</label>
                                         @if (config('constants.site_icon') != '')
                                             <img style="height: 90px; margin-bottom: 15px;" src="">
                                         @endif
@@ -112,7 +114,8 @@
                                             aria-describedby="fileHelp">
                                     </div>
                                     <div class="col-xl-6">
-                                        <label for="site_logo" class="col-xs-3 col-form-label">@lang('admin.setting.Site_Logo')</label>
+                                        <label for="site_logo"
+                                            class="col-xs-3 col-form-label">{{ __('admin.setting.Site_Logo') }}</label>
 
                                         @if (config('constants.site_logo') != '')
                                             <img style="height: 90px; margin-bottom: 15px;" src="">
@@ -127,14 +130,15 @@
                                 <div class="form-row">
                                     <div class="col-xl-6">
                                         <label for="contact_number"
-                                            class="col-xs-3 col-form-label">@lang('admin.setting.Contact_Number')</label>
+                                            class="col-xs-3 col-form-label">{{ __('admin.setting.Contact_Number') }}</label>
                                         <input class="form-control phone" type="tel" minlength="6"
                                             name="contact_number" required id="contact_number"
                                             placeholder="Contact Number"
                                             value="{{ Helper::getSettings()->site->contact_number[0]->number }}">
                                     </div>
                                     <div class="col-xl-6">
-                                        <label for="contact_email" class="col-form-label">@lang('admin.setting.Contact_Email')</label>
+                                        <label for="contact_email"
+                                            class="col-form-label">{{ __('admin.setting.Contact_Email') }}</label>
                                         <input class="form-control" type="email"
                                             value="{{ Helper::getSettings()->site->contact_email }}" name="contact_email"
                                             required id="contact_email" placeholder="Contact Email">
@@ -144,13 +148,15 @@
 
                                 <div class="form-row">
                                     <div class="col-xl-6">
-                                        <label for="sos_number" class="col-form-label">@lang('admin.setting.SOS_Number')</label>
+                                        <label for="sos_number"
+                                            class="col-form-label">{{ __('admin.setting.SOS_Number') }}</label>
                                         <input class="form-control phone" type="tel" minlength="1" maxlength="10"
                                             required value="{{ Helper::getSettings()->site->sos_number }}"
                                             name="sos_number" id="sos_number" placeholder="SOS Number">
                                     </div>
                                     <div class="col-xl-6">
-                                        <label for="tax_percentage" class=" col-form-label">@lang('admin.setting.Copyright_Content')</label>
+                                        <label for="tax_percentage"
+                                            class=" col-form-label">{{ __('admin.setting.Copyright_Content') }}</label>
                                         <input class="form-control" type="text"
                                             value="{{ Helper::getSettings()->site->site_copyright }}"
                                             name="site_copyright" id="site_copyright" placeholder="Site Copyright">
@@ -174,60 +180,60 @@
                                 <div class="form-row">
                                     <div class="col-xl-6">
                                         <label for="store_link_android_user"
-                                            class="col-xs-3 col-form-label">@lang('admin.setting.Android_user_link')</label>
+                                            class="col-xs-3 col-form-label">{{ __('admin.setting.Android_user_link') }}</label>
                                         <input class="form-control" type="text"
                                             value="{{ Helper::getSettings()->site->store_link_android_user }}"
                                             name="store_link_android_user" id="store_link_android_user"
-                                            placeholder="@lang('admin.setting.Android_user_link')">
+                                            placeholder="{{ __('admin.setting.Android_user_link') }}">
                                     </div>
 
                                     <div class="col-xl-6">
                                         <label for="store_link_android_provider"
-                                            class="col-xs-3 col-form-label">@lang('admin.setting.Android_provider_link')</label>
+                                            class="col-xs-3 col-form-label">{{ __('admin.setting.Android_provider_link') }}</label>
                                         <input class="form-control" type="text"
                                             value="{{ Helper::getSettings()->site->store_link_android_provider }}"
                                             name="store_link_android_provider" id="store_link_android_provider"
-                                            placeholder="@lang('admin.setting.Android_provider_link')">
+                                            placeholder="{{ __('admin.setting.Android_provider_link') }}">
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="col-xl-6">
                                         <label for="store_link_ios_user"
-                                            class="col-xs-3 col-form-label">@lang('admin.setting.Ios_user_Link')</label>
+                                            class="col-xs-3 col-form-label">{{ __('admin.setting.Ios_user_Link') }}</label>
                                         <input class="form-control" type="text"
                                             value="{{ Helper::getSettings()->site->store_link_ios_user }}"
                                             name="store_link_ios_user" id="store_link_ios_user"
-                                            placeholder="@lang('admin.setting.Ios_user_Link')">
+                                            placeholder="{{ __('admin.setting.Ios_user_Link') }}">
                                     </div>
 
                                     <div class="col-xl-6">
                                         <label for="store_link_ios_provider"
-                                            class="col-xs-3 col-form-label">@lang('admin.setting.Ios_provider_Link')</label>
+                                            class="col-xs-3 col-form-label">{{ __('admin.setting.Ios_provider_Link') }}</label>
                                         <input class="form-control" type="text"
                                             value="{{ Helper::getSettings()->site->store_link_ios_provider }}"
                                             name="store_link_ios_provider" id="store_link_ios_provider"
-                                            placeholder="@lang('admin.setting.Ios_provider_Link')">
+                                            placeholder="{{ __('admin.setting.Ios_provider_Link') }}">
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="col-xl-6">
                                         <label for="store_facebook_link"
-                                            class="col-xs-3 col-form-label">@lang('admin.setting.Facebook_Link')</label>
+                                            class="col-xs-3 col-form-label">{{ __('admin.setting.Facebook_Link') }}</label>
                                         <input class="form-control" type="text"
                                             value="{{ Helper::getSettings()->site->store_facebook_link }}"
                                             name="store_facebook_link" id="store_facebook_link"
-                                            placeholder="@lang('admin.setting.Facebook_Link')">
+                                            placeholder="{{ __('admin.setting.Facebook_Link') }}">
                                     </div>
 
                                     <div class="col-xl-6">
                                         <label for="store_twitter_link"
-                                            class="col-xs-3 col-form-label">@lang('admin.setting.Twitter_Link')</label>
+                                            class="col-xs-3 col-form-label">{{ __('admin.setting.Twitter_Link') }}</label>
                                         <input class="form-control" type="text"
                                             value="{{ Helper::getSettings()->site->store_twitter_link }}"
                                             name="store_twitter_link" id="store_twitter_link"
-                                            placeholder="@lang('admin.setting.Twitter_Link')">
+                                            placeholder="{{ __('admin.setting.Twitter_Link') }}">
                                     </div>
                                 </div>
                                 @if (Helper::getDemomode() == 0)
@@ -247,7 +253,7 @@
 
 
                                 <div class="form-group">
-                                    <label for="social_login">@lang('admin.setting.Social_Login')</label>
+                                    <label for="social_login">{{ __('admin.setting.Social_Login') }}</label>
                                     <br>
                                     <div class="custom-control custom-toggle">
                                         <input {{ Helper::getSettings()->site->social_login == '1' ? 'checked' : '' }}
@@ -262,23 +268,23 @@
                                     <hr>
                                     <div class="form-group">
                                         <label for="facebook_app_id"
-                                            class="col-xs-3 col-form-label">@lang('admin.setting.facebook_app_id')</label>
+                                            class="col-xs-3 col-form-label">{{ __('admin.setting.facebook_app_id') }}</label>
                                         <div class="col-xs-9">
                                             <input class="form-control" type="text"
                                                 value="{{ Helper::getSettings()->site->facebook_app_id }}"
                                                 name="facebook_app_id" id="facebook_app_id"
-                                                placeholder="@lang('admin.setting.facebook_app_id')">
+                                                placeholder="{{ __('admin.setting.facebook_app_id') }}">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="facebook_app_secret"
-                                            class="col-xs-3 col-form-label">@lang('admin.setting.facebook_app_secret')</label>
+                                            class="col-xs-3 col-form-label">{{ __('admin.setting.facebook_app_secret') }}</label>
                                         <div class="col-xs-9">
                                             <input class="form-control" type="text"
                                                 value="{{ Helper::getSettings()->site->facebook_app_secret }}"
                                                 name="facebook_app_secret" id="facebook_app_secret"
-                                                placeholder="@lang('admin.setting.facebook_app_secret')">
+                                                placeholder="{{ __('admin.setting.facebook_app_secret') }}">
                                         </div>
                                     </div>
 
@@ -287,12 +293,12 @@
 
                                     <div class="form-group">
                                         <label for="google_client_id"
-                                            class="col-xs-3 col-form-label">@lang('admin.setting.google_client_id')</label>
+                                            class="col-xs-3 col-form-label">{{ __('admin.setting.google_client_id') }}</label>
                                         <div class="col-xs-9">
                                             <input class="form-control" type="text"
                                                 value="{{ Helper::getSettings()->site->google_client_id }}"
                                                 name="google_client_id" id="google_client_id"
-                                                placeholder="@lang('admin.setting.google_client_id')">
+                                                placeholder="{{ __('admin.setting.google_client_id') }}">
                                         </div>
                                     </div>
 
@@ -316,63 +322,69 @@
 
                                 <div class="form-group">
 
-                                    <label for="browser_key" class="col-xs-3 col-form-label">@lang('admin.setting.browser_key')</label>
+                                    <label for="browser_key"
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.browser_key') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control" type="text"
                                             value="{{ Helper::getSettings()->site->browser_key }}" name="browser_key"
-                                            required id="browser_key" placeholder="@lang('admin.setting.browser_key')">
+                                            required id="browser_key"
+                                            placeholder="{{ __('admin.setting.browser_key') }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
 
-                                    <label for="server_key" class="col-xs-3 col-form-label">@lang('admin.setting.server_key')</label>
+                                    <label for="server_key"
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.server_key') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control" type="text"
                                             value="{{ Helper::getSettings()->site->server_key }}" name="server_key"
-                                            required id="server_key" placeholder="@lang('admin.setting.server_key')">
+                                            required id="server_key" placeholder="{{ __('admin.setting.server_key') }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
 
-                                    <label for="android_key" class="col-xs-3 col-form-label">@lang('admin.setting.android_key')</label>
+                                    <label for="android_key"
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.android_key') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control" type="text"
                                             value="{{ Helper::getSettings()->site->android_key }}" name="android_key"
-                                            required id="android_key" placeholder="@lang('admin.setting.android_key')">
+                                            required id="android_key"
+                                            placeholder="{{ __('admin.setting.android_key') }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
 
-                                    <label for="ios_key" class="col-xs-3 col-form-label">@lang('admin.setting.ios_key')</label>
+                                    <label for="ios_key"
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.ios_key') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control" type="text"
                                             value="{{ Helper::getSettings()->site->ios_key }}" name="ios_key" required
-                                            id="ios_key" placeholder="@lang('admin.setting.ios_key')">
+                                            id="ios_key" placeholder="{{ __('admin.setting.ios_key') }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="facebook_app_version"
-                                        class="col-xs-3 col-form-label">@lang('admin.setting.fb_app_version')</label>
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.fb_app_version') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control" type="text"
                                             value="{{ isset(Helper::getSettings()->site->facebook_app_version) ? Helper::getSettings()->site->facebook_app_version : '' }}"
                                             name="facebook_app_version" required id="facebook_app_version"
-                                            placeholder="@lang('admin.setting.fb_app_version')">
+                                            placeholder="{{ __('admin.setting.fb_app_version') }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="facebook_app_secret"
-                                        class="col-xs-3 col-form-label">@lang('admin.setting.fb_app_secret')</label>
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.fb_app_secret') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control" type="text"
                                             value="{{ isset(Helper::getSettings()->site->facebook_app_secret) ? Helper::getSettings()->site->facebook_app_secret : '' }}"
                                             name="facebook_app_secret" required id="facebook_app_secret"
-                                            placeholder="@lang('admin.setting.fb_app_secret')">
+                                            placeholder="{{ __('admin.setting.fb_app_secret') }}">
                                     </div>
                                 </div>
                                 @if (Helper::getDemomode() == 0)
@@ -390,7 +402,7 @@
                         <div class="col-xs-12">
                             <div class="col-md-12">
                                 <div class="form-group" id="mail_request">
-                                    <label for="customToggle2"> @lang('admin.setting.send_mail')</label>
+                                    <label for="customToggle2"> {{ __('admin.setting.send_mail') }}</label>
                                     <br>
                                     <div class="custom-control custom-toggle">
                                         <input {{ Helper::getSettings()->site->send_email == '1' ? 'checked' : '' }}
@@ -400,103 +412,114 @@
                                     </div>
                                 </div>
                                 <div class="form-group hidemail">
-                                    <label for="social_login" class="col-xs-3 col-form-label">@lang('admin.setting.mail_driver')</label>
+                                    <label for="social_login"
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.mail_driver') }}</label>
                                     <div class="col-xs-9">
                                         <select class="form-control" name="mail_driver" required id="mail_driver">
                                             <option value="SMTP"
                                                 {{ Helper::getSettings()->site->mail_driver == 'SMTP' ? 'selected' : '' }}>
-                                                @lang('admin.setting.smtp')</option>
+                                                {{ __('admin.setting.smtp') }}</option>
                                             <option value="MAILGUN"
                                                 {{ Helper::getSettings()->site->mail_driver == 'MAILGUN' ? 'selected' : '' }}>
-                                                @lang('admin.setting.mailgun')
+                                                {{ __('admin.setting.mailgun') }}
                                             </option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="form-group hidemail">
-                                    <label for="mail_host" class="col-xs-3 col-form-label">@lang('admin.setting.mail_host')</label>
+                                    <label for="mail_host"
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.mail_host') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control" type="text"
                                             value="{{ isset(Helper::getSettings()->site->mail_host) ? Helper::getSettings()->site->mail_host : '' }}"
-                                            name="mail_host" required id="mail_host" placeholder="@lang('admin.setting.mail_host')">
+                                            name="mail_host" required id="mail_host"
+                                            placeholder="{{ __('admin.setting.mail_host') }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group hidemail">
-                                    <label for="mail_port" class="col-xs-3 col-form-label">@lang('admin.setting.mail_port')</label>
+                                    <label for="mail_port"
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.mail_port') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control" type="text"
                                             value="{{ Helper::getSettings()->site->mail_port }}" name="mail_port"
-                                            required id="mail_port" placeholder="@lang('admin.setting.mail_port')">
+                                            required id="mail_port" placeholder="{{ __('admin.setting.mail_port') }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group hidemail">
-                                    <label for="mail_username" class="col-xs-3 col-form-label">@lang('admin.setting.mail_username')</label>
+                                    <label for="mail_username"
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.mail_username') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control" type="text"
                                             value="{{ Helper::getSettings()->site->mail_username }}" name="mail_username"
-                                            required id="mail_username" placeholder="@lang('admin.setting.mail_username')">
+                                            required id="mail_username"
+                                            placeholder="{{ __('admin.setting.mail_username') }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group hidemail">
-                                    <label for="mail_password" class="col-xs-3 col-form-label">@lang('admin.setting.mail_password')</label>
+                                    <label for="mail_password"
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.mail_password') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control" type="text"
                                             value="{{ Helper::getSettings()->site->mail_password }}" name="mail_password"
-                                            required id="mail_password" placeholder="@lang('admin.setting.mail_password')">
+                                            required id="mail_password"
+                                            placeholder="{{ __('admin.setting.mail_password') }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group hidemail">
                                     <label for="mail_from_address"
-                                        class="col-xs-3 col-form-label">@lang('admin.setting.mail_from_address')</label>
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.mail_from_address') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control" type="email"
                                             value="{{ Helper::getSettings()->site->mail_from_address }}"
                                             name="mail_from_address" required id="mail_from_address"
-                                            placeholder="@lang('admin.setting.mail_from_address')">
+                                            placeholder="{{ __('admin.setting.mail_from_address') }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group hidemail">
-                                    <label for="mail_from_name" class="col-xs-3 col-form-label">@lang('admin.setting.mail_from_name')</label>
+                                    <label for="mail_from_name"
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.mail_from_name') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control" type="text"
                                             value="{{ Helper::getSettings()->site->mail_from_name }}"
                                             name="mail_from_name" required id="mail_from_name"
-                                            placeholder="@lang('admin.setting.mail_from_name')">
+                                            placeholder="{{ __('admin.setting.mail_from_name') }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group hidemail">
                                     <label for="mail_encryption"
-                                        class="col-xs-3 col-form-label">@lang('admin.setting.mail_encryption')</label>
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.mail_encryption') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control" type="text"
                                             value="{{ Helper::getSettings()->site->mail_encryption }}"
                                             name="mail_encryption" required id="mail_encryption"
-                                            placeholder="@lang('admin.setting.mail_encryption')">
+                                            placeholder="{{ __('admin.setting.mail_encryption') }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group hidemail mail_domain">
-                                    <label for="mail_domain" class="col-xs-3 col-form-label">@lang('admin.setting.mail_domain')</label>
+                                    <label for="mail_domain"
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.mail_domain') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control" type="text"
                                             value="{{ Helper::getSettings()->site->mail_domain }}" name="mail_domain"
-                                            id="mail_domain" placeholder="@lang('admin.setting.mail_domain')">
+                                            id="mail_domain" placeholder="{{ __('admin.setting.mail_domain') }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group hidemail mail_secret">
-                                    <label for="mail_secret" class="col-xs-3 col-form-label">@lang('admin.setting.mail_secret')</label>
+                                    <label for="mail_secret"
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.mail_secret') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control" type="text"
                                             value="{{ Helper::getSettings()->site->mail_secret }}" name="mail_secret"
-                                            id="mail_secret" placeholder="@lang('admin.setting.mail_secret')">
+                                            id="mail_secret" placeholder="{{ __('admin.setting.mail_secret') }}">
                                     </div>
                                 </div>
                             </div>
@@ -504,7 +527,7 @@
                         <div id="sms" class="col-md-12 row ">
                             <div class="col-md-12">
                                 <div class="form-group" id="sms_request">
-                                    <label for="customToggle6"> @lang('admin.setting.send_sms')</label>
+                                    <label for="customToggle6"> {{ __('admin.setting.send_sms') }}</label>
                                     <br>
                                     <div class="custom-control custom-toggle">
                                         <input type="checkbox" id="sendsmsCheck" name="send_sms"
@@ -514,48 +537,50 @@
                                     </div>
                                 </div>
                                 <div class="form-group hidesms">
-                                    <label for="social_login" class="col-xs-3 col-form-label">@lang('admin.setting.sms_provider')</label>
+                                    <label for="social_login"
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.sms_provider') }}</label>
                                     <div class="col-xs-9">
                                         <select class="form-control" name="sms_driver" required id="sms_driver">
                                             <option value=''>No SMS</option>
                                             <option value="TWILIO"
                                                 {{ Helper::getSettings()->site->sms_provider == 'TWILIO' ? 'selected' : '' }}>
-                                                @lang('admin.setting.twilio')
+                                                {{ __('admin.setting.twilio') }}
                                             </option>
                                             <option value="MSG91"
                                                 {{ Helper::getSettings()->site->sms_provider == 'MSG91' ? 'selected' : '' }}>
-                                                @lang('admin.setting.msg91')
+                                                {{ __('admin.setting.msg91') }}
                                             </option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group hidesms twilInputs">
                                     <label for="sms_account_sid"
-                                        class="col-xs-3 col-form-label">@lang('admin.setting.twilio_settings.sms_twilio_sid')</label>
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.twilio_settings.sms_twilio_sid') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control" type="text"
                                             value="{{ Helper::getSettings()->site->sms_account_sid }}"
                                             name="sms_account_sid" required id="sms_account_sid"
-                                            placeholder="@lang('admin.setting.twilio_settings.sms_twilio_sid')">
+                                            placeholder="{{ __('admin.setting.twilio_settings.sms_twilio_sid') }}">
                                     </div>
                                 </div>
                                 <div class="form-group hidesms twilInputs">
-                                    <label for="sms_auth_token" class="col-xs-3 col-form-label">@lang('admin.setting.twilio_settings.sms_auth_token')</label>
+                                    <label for="sms_auth_token"
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.twilio_settings.sms_auth_token') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control" type="text"
                                             value="{{ Helper::getSettings()->site->sms_auth_token }}"
                                             name="sms_auth_token" required id="sms_auth_token"
-                                            placeholder="@lang('admin.setting.twilio_settings.sms_auth_token')">
+                                            placeholder="{{ __('admin.setting.twilio_settings.sms_auth_token') }}">
                                     </div>
                                 </div>
                                 <div class="form-group hidesms twilInputs">
                                     <label for="sms_from_number"
-                                        class="col-xs-3 col-form-label">@lang('admin.setting.twilio_settings.sms_from_number')</label>
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.twilio_settings.sms_from_number') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control" type="text"
                                             value="{{ Helper::getSettings()->site->sms_from_number }}"
                                             name="sms_from_number" required id="sms_from_number"
-                                            placeholder="@lang('admin.setting.twilio_settings.sms_from_number')">
+                                            placeholder="{{ __('admin.setting.twilio_settings.sms_from_number') }}">
                                     </div>
                                 </div>
                             </div>
@@ -576,7 +601,8 @@
                             <div class="col-md-12">
 
                                 <div class="form-group">
-                                    <label for="mail_driver" class="col-xs-3 col-form-label">@lang('admin.setting.environment')</label>
+                                    <label for="mail_driver"
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.environment') }}</label>
                                     <div class="col-xs-9">
                                         <select name="environment" required id="environment" class="form-control">
                                             <option value="development">Development</option>
@@ -586,38 +612,44 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="mail_driver" class="col-xs-3 col-form-label">@lang('admin.setting.ios_push_user_pem')</label>
+                                    <label for="mail_driver"
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.ios_push_user_pem') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control" type="file" value="" name="user_pem"
-                                            id="user_pem" autocomplete="off" placeholder="@lang('admin.setting.ios_push_user_pem')">
+                                            id="user_pem" autocomplete="off"
+                                            placeholder="{{ __('admin.setting.ios_push_user_pem') }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="mail_driver" class="col-xs-3 col-form-label">@lang('admin.setting.ios_push_provider_pem')</label>
+                                    <label for="mail_driver"
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.ios_push_provider_pem') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control" type="file" value="" name="provider_pem"
-                                            id="provider_pem" autocomplete="off" placeholder="@lang('admin.setting.ios_push_provider_pem')">
+                                            id="provider_pem" autocomplete="off"
+                                            placeholder="{{ __('admin.setting.ios_push_provider_pem') }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="mail_host" class="col-xs-3 col-form-label">@lang('admin.setting.ios_push_password')</label>
+                                    <label for="mail_host"
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.ios_push_password') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control" type="text"
                                             value="{{ Helper::getSettings()->site->ios_push_password }}"
                                             name="ios_push_password" required id="ios_push_password"
-                                            placeholder="@lang('admin.setting.ios_push_password')">
+                                            placeholder="{{ __('admin.setting.ios_push_password') }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="mail_port" class="col-xs-3 col-form-label">@lang('admin.setting.android_push_key')</label>
+                                    <label for="mail_port"
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.android_push_key') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control" type="text"
                                             value="{{ Helper::getSettings()->site->android_push_key }}"
                                             name="android_push_key" required id="android_push_key"
-                                            placeholder="@lang('admin.setting.android_push_key')">
+                                            placeholder="{{ __('admin.setting.android_push_key') }}">
                                     </div>
                                 </div>
                                 @if (Helper::getDemomode() == 0)
@@ -690,25 +722,26 @@
 
                                     <div class="form-group">
                                         <label for="service_accept_timeout"
-                                            class="col-xs-3 col-form-label">@lang('admin.setting.Provider_Accept_Timeout')
+                                            class="col-xs-3 col-form-label">{{ __('admin.setting.Provider_Accept_Timeout') }}
                                             (Secs)</label>
                                         <div class="col-xs-9">
                                             <input class="form-control number" type="text"
                                                 value="{{ Helper::getSettings()->service->provider_select_timeout }}"
                                                 name="service_provider_select_timeout" required
-                                                id="service_accept_timeout" placeholder="@lang('admin.setting.Provider_Accept_Timeout')">
+                                                id="service_accept_timeout"
+                                                placeholder="{{ __('admin.setting.Provider_Accept_Timeout') }}">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="service_search_radius"
-                                            class="col-xs-3 col-form-label">@lang('admin.setting.Provider_Search_Radius')
+                                            class="col-xs-3 col-form-label">{{ __('admin.setting.Provider_Search_Radius') }}
                                             (Miles)</label>
                                         <div class="col-xs-9">
                                             <input class="form-control number" type="text"
                                                 value="{{ Helper::getSettings()->service->provider_search_radius }}"
                                                 name="service_provider_search_radius" required id="service_search_radius"
-                                                placeholder="@lang('admin.setting.Provider_Search_Radius')">
+                                                placeholder="{{ __('admin.setting.Provider_Search_Radius') }}">
                                         </div>
                                     </div>
 
@@ -726,12 +759,12 @@
 
                                     <div class="form-group">
                                         <label for="service_booking_prefix"
-                                            class="col-xs-3 col-form-label">@lang('admin.payment.booking_id_prefix')</label>
+                                            class="col-xs-3 col-form-label">{{ __('admin.payment.booking_id_prefix') }}</label>
                                         <div class="col-xs-8">
                                             <input class="form-control" type="text"
                                                 value="{{ Helper::getSettings()->service->booking_prefix }}"
                                                 id="service_booking_prefix" name="service_booking_prefix" required
-                                                placeholder="@lang('admin.payment.booking_id_prefix')">
+                                                placeholder="{{ __('admin.payment.booking_id_prefix') }}">
                                         </div>
                                     </div>
 
@@ -753,7 +786,7 @@
                         <div class="col-xs-12">
                             <div class="col-md-12">
                                 <div class="form-group" id="referral_request">
-                                    <label for="referral"> @lang('admin.setting.referral')</label>
+                                    <label for="referral"> {{ __('admin.setting.referral') }}</label>
                                     <br>
                                     <div class="custom-control custom-toggle">
                                         <input {{ Helper::getSettings()->site->referral == '1' ? 'checked' : '' }}
@@ -764,44 +797,45 @@
                                 </div>
 
                                 <div class="form-group hidereferral">
-                                    <label for="referral_count" class="col-xs-3 col-form-label">@lang('admin.setting.referral_count')</label>
+                                    <label for="referral_count"
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.referral_count') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control number" type="text"
                                             value="{{ Helper::getSettings()->site->referral_count }}"
                                             name="referral_count" required id="referral_count"
-                                            placeholder="@lang('admin.setting.referral_count')" min="0">
+                                            placeholder="{{ __('admin.setting.referral_count') }}" min="0">
                                     </div>
                                 </div>
 
                                 <div class="form-group hidereferral">
                                     <label for="referral_amount"
-                                        class="col-xs-3 col-form-label">@lang('admin.setting.referral_amount')</label>
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.referral_amount') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control price" type="text"
                                             value="{{ Helper::getSettings()->site->referral_amount }}"
                                             name="referral_amount" required id="referral_amount"
-                                            placeholder="@lang('admin.setting.referral_amount')">
+                                            placeholder="{{ __('admin.setting.referral_amount') }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group ">
                                     <label for="referral_amount"
-                                        class="col-xs-3 col-form-label">@lang('admin.setting.provider_max_negetive_balance')</label>
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.provider_max_negetive_balance') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control " type="text"
                                             value="{{ @Helper::getSettings()->site->provider_negative_balance }}"
                                             name="provider_negative_balance" required id="provider_negative_balance"
-                                            placeholder="@lang('admin.setting.negetive_amount')">
+                                            placeholder="{{ __('admin.setting.negetive_amount') }}">
                                     </div>
                                 </div>
 
                                 <div class="form-group ">
                                     <label for="referral_amount"
-                                        class="col-xs-3 col-form-label">@lang('admin.setting.Country_code')</label>
+                                        class="col-xs-3 col-form-label">{{ __('admin.setting.Country_code') }}</label>
                                     <div class="col-xs-9">
                                         <input class="form-control " type="text" value="<?php echo isset(Helper::getSettings()->site->country_code) ? Helper::getSettings()->site->country_code : 'in'; ?>"
                                             name="country_code" required id="country_code"
-                                            placeholder="@lang('admin.setting.Country_code')">
+                                            placeholder="{{ __('admin.setting.Country_code') }}">
                                     </div>
                                 </div>
 

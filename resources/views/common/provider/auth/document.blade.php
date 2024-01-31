@@ -20,7 +20,7 @@
             </div>
             <div class="clearfix tab-content">
 
-                <h5 style="color: red" id="mynote">@lang('provider.document_note')</h5>
+                <h5 style="color: red" id="mynote">{{ __('provider.document_note') }}</h5>
 
                 <div role="tabpanel" class="tab-pane  col-sm-12 col-md-12 col-lg-12 p-0" id="TRANSPORT">
                     <div class="col-md-12 p-0">

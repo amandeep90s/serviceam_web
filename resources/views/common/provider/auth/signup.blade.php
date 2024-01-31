@@ -19,20 +19,18 @@
 
                         <div id="toaster" class="toaster"></div>
 
-                        <h6 class="mb-3 signup-h6"><strong><!-- @lang('auth.welcome_create_account') --></strong></h6>
+                        <h6 class="mb-3 signup-h6">
+                            <strong></strong>
+                        </h6>
 
                         <form class="validateForm">
 
                             <div class="choose-mode mb-3 col-sm-12 col-md-12 col-lg-12 signup-choose">
-                                <!--  <span class="radio-box"><input type="radio" checked="checked" name="sfilter" value="phone" id="filt1-6"><label for="filt1-6">@lang('auth.phone_number')</label></span> -->
-                                <!-- <span class="radio-box"><input type="radio" checked="checked" name="sfilter" value="email" id="filt1-7"><label for="filt1-7">@lang('auth.email')</label></span> -->
+
                             </div>
 
-                            <!-- <input id="mobile" name="mobile" maxlength="15" class="intl-tel phone form-control mb-4" placeholder="@lang('auth.phone_number')" type="text" > -->
-
                             <input id="email" name="email" class="form-control mb-4"
-                                   placeholder="@lang('auth.email_address')"
-                                   type="email" aria-required="true">
+                                placeholder="{{ __('auth.email_address') }}" type="email" aria-required="true">
 
                             <p class="show_message">
                             <p class="new_show_message"></p>
@@ -41,69 +39,57 @@
                                 <div class="col-sm-12 col-md-12 col-lg-12 p-0 d-flex">
                                     <div class="col-sm-6 p-0 mr-1">
                                         <input id="first_name" name="first_name" class="form-control mb-4" value=""
-                                               placeholder="@lang('auth.first_name')" type="text">
+                                            placeholder="{{ __('auth.first_name') }}" type="text">
                                     </div>
                                     <div class="col-sm-6 p-0">
                                         <input id="last_name" name="last_name" class="form-control mb-4" value=""
-                                               placeholder="@lang('auth.last_name')" type="text">
+                                            placeholder="{{ __('auth.last_name') }}" type="text">
                                     </div>
                                 </div>
-                                <!-- <select name="gender" id="gender" class="w-100 mb-3">
-                                      <option value="">@lang('auth.select_gender')</option>
-                                      <option value="MALE">@lang('auth.MALE')</option>
-                                      <option value="FEMALE">@lang('auth.FEMALE')</option>
-                                      <option value="GENERAL">@lang('auth.GENERAL')</option>
-                                   </select> -->
                                 <input id="password" name="password" class="form-control mb-4" value=""
-                                       placeholder="@lang('auth.enter_password')" type="password">
+                                    placeholder="{{ __('auth.enter_password') }}" type="password">
                                 <input id="password_confirmation" name="password_confirmation" class="form-control mb-4"
-                                       value="" placeholder="@lang('auth.confirm_password')" type="password">
+                                    value="" placeholder="{{ __('auth.confirm_password') }}" type="password">
                                 <select id="country" name="country_id" class=" mb-4 form-control">
-                                    <option value="">@lang('auth.select_country')</option>
+                                    <option value="">{{ __('auth.select_country') }}</option>
                                 </select>
-                                <!-- <select id="state" name="state_id"  class=" mb-4 form-control">
-                                      <option value="">@lang('auth.select_state')</option>
-                                   </select> -->
                                 <select id="city" name="city_id" class=" mb-4 form-control">
-                                    <option value="">@lang('auth.select_city')</option>
+                                    <option value="">{{ __('auth.select_city') }}</option>
                                 </select>
                                 <input id="state" name="state_id" class="form-control mb-4"
-                                       placeholder="@lang('auth.select_state')" type="text">
+                                    placeholder="{{ __('auth.select_state') }}" type="text">
                                 <input id="address" name="address" class="form-control mb-4"
-                                       placeholder="@lang('auth.address')" type="text">
+                                    placeholder="{{ __('auth.address') }}" type="text">
                                 <input id="suite" name="suite" class="form-control mb-4"
-                                       placeholder="@lang('auth.suite')" type="text">
+                                    placeholder="{{ __('auth.suite') }}" type="text">
                                 <input id="zipcode" name="zipcode" class="form-control mb-4"
-                                       placeholder="@lang('auth.zipcode')" type="text">
+                                    placeholder="{{ __('auth.zipcode') }}" type="text">
                                 <input id="picture" name="picture" class="form-control mb-4" placeholder="Picture"
-                                       type="file">
+                                    type="file">
                                 <input id="referral_code" name="referral_code" class="form-control mb-4"
-                                       placeholder="@lang('auth.referral_code')" type="text">
+                                    placeholder="{{ __('auth.referral_code') }}" type="text">
                             </div>
 
                             <input type="hidden" name="data_otp" class="data_otp">
 
                             <input type="hidden" name="mail_otp" class="mail_otp" value="{{ $otp }}">
                             <a class="btn btn-block btn-secondary btn-md mt-2 get_otp">Next<i class="fa fa-sign-in ml-2"
-                                                                                              aria-hidden="true"></i></a>
-                            <input id="enterOtp" name="otp" class="form-control mb-4 enterOtp"
-                                   placeholder="@lang('auth.enter_otp_received')" type="text" aria-required="true"
-                                   required
-                                   style="display:none">
-                            <a class="btn btn-block btn-secondary btn-md mt-2 verify_btn"
-                               style="display:none !important">@lang('auth.activate')<i
-                                    class="fa fa-arrow-circle-right ml-2"
                                     aria-hidden="true"></i></a>
+                            <input id="enterOtp" name="otp" class="form-control mb-4 enterOtp"
+                                placeholder="{{ __('auth.enter_otp_received') }}" type="text" aria-required="true"
+                                required style="display:none">
+                            <a class="btn btn-block btn-secondary btn-md mt-2 verify_btn"
+                                style="display:none !important">{{ __('auth.activate') }}<i
+                                    class="fa fa-arrow-circle-right ml-2" aria-hidden="true"></i></a>
                             <button type="submit" class="btn btn-block btn-green btn-md mb-2 account_kit"
-                                    style="display:none !important">@lang('auth.next')<i
-                                    class="fa fa-arrow-circle-right ml-2"
-                                    aria-hidden="true"></i></button>
+                                style="display:none !important">{{ __('auth.next') }}<i
+                                    class="fa fa-arrow-circle-right ml-2" aria-hidden="true"></i></button>
                         </form>
-                        <span>@lang('auth.already_account') <strong><a href="{{ url('/provider/login') }}"
-                                                                       class="signup-link">@lang('auth.login')</a></strong></span>
+                        <span>{{ __('auth.already_account') }} <strong><a href="{{ url('/provider/login') }}"
+                                    class="signup-link">{{ __('auth.login') }}</a></strong></span>
                         <div class="or-section mt-4 mb-4">
                             <hr>
-                            <span>@lang('auth.or')</span>
+                            <span>{{ __('auth.or') }}</span>
                             <hr>
                         </div>
                         @if (Helper::getSettings()->site->social_login == 1)
@@ -123,40 +109,33 @@
             <div id="social-login" class="col-sm-12 col-md-12 col-lg-12 d-none">
                 <div class="sign-in-section dis-center">
                     <div class="h-100 col-sm-12 col-md-5 col-lg-5 dis-column content-card">
-                        <h6 class="mb-3"><strong><!-- @lang('auth.welcome_create_account') --></strong></h6>
+                        <h6 class="mb-3"><strong></strong>
+                        </h6>
 
                         <form class="col-lg-12">
 
                             <div id="toaster" class="toaster"></div>
-
-                            <!-- <input id="mobile" name="mobile" maxlength="15" class="intl-tel phone form-control mb-4" placeholder="@lang('auth.phone_number')" type="text" > -->
                             <input id="email" name="email" class="form-control mb-4"
-                                   placeholder="@lang('auth.email_address')" type="email" aria-required="true">
-                            <!-- <select name="gender" id="gender" class="w-100 mb-3">
-                                      <option value="">@lang('auth.select_gender')</option>
-                                      <option value="MALE">@lang('auth.MALE')</option>
-                                      <option value="FEMALE">@lang('auth.FEMALE')</option>
-                                      <option value="GENERAL">@lang('auth.GENERAL')</option>
-                                   </select> -->
+                                placeholder="{{ __('auth.email_address') }}" type="email" aria-required="true">
                             <select id="country" name="country_id" class=" mb-4 form-control">
-                                <option value="">@lang('auth.select_country')</option>
+                                <option value="">{{ __('auth.select_country') }}</option>
                             </select>
                             <select id="city" name="city_id" class=" mb-4 form-control">
-                                <option value="">@lang('auth.select_city')</option>
+                                <option value="">{{ __('auth.select_city') }}</option>
                             </select>
                             <input id="state" name="state_id" class="form-control mb-4"
-                                   placeholder="@lang('auth.select_state')" type="text">
+                                placeholder="{{ __('auth.select_state') }}" type="text">
                             <input id="address" name="address" class="form-control mb-4"
-                                   placeholder="@lang('auth.address')" type="text">
+                                placeholder="{{ __('auth.address') }}" type="text">
                             <input id="suite" name="suite" class="form-control mb-4"
-                                   placeholder="@lang('auth.suite')" type="text">
+                                placeholder="{{ __('auth.suite') }}" type="text">
                             <input id="zipcode" name="zipcode" class="form-control mb-4"
-                                   placeholder="@lang('auth.zipcode')" type="text">
-                            <a class="btn btn-block btn-green btn-md mb-2 social_login">@lang('auth.next')<i
+                                placeholder="{{ __('auth.zipcode') }}" type="text">
+                            <a class="btn btn-block btn-green btn-md mb-2 social_login">{{ __('auth.next') }}<i
                                     class="fa fa-arrow-circle-right ml-2" aria-hidden="true"></i></a>
                         </form>
-                        <span>@lang('auth.already_account') <strong><a href="{{ url('/provider/login') }}"
-                                                                       class="signup-link">@lang('auth.signin')</a></strong></span>
+                        <span>{{ __('auth.already_account') }} <strong><a href="{{ url('/provider/login') }}"
+                                    class="signup-link">{{ __('auth.signin') }}</a></strong></span>
                     </div>
                 </div>
             </div>
@@ -182,18 +161,13 @@
             var emailVal = $('#email').val('{{ $email }}');
             $('.get_otp').remove();
         }
-        /*var emailVal = $('#email').val('{{ $email }}');
-
-        if(emailVal != '') {
-            $('.get_otp').remove();
-        }*/
 
         console.log('{{ $email }}');
 
         var googleUser = {};
 
         function startApp() {
-            gapi.load('auth2', function () {
+            gapi.load('auth2', function() {
                 // Retrieve the singleton for the GoogleAuth library and set up the client.
                 auth2 = gapi.auth2.init({
                     client_id: '{{ Helper::getSettings()->site->google_client_id }}',
@@ -206,22 +180,21 @@
         }
 
         function attachSignin(element) {
-            auth2.attachClickHandler(element, {}, function () {
+            auth2.attachClickHandler(element, {}, function() {
 
-                    gapi.client.load('oauth2', 'v2', function () {
-                        var request = gapi.client.oauth2.userinfo.get({
-                            'userId': 'me'
-                        });
-                        request.execute(function (response) {
-                            // Display the user details
-                            saveData(response.id, 'GOOGLE', response.given_name, response.family_name,
-                                response.email, response.picture);
-                        });
+                gapi.client.load('oauth2', 'v2', function() {
+                    var request = gapi.client.oauth2.userinfo.get({
+                        'userId': 'me'
                     });
-                }, function (error) {
-                    console.log(JSON.stringify(error, undefined, 2));
-                }
-            );
+                    request.execute(function(response) {
+                        // Display the user details
+                        saveData(response.id, 'GOOGLE', response.given_name, response.family_name,
+                            response.email, response.picture);
+                    });
+                });
+            }, function(error) {
+                console.log(JSON.stringify(error, undefined, 2));
+            });
         }
 
 
@@ -230,7 +203,7 @@
         if (s_login) {
 
 
-            window.fbAsyncInit = function () {
+            window.fbAsyncInit = function() {
                 FB.init({
                     appId: '{{ Helper::getSettings()->site->facebook_app_id }}',
                     cookie: true,
@@ -244,7 +217,7 @@
 
         }
 
-        (function (d, s, id) {
+        (function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) {
                 return;
@@ -274,7 +247,7 @@
                             countries[i].country_name + `</option>`);
                     }
 
-                    $('select[name=country_id]').on('change', function () {
+                    $('select[name=country_id]').on('change', function() {
                         $('select[name=city_id]').html("");
                         $('select[name=city_id]').append(`<option value="">Select City</option>`);
                         var country_id = $(this).val();
@@ -288,8 +261,7 @@
 
                     });
                 },
-                error: (jqXHR, textStatus, errorThrown) => {
-                }
+                error: (jqXHR, textStatus, errorThrown) => {}
             });
 
 
@@ -323,10 +295,10 @@
                             $('#social-login').find('[name=' + validators[i] + ']').removeClass('d-none');
                         }
 
-                        $('.social_login').on('click', function () {
+                        $('.social_login').on('click', function() {
 
 
-                            $('#social-login input, #social-login select').each(function () {
+                            $('#social-login input, #social-login select').each(function() {
                                 if ($(this).val() == "" && $(this).is(':visible')) {
                                     $('.social_error').remove();
                                     $('#social-login form').prepend(
@@ -350,7 +322,7 @@
                                 processData: false,
                                 contentType: false,
                                 data: formData,
-                                beforeSend: function () {
+                                beforeSend: function() {
                                     showLoader();
                                 },
                                 success: (newResponse, textStatus, jqXHR) => {
@@ -385,7 +357,7 @@
         }
 
         function fbLogin() {
-            FB.login(function (response) {
+            FB.login(function(response) {
                 if (response.authResponse) {
                     // Get and display the user profile data
                     getFbUserData();
@@ -402,13 +374,13 @@
                     locale: 'en_US',
                     fields: 'id,first_name,last_name,email,link,gender,locale,picture'
                 },
-                function (response) {
+                function(response) {
                     saveData(response.id, 'FACEBOOK', response.first_name, response.last_name, response.email, response
                         .picture.data.url);
                 });
         }
 
-        $('input[name=sfilter]').on('change', function () {
+        $('input[name=sfilter]').on('change', function() {
             var value = $(this).val();
             console.log(value);
             $("#sign-up #email, #sign-up .intl-tel-input").hide();
@@ -420,7 +392,7 @@
         });
 
 
-        $('.get_otp').on('click', function () {
+        $('.get_otp').on('click', function() {
 
             var phoneNumber = $('#sign-up input[name=mobile]').val();
             var salt_key = "{{ Helper::getSaltKey() }}";
@@ -536,7 +508,7 @@
             $('.signup-h6').hide();
         }
 
-        $('.verify_btn').on('click', function () {
+        $('.verify_btn').on('click', function() {
             var old_otp = $('.data_otp').val();
 
             var otp = $('.enterOtp').val();
@@ -571,7 +543,7 @@
         });
 
 
-        $(document).ready(function () {
+        $(document).ready(function() {
 
             // $(".phone").intlTelInput({
             //    initialCountry: "<?php echo isset(Helper::getSettings()->site->country_code) ? Helper::getSettings()->site->country_code : 'in'; ?>",
@@ -594,7 +566,7 @@
                             countries[i].country_name + `</option>`);
                     }
 
-                    $('select[name=country_id]').on('change', function () {
+                    $('select[name=country_id]').on('change', function() {
                         $('select[name=city_id]').html("");
                         $('select[name=city_id]').append(
                             `<option value="">Select City</option>`);
@@ -609,8 +581,7 @@
 
                     });
                 },
-                error: (jqXHR, textStatus, errorThrown) => {
-                }
+                error: (jqXHR, textStatus, errorThrown) => {}
             });
 
             var number;
@@ -668,16 +639,16 @@
                     },
                 },
 
-                highlight: function (element) {
+                highlight: function(element) {
                     $(element).closest('.form-group').addClass('has-error');
                 },
 
-                success: function (label) {
+                success: function(label) {
                     label.closest('.form-group').removeClass('has-error');
                     label.remove();
                 },
 
-                submitHandler: function (form) {
+                submitHandler: function(form) {
 
                     var formGroup = $(".validateForm").serialize().split("&");
 
@@ -701,16 +672,16 @@
                         data: data,
                         processData: false,
                         contentType: false,
-                        beforeSend: function () {
+                        beforeSend: function() {
                             showLoader();
                         },
-                        success: function (response, textStatus, jqXHR) {
+                        success: function(response, textStatus, jqXHR) {
                             setToken("provider", response.responseData.access_token);
                             setProviderDetails(response.responseData.user);
                             window.location.replace("{{ url('/provider/home') }}");
                             hideLoader();
                         },
-                        error: function (jqXHR, textStatus, errorThrown) {
+                        error: function(jqXHR, textStatus, errorThrown) {
                             alertMessage(textStatus, jqXHR.responseJSON.message, "danger");
                             hideLoader();
                         }

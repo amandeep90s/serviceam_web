@@ -36,11 +36,11 @@
         <div class="clearfix ">
             <div id="toaster" class="toaster">
             </div>
-            <h4><strong class="title-bor">@lang('provider.transaction_details')</strong></h4>
+            <h4><strong class="title-bor">{{ __('provider.transaction_details') }}</strong></h4>
             <div class="col-md-12 p-0 add-money-section">
                 <div class="col-md-6 col-xl-3 col-xs-12 top small-box green">
                     <div class="left">
-                        <h2>@lang('provider.balance')</h2>
+                        <h2>{{ __('provider.balance') }}</h2>
                         <h4><i class="material-icons">account_balance_wallet</i></h4>
                         <span class="currency"></span>
                         <h1 class="wallet_balance"></h1>
@@ -52,17 +52,16 @@
                         <form class="validateCardForm" style= "color:red;">
                             <input type="hidden" name ="payment_mode" value ="CARD">
                             <input type="hidden" name="user_type" value ="provider">
-                            <h5 class=""><strong>@lang('user.enter_amount')</strong></h5>
-                            <input type="text" class="form-control price" name="amount" placeholder="@lang('user.enter_amount')">
-                            <h5 class=""><strong>@lang('user.select_card')</strong></h5>
+                            <h5 class=""><strong>{{ __('user.enter_amount') }}</strong></h5>
+                            <input type="text" class="form-control price" name="amount"
+                                placeholder="{{ __('user.enter_amount') }}">
+                            <h5 class=""><strong>{{ __('user.select_card') }}</strong></h5>
                             <select name="card_id" id="card_id" class="form-control">
                                 <option value="">Select</option>
                             </select>
                             <br>
-                            <button id="submit-button" class="btn btn-primary mt-3">@lang('user.add_money')</button>
+                            <button id="submit-button" class="btn btn-primary mt-3">{{ __('user.add_money') }}</button>
                         </form>
-                        <!-- <input class="form-control" type="number" name="" placeholder="Enter Amount" required>
-                <a  class="btn btn-primary mt-3" data-toggle="modal" data-target="#addMoney">Add Money</a> -->
                     </div>
                 @endif
             </div>
@@ -71,11 +70,10 @@
                     <table id="payment_grid" class="table  table-striped table-bordered w-100">
                         <thead>
                             <tr>
-                                <th>@lang('provider.sno')</th>
-                                <th>@lang('provider.transaction_ref')</th>
-                                <!-- <th>@lang('provider.transaction_desc')</th> -->
-                                <th>@lang('provider.datetime')</th>
-                                <th>@lang('provider.amount')</th>
+                                <th>{{ __('provider.sno') }}</th>
+                                <th>{{ __('provider.transaction_ref') }}</th>
+                                <th>{{ __('provider.datetime') }}</th>
+                                <th>{{ __('provider.amount') }}</th>
                             </tr>
                         </thead>
                         <tbody>
