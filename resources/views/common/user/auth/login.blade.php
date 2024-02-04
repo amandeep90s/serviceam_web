@@ -117,7 +117,8 @@
                                     <input id="referral_code" name="referral_code" class="form-control mt-4"
                                         placeholder="Referral Code" type="text">
                                     <div class="form-group float-left">
-                                        <div class="g-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}"></div>
+                                        <div class="g-recaptcha" data-sitekey="{{ config('app.google_captcha_key') }}">
+                                        </div>
                                     </div>
                                 </div>
 

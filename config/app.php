@@ -18,6 +18,10 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    // Base Url
+
+    'base_url' => env('BASE_URL', null),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -189,5 +193,11 @@ return [
         'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
         'Helper' => App\Helpers\Helper::class,
     ])->toArray(),
+
+    // Google recaptcha key
+    'google_captcha_key' => env('GOOGLE_RECAPTCHA_KEY', null),
+
+    // Google recaptcha key
+    'google_captcha_secret' => env('GOOGLE_RECAPTCHA_SECRET', null)
 
 ];

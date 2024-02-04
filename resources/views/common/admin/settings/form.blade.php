@@ -901,7 +901,7 @@
                         $client = new \GuzzleHttp\Client();
                         $params['form_params'] = ['access_key' => $access_key, 'domain' => $domain];
 
-                        $result = $client->post(env('BASE_URL') . '/api/verify', $params);
+                        $result = $client->post(config('app.base_url') . '/api/verify', $params);
 
                         $redis = \Illuminate\Support\Facades\Redis::connection();
 

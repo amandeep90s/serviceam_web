@@ -8,24 +8,25 @@
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta content='website' property='og:type'>
 
-    <link rel="shortcut icon" type="image/png" href="{{ Helper::getFavIcon() }}"/>
+    <link rel="shortcut icon" type="image/png" href="{{ Helper::getFavIcon() }}" />
 
-    <link rel='stylesheet' href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}"/>
-    <link rel='stylesheet' href="{{ asset('assets/layout/css/media-mobile.css') }}"/>
-    <link rel='stylesheet' href="{{ asset('assets/layout/css/media-tab.css') }}"/>
-    <link rel='stylesheet' href="{{ asset('assets/layout/css/media-lap.css') }}"/>
-    <link rel='stylesheet' href="{{ asset('assets/layout/css/animate.css') }}"/>
-    <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>
-    <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Josefin+Sans"/>
-    <link rel='stylesheet' href="{{ asset('assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}"/>
-    <link rel='stylesheet' href="{{ asset('assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css') }}"/>
-    <link rel='stylesheet' href="{{ asset('assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}"/>
-    <link rel='stylesheet' href="{{ asset('assets/plugins/clockpicker-wearout/css/jquery-clockpicker.min.css') }}"/>
+    <link rel='stylesheet' href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}" />
+    <link rel='stylesheet' href="{{ asset('assets/layout/css/media-mobile.css') }}" />
+    <link rel='stylesheet' href="{{ asset('assets/layout/css/media-tab.css') }}" />
+    <link rel='stylesheet' href="{{ asset('assets/layout/css/media-lap.css') }}" />
+    <link rel='stylesheet' href="{{ asset('assets/layout/css/animate.css') }}" />
+    <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Josefin+Sans" />
+    <link rel='stylesheet' href="{{ asset('assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}" />
+    <link rel='stylesheet' href="{{ asset('assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css') }}" />
+    <link rel='stylesheet'
+        href="{{ asset('assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}" />
+    <link rel='stylesheet' href="{{ asset('assets/plugins/clockpicker-wearout/css/jquery-clockpicker.min.css') }}" />
     {{-- Dynamic Stylesheets --}}
     @stack('styles')
-    <link rel="stylesheet" href="{{ asset('assets/plugins/intl-tel-input/css/intlTelInput.min.css') }}"/>
-    <link rel='stylesheet' href="{{ asset('assets/layout/css/stylesheet.css') }}"/>
-    <link rel='stylesheet' href="{{ asset('assets/layout/css/login.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/plugins/intl-tel-input/css/intlTelInput.min.css') }}" />
+    <link rel='stylesheet' href="{{ asset('assets/layout/css/stylesheet.css') }}" />
+    <link rel='stylesheet' href="{{ asset('assets/layout/css/login.css') }}" />
     <style>
         /* Loader */
         .loader-container {
@@ -102,38 +103,39 @@
 </head>
 
 <body class='index'>
-@yield('content')
+    @yield('content')
 
-<script src="{{ asset('assets/plugins/jquery-3.3.1.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/popper.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/iscroll/js/scrolloverflow.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/jquery-validation/additional-methods.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.js') }}"></script>
-<script src="{{ asset('assets/plugins/clockpicker-wearout/js/jquery-clockpicker.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/intl-tel-input/js/intlTelInput-jquery.min.js') }}"></script>
-<script src="{{ asset('assets/layout/js/script.js') }}"></script>
-<script src="{{ asset('assets/layout/js/api.js') }}"></script>
+    <script src="{{ asset('assets/plugins/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/iscroll/js/scrolloverflow.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/jquery-validation/additional-methods.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.js') }}"></script>
+    <script src="{{ asset('assets/plugins/clockpicker-wearout/js/jquery-clockpicker.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/intl-tel-input/js/intlTelInput-jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/layout/js/script.js') }}"></script>
+    <script src="{{ asset('assets/layout/js/api.js') }}"></script>
 
-<script>
-    if (getToken("user") != null && getToken("user") != 'false') {
-        window.location.replace("{{ url('/user/home') }}");
-    }
+    <script>
+        if (getToken("user") != null && getToken("user") != 'false') {
+            window.location.replace("{{ url('/user/home') }}");
+        }
 
-    window.base_url = '{{ env('BASE_URL') }}';
-    window.country_id = '{{ json_encode(Helper::getAccessKey()) }}';
-</script>
+        window.base_url = "{{ config('app.base_url') }}";
+        window.country_id = '{{ json_encode(Helper::getAccessKey()) }}';
+    </script>
 
-{{-- Dynamic Scripts --}}
-@stack('scripts')
+    {{-- Dynamic Scripts --}}
+    @stack('scripts')
 
-@if (Helper::getChatmode() == 1)
-    <!-- Start of LiveChat (www.livechatinc.com) code -->
-    <script src="{{ asset('assets/layout/js/common-chat.js') }}"></script>
-    <!-- End of LiveChat code -->
-@endif
+    @if (Helper::getChatmode() == 1)
+        <!-- Start of LiveChat (www.livechatinc.com) code -->
+        <script src="{{ asset('assets/layout/js/common-chat.js') }}"></script>
+        <!-- End of LiveChat code -->
+    @endif
 
 </body>
+
 </html>

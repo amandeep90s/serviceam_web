@@ -1,116 +1,116 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-    <head>
-        <title>
-            {{ Helper::getSettings()->site->site_title }}
-        </title>
-        <meta charset='utf-8'>
-        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-        <meta content='website' property='og:type'>
-        <link rel="shortcut icon" type="image/png" href="{{ Helper::getFavIcon() }}" />
-        @section('styles')
-            <link rel='stylesheet' type='text/css' href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}" />
-            <link rel='stylesheet' type='text/css'
-                href="{{ asset('assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}">
-            <link rel='stylesheet' type='text/css' href="{{ asset('assets/plugins/icons/css/ionicons.min.css') }}" />
-            <link rel='stylesheet' type='text/css' href="{{ asset('assets/plugins/icons/css/linearicons.css') }}" />
-            <link rel='stylesheet' href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-            <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-            <link rel='stylesheet' type='text/css' href="{{ asset('assets/layout/css/media-mobile.css') }}" />
-            <link rel='stylesheet' type='text/css' href="{{ asset('assets/layout/css/media-tab.css') }}" />
-            <link rel='stylesheet' type='text/css' href="{{ asset('assets/layout/css/media-lap.css') }}" />
-            <link rel='stylesheet' type='text/css' href="{{ asset('assets/layout/css/animate.css') }}" />
-            <link rel='stylesheet' type='text/css'
-                href="{{ asset('assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css') }}" />
-            <link rel='stylesheet' type='text/css'
-                href="{{ asset('assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}" />
-            <link rel='stylesheet' type='text/css'
-                href="{{ asset('assets/plugins/clockpicker-wearout/css/jquery-clockpicker.min.css') }}" />
-        @show
+<head>
+    <title>
+        {{ Helper::getSettings()->site->site_title }}
+    </title>
+    <meta charset='utf-8'>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <meta content='website' property='og:type'>
+    <link rel="shortcut icon" type="image/png" href="{{ Helper::getFavIcon() }}" />
+    @section('styles')
+        <link rel='stylesheet' type='text/css' href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}" />
+        <link rel='stylesheet' type='text/css'
+            href="{{ asset('assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+        <link rel='stylesheet' type='text/css' href="{{ asset('assets/plugins/icons/css/ionicons.min.css') }}" />
+        <link rel='stylesheet' type='text/css' href="{{ asset('assets/plugins/icons/css/linearicons.css') }}" />
+        <link rel='stylesheet' href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+        <link rel='stylesheet' type='text/css' href="{{ asset('assets/layout/css/media-mobile.css') }}" />
+        <link rel='stylesheet' type='text/css' href="{{ asset('assets/layout/css/media-tab.css') }}" />
+        <link rel='stylesheet' type='text/css' href="{{ asset('assets/layout/css/media-lap.css') }}" />
+        <link rel='stylesheet' type='text/css' href="{{ asset('assets/layout/css/animate.css') }}" />
+        <link rel='stylesheet' type='text/css'
+            href="{{ asset('assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css') }}" />
+        <link rel='stylesheet' type='text/css'
+            href="{{ asset('assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}" />
+        <link rel='stylesheet' type='text/css'
+            href="{{ asset('assets/plugins/clockpicker-wearout/css/jquery-clockpicker.min.css') }}" />
+    @show
 
-        <link rel='stylesheet' type='text/css' href="{{ asset('assets/layout/css/stylesheet.css') }}" />
+    <link rel='stylesheet' type='text/css' href="{{ asset('assets/layout/css/stylesheet.css') }}" />
 
-        @if (@Request::segment(2) == 'store' && @Request::segment(3) != 'order')
-            <link rel='stylesheet' type='text/css' href="{{ asset('assets/foody/foody.css') }}" />
-        @elseif(@Request::segment(1) == 'user' && @Request::segment(2) == 'store' && @Request::segment(3) == 'order')
-            <link rel='stylesheet' type='text/css' href="{{ asset('assets/foody/foody.css') }}" />
-            <link rel='stylesheet' type='text/css' href="{{ asset('assets/layout/css/provider.css') }}" />
-            <link rel='stylesheet' type='text/css' href="{{ asset('assets/layout/css/user.css') }}" />
-        @else
-            <link rel='stylesheet' type='text/css' href="{{ asset('assets/layout/css/provider.css') }}" />
-            <link rel='stylesheet' type='text/css' href="{{ asset('assets/layout/css/user.css') }}" />
-        @endif
-    </head>
+    @if (@Request::segment(2) == 'store' && @Request::segment(3) != 'order')
+        <link rel='stylesheet' type='text/css' href="{{ asset('assets/foody/foody.css') }}" />
+    @elseif(@Request::segment(1) == 'user' && @Request::segment(2) == 'store' && @Request::segment(3) == 'order')
+        <link rel='stylesheet' type='text/css' href="{{ asset('assets/foody/foody.css') }}" />
+        <link rel='stylesheet' type='text/css' href="{{ asset('assets/layout/css/provider.css') }}" />
+        <link rel='stylesheet' type='text/css' href="{{ asset('assets/layout/css/user.css') }}" />
+    @else
+        <link rel='stylesheet' type='text/css' href="{{ asset('assets/layout/css/provider.css') }}" />
+        <link rel='stylesheet' type='text/css' href="{{ asset('assets/layout/css/user.css') }}" />
+    @endif
+</head>
 
-    <body>
-        @include('common.user.includes.header')
-        @include('common.user.includes.nav')
-        @yield('content')
-        @include('common.user.includes.footer')
-        <script>
-            window.room = '{{ base64_decode(Helper::getSaltKey()) }}';
-            window.socket_url = '{{ Helper::getSocketUrl() }}';
+<body>
+    @include('common.user.includes.header')
+    @include('common.user.includes.nav')
+    @yield('content')
+    @include('common.user.includes.footer')
+    <script>
+        window.room = '{{ base64_decode(Helper::getSaltKey()) }}';
+        window.socket_url = '{{ Helper::getSocketUrl() }}';
+    </script>
+    @section('scripts')
+        <script type="text/javascript" src="{{ asset('assets/plugins/jquery-3.3.1.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/plugins/popper.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+
+        <script src="{{ asset('assets/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/jquery-validation/additional-methods.min.js') }}"></script>
+
+        <script type="text/javascript" src="{{ asset('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}">
         </script>
-        @section('scripts')
-            <script type="text/javascript" src="{{ asset('assets/plugins/jquery-3.3.1.min.js') }}"></script>
-            <script type="text/javascript" src="{{ asset('assets/plugins/popper.min.js') }}"></script>
-            <script type="text/javascript" src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.js') }}">
+        </script>
+        <script type="text/javascript" src="{{ asset('assets/plugins/clockpicker-wearout/js/jquery-clockpicker.min.js') }}">
+        </script>
 
-            <script src="{{ asset('assets/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
-            <script src="{{ asset('assets/plugins/jquery-validation/additional-methods.min.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
 
-            <script type="text/javascript" src="{{ asset('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}">
-            </script>
-            <script type="text/javascript" src="{{ asset('assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.js') }}">
-            </script>
-            <script type="text/javascript" src="{{ asset('assets/plugins/clockpicker-wearout/js/jquery-clockpicker.min.js') }}">
-            </script>
+        <script src="{{ asset('assets/layout/js/script.js') }}"></script>
+        <script src="{{ asset('assets/layout/js/api.js') }}"></script>
+    @show
+    <script>
+        if (getToken("user") == null) {
+            window.location.replace("{{ url('/user/login') }}");
+        }
 
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+        window.url = '{{ url('') }}';
+        window.env = "{{ config('app.env') }}";
 
-            <script src="{{ asset('assets/layout/js/script.js') }}"></script>
-            <script src="{{ asset('assets/layout/js/api.js') }}"></script>
-        @show
-        <script>
-            if (getToken("user") == null) {
-                window.location.replace("{{ url('/user/login') }}");
-            }
+        checkAuthentication("user");
 
-            window.url = '{{ url('') }}';
-            window.env = "{{ env('APP_ENV') }}";
+        $(document).ready(function() {
+            var userSettings = getUserDetails();
+            $(".user_name").text(userSettings.first_name);
+            $(".user_image").attr('src', userSettings.picture);
+        });
 
-            checkAuthentication("user");
-
-            $(document).ready(function() {
-                var userSettings = getUserDetails();
-                $(".user_name").text(userSettings.first_name);
-                $(".user_image").attr('src', userSettings.picture);
+        @if (count(Helper::getServiceList()) > 1)
+            $('#history-detail').click(function() {
+                $(".subnav").toggle();
             });
-
-            @if (count(Helper::getServiceList()) > 1)
-                $('#history-detail').click(function() {
-                    $(".subnav").toggle();
-                });
-            @endif
-            //For notification details
-            $('.notification').on('click', function() {
-                $.ajax({
-                    url: getBaseUrl() + "/user/notification",
-                    type: "GET",
-                    beforeSend: function() {
-                        showInlineLoader();
-                    },
-                    headers: {
-                        Authorization: "Bearer " + getToken("user")
-                    },
-                    success: function(data) {
-                        var html = ``;
-                        var result = data.responseData.notification.data;
-                        if (result.length > 0) {
-                            //$('#notification_count').text(result.length);
-                            $.each(result, function(key, item) {
-                                html += `<div class="col-md-12 col-lg-12 col-sm-12 p-0">
+        @endif
+        //For notification details
+        $('.notification').on('click', function() {
+            $.ajax({
+                url: getBaseUrl() + "/user/notification",
+                type: "GET",
+                beforeSend: function() {
+                    showInlineLoader();
+                },
+                headers: {
+                    Authorization: "Bearer " + getToken("user")
+                },
+                success: function(data) {
+                    var html = ``;
+                    var result = data.responseData.notification.data;
+                    if (result.length > 0) {
+                        //$('#notification_count').text(result.length);
+                        $.each(result, function(key, item) {
+                            html += `<div class="col-md-12 col-lg-12 col-sm-12 p-0">
                               <ul class="provider-list invoice">
                                  <li class="row">
 
@@ -132,59 +132,59 @@
                                  </li>
                               </ul>
                            </div>`;
-                            });
-                        } else {
-                            var html = `No Notifications`;
-                        }
-                        $('#notification_detail').html(html);
-                        hideInlineLoader();
+                        });
+                    } else {
+                        var html = `No Notifications`;
                     }
-                });
-            });
-            //For refering user Concept
-            $('.referdetail').on('click', function() {
-                $.ajax({
-                    url: getBaseUrl() + "/user/profile",
-                    type: "GET",
-                    headers: {
-                        Authorization: "Bearer " + getToken("user")
-                    },
-                    success: function(data) {
-                        var result = data.responseData.referral;
-                        $('.referal_code').text(result.referral_code);
-                        $('.referal_count').text(result.referral_count);
-                        $('.referal_amount').text(result.referral_amount);
-                        $('.user_referal_count').text(result.user_referral_count);
-                        $('.user_referal_amount').text(data.responseData.currency_symbol + ' ' + result
-                            .user_referral_amount);
-                        $('.currency').text(data.responseData.currency_symbol);
-
-                    }
-                });
-            });
-
-            $('#invite').on('click', function(e) {
-                e.preventDefault();
-                var referral_email = $('input[name=referral_email]').val();
-
-                if (referral_email != "" && validateEmail(referral_email)) {
-                    var referral_code = $('.referal_code').text();
-                    window.location.replace("mailto:" + referral_email +
-                        "?subject=Invitation to join {{ Helper::getSettings()->site->site_title }}&body=Hi,%0A%0A I found this website and thought you might like it. Use my referral code(" +
-                        referral_code +
-                        ") on registering in the application.%0A%0AWebsite: {{ url('/') }}/user/login %0AReferral Code:" +
-                        referral_code);
-                } else {
-                    alertMessage("Error", "Please enter a valid email", "danger");
+                    $('#notification_detail').html(html);
+                    hideInlineLoader();
                 }
-
             });
-        </script>
-        @if (Helper::getChatmode() == 1)
-            <!-- Start of LiveChat (www.livechatinc.com) code -->
-            <script type="text/javascript" src="{{ asset('assets/layout/js/common-chat.js') }}"></script>
-            <!-- End of LiveChat code -->
-        @endif
-    </body>
+        });
+        //For refering user Concept
+        $('.referdetail').on('click', function() {
+            $.ajax({
+                url: getBaseUrl() + "/user/profile",
+                type: "GET",
+                headers: {
+                    Authorization: "Bearer " + getToken("user")
+                },
+                success: function(data) {
+                    var result = data.responseData.referral;
+                    $('.referal_code').text(result.referral_code);
+                    $('.referal_count').text(result.referral_count);
+                    $('.referal_amount').text(result.referral_amount);
+                    $('.user_referal_count').text(result.user_referral_count);
+                    $('.user_referal_amount').text(data.responseData.currency_symbol + ' ' + result
+                        .user_referral_amount);
+                    $('.currency').text(data.responseData.currency_symbol);
+
+                }
+            });
+        });
+
+        $('#invite').on('click', function(e) {
+            e.preventDefault();
+            var referral_email = $('input[name=referral_email]').val();
+
+            if (referral_email != "" && validateEmail(referral_email)) {
+                var referral_code = $('.referal_code').text();
+                window.location.replace("mailto:" + referral_email +
+                    "?subject=Invitation to join {{ Helper::getSettings()->site->site_title }}&body=Hi,%0A%0A I found this website and thought you might like it. Use my referral code(" +
+                    referral_code +
+                    ") on registering in the application.%0A%0AWebsite: {{ url('/') }}/user/login %0AReferral Code:" +
+                    referral_code);
+            } else {
+                alertMessage("Error", "Please enter a valid email", "danger");
+            }
+
+        });
+    </script>
+    @if (Helper::getChatmode() == 1)
+        <!-- Start of LiveChat (www.livechatinc.com) code -->
+        <script type="text/javascript" src="{{ asset('assets/layout/js/common-chat.js') }}"></script>
+        <!-- End of LiveChat code -->
+    @endif
+</body>
 
 </html>

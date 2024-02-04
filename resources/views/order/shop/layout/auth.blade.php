@@ -46,7 +46,7 @@
             }
 
 
-            window.base_url = '{{ env('BASE_URL') }}';
+            window.base_url = "{{ config('app.base_url') }}";
             window.country_id = '{{ json_encode(Helper::getAccessKey()) }}';
         </script>
     @show

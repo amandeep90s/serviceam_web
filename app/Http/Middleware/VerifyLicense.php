@@ -38,7 +38,7 @@ class VerifyLicense
         ];
 
         try {
-            $result = $client->post(env('BASE_URL') . '/api/verify', $params);
+            $result = $client->post(config('app.base_url') . '/api/verify', $params);
 
             $redis = Redis::connection();
 

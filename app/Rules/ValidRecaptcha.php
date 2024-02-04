@@ -24,7 +24,7 @@ class ValidRecaptcha implements ValidationRule
 
         $response = $client->post('siteverify', [
             'query' => [
-                'secret' => env('GOOGLE_RECAPTCHA_SECRET'),
+                'secret' => config('app.google_captcha_secret'),
                 'response' => $value
             ]
         ]);
