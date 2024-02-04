@@ -1,82 +1,86 @@
-$( document ).ready(function() {
-    $('input').attr('autocomplete','off');
+// index.js
+
+"use strict";
+$(document).ready(function () {
+    $("input").attr("autocomplete", "off");
 });
 
-
-
+// Function to handle authentication errors in AJAX requests
 function checkAuthentication(guard) {
-
-    $( document ).ajaxError(function( event, jqXHR, settings, exception ) {
-        if ( jqXHR.status== 401 ) {
-            if (jqXHR.status == 401 && getToken(guard) != null && getToken(guard) != 'false') {
+    $(document).ajaxError(function (event, jqXHR) {
+        if (jqXHR.status == 401) {
+            if (getToken(guard) != null && getToken(guard) != "false") {
                 refreshToken(guard);
-            } else if (jqXHR.status == 401) {
-                window.location.replace("/"+guard+"/login");
-           }
+            } else {
+                window.location.replace("/" + guard + "/login");
+            }
         }
     });
 }
 
+// Function to refresh the authentication token
 function refreshToken(guard) {
     $.ajax({
-        url: getBaseUrl() + "/"+guard+"/refresh",
+        url: getBaseUrl() + "/" + guard + "/refresh",
         type: "post",
         headers: {
-            Authorization: "Bearer " + getToken(guard)
+            Authorization: "Bearer " + getToken(guard),
         },
-        success: function(response, textStatus, jqXHR) {
+        success: function (response) {
             var data = parseData(response);
             setToken(guard, data.responseData.access_token);
         },
-        error: function(jqXHR, textStatus, errorThrown) {
+        error: function () {
             removeStorage(guard);
-            window.location.replace("/"+guard+"/login");
-        }
+            window.location.replace("/" + guard + "/login");
+        },
     });
 }
 
-function saveRow(url, table, data, guard = "admin", page) { 
-   
-  $.ajax({
+// Function to save a row using AJAX
+function saveRow(url, table, data, guard = "admin", page = "") {
+    $.ajax({
         url: url,
         type: "post",
         data: data,
         processData: false,
         contentType: false,
         headers: {
-            Authorization: "Bearer " + getToken(guard)
+            Authorization: "Bearer " + getToken(guard),
         },
         beforeSend: function (request) {
             showInlineLoader();
         },
-        success: function(response, textStatus, jqXHR) {
-            var data = parseData(response);
+        success: function (response) {
+            let data = parseData(response);
             if (table != null) {
-            var info = $('#data-table').DataTable().page.info();
-            table.order([[ 0, 'asc' ]] ).draw( false );
+                let info = $("#data-table").DataTable().page.info();
+                table.order([[0, "asc"]]).draw(false);
             }
 
             $(".crud-modal").modal("hide");
             alertMessage("Success", data.message, "success");
             hideInlineLoader();
-           
-            if(page!=undefined){
-                if(page=='/admin/dashboard'){
-                    if(data.responseData.length != 0){
-                        localStorage.setItem('admin', JSON.stringify(data.responseData));
-                    }
-                 }
-                 if(page=='store/order'){
-                    page = '/user/home/';
-                 }
 
-                setTimeout(function(){
+            if (page != undefined) {
+                if (page == "/admin/dashboard") {
+                    if (data.responseData.length != 0) {
+                        localStorage.setItem(
+                            "admin",
+                            JSON.stringify(data.responseData)
+                        );
+                    }
+                }
+                if (page == "store/order") {
+                    page = "/user/home/";
+                }
+
+                setTimeout(function () {
                     window.location.replace(page);
-                  }, 1000);
+                }, 1000);
             }
         },
-        error: function(jqXHR, textStatus, errorThrown) {
-            
+        error: function (jqXHR, textStatus) {
             if (jqXHR.status == 401 && getToken(guard) != null) {
                 refreshToken(guard);
             } else if (jqXHR.status == 401) {
@@ -84,362 +88,311 @@ function saveRow(url, table, data, guard = "admin", page) {
             }
 
             if (jqXHR.responseJSON) {
-                if(page=='store/order'){
-                    $('.commentLength').html(jqXHR.responseJSON.message);
+                if (page == "store/order") {
+                    $(".commentLength").html(jqXHR.responseJSON.message);
                     hideInlineLoader();
                     return false;
-                }else{
-                    alertMessage(textStatus, jqXHR.responseJSON.message, "danger");
+                } else {
+                    alertMessage(
+                        textStatus,
+                        jqXHR.responseJSON.message,
+                        "danger"
+                    );
                     hideInlineLoader();
                 }
             }
-            
-        }
+        },
     });
 }
 
-function setData(url, guard = "admin") {
+// Function to fetch data using AJAX
+const setData = async (url, guard = "admin") => {
+    try {
+        const response = await $.ajax({
+            url,
+            type: "get",
+            headers: {
+                Authorization: `Bearer ${getToken(guard)}`,
+            },
+            beforeSend: () => {
+                showInlineLoader();
+            },
+            data: {},
+        });
 
-    $.ajax({
-        url: url,
-        type: "get",
-        headers: {
-            Authorization: "Bearer " + getToken(guard)
-        },
-        beforeSend: function (request) {
-            showInlineLoader();
-        },
-        data: {},
-        success: function(response, textStatus, jqXHR) {
+        const data = parseData(response).responseData;
 
-            var data = parseData(response).responseData;
+        // Remove required rule for password fields
+        $("#password").rules("remove", "required");
+        $("#password_confirmation").rules("remove", "required");
 
-            $("#password").rules('remove', 'required');
-            $("#password_confirmation").rules('remove', 'required');
+        // Show featured image if is_featured is set
+        if (data.is_featured == 1) {
+            $(".featured_image").show();
+        }
 
-            if(data.is_featured == 1){
-                $(".featured_image").show();
+        // Handle different image types
+        const imageTypes = [
+            "picture",
+            "vehicle_image",
+            "vehicle_marker",
+            "icon",
+            "featured_image",
+            "image",
+        ];
+
+        for (const type of imageTypes) {
+            if (data[type]) {
+                $(".image-placeholder img").attr("src", data[type]);
+                break;
             }
-            if(data.expiration && data.expiration_date){ 
-                if(data.expiration_date){
-                    data.expiration = data.expiration_date;
-                }
-            }
+        }
 
-            if(data.picture){ 
-                $('.image-placeholder img').attr('src', data.picture);
-            }
+        // Iterate over data keys and update corresponding form elements
+        for (const key in data) {
+            if ($(`[name=${key}]`).length) {
+                const node = $(`[name=${key}]`).prop("nodeName");
+                const type = $(`[name=${key}]`).attr("type");
 
-            if(data.vehicle_image){
-                $('.image-placeholder img').attr('src', data.vehicle_image);
-            }
-
-            if(data.vehicle_marker){
-                $('.image-placeholder img').attr('src', data.vehicle_marker);
-            }
-
-            if(data.icon){
-                $('.image-placeholder img').attr('src', data.icon);
-            }
-
-            if(data.featured_image){
-                $('.image-placeholder img').attr('src', data.featured_image);
-            }
-
-            if(data.image){
-                $('.image-placeholder img').attr('src', data.image);
-            }
-                     
-            for (var i in Object.keys(data)) 
-            {
-               
-                if (($("[name=" + Object.keys(data)[i] + "]").length)) 
-                {
-                   
-                    var node = $("[name=" + Object.keys(data)[i] + "]").prop(
-                        "nodeName"
+                if (
+                    (node == "INPUT" &&
+                        (type == "text" ||
+                            type == "email" ||
+                            type == "number" ||
+                            type == "hidden" ||
+                            type == "color")) ||
+                    node == "TEXTAREA"
+                ) {
+                    $(`[name=${key}]`).val(data[key]);
+                } else if (node == "INPUT" && type == "radio") {
+                    $(`[name=${key}][value=${data[key]}]`).prop(
+                        "checked",
+                        true
                     );
-                    var type = $("[name=" + Object.keys(data)[i] + "]").attr(
-                        "type"
+                } else if (node == "INPUT" && type == "file") {
+                    if (data[key] != "" && data[key] != null) {
+                        $(`[name=${key}]`)
+                            .closest("div")
+                            .find("img")
+                            .first()
+                            .attr("src", data[key])
+                            .show();
+                        $(`[name=${key}]`).rules("remove", "required");
+                    }
+                } else if (node == "INPUT" && type == "checkbox") {
+                    $(`[name=${key}]`).prop("checked", data[key] == 1);
+                    $(`[name=${key}]`).val(data[key]);
+                } else if (node == "SELECT") {
+                    $(`select[name=${key}] option[value='${data[key]}']`).attr(
+                        "selected",
+                        true
                     );
-                    
-                    if (
-                        (node == "INPUT" && type == "text") ||
-                        (node == "INPUT" && type == "email") ||
-                        (node == "INPUT" && type == "number") ||
-                        (node == "INPUT" && type == "hidden") ||
-                        (node == "INPUT" && type == "color") ||
-                        (node == "TEXTAREA")
-                    ) {
-
-                        $("[name=" + Object.keys(data)[i] + "]").val(
-                            Object.values(data)[i]
-                        );
-                    } else if (node == "INPUT" && type == "radio") {
-                      
-                        $(
-                            "[name=" +
-                                Object.keys(data)[i] +
-                                "][value=" +
-                                Object.values(data)[i] +
-                                "]"
-                        ).prop("checked", true);
-                    } else if (node == "INPUT" && type == "file") {
-                        if (
-                            Object.values(data)[i] != "" &&
-                            Object.values(data)[i] != null
-                        ) {
-                            $("[name=" + Object.keys(data)[i] + "]")
-                                .closest("div")
-                                .find("img")
-                                .first()
-                                .attr("src", Object.values(data)[i])
-                                .show();
- 
-                            $("[name=" + Object.keys(data)[i] + "]").rules('remove', 'required');
-
-                        }
-                    } else if(node == "INPUT" && type == "checkbox") {
-                        if(Object.values(data)[i] == 1){
-                            $("[name=" + Object.keys(data)[i] + "]" ).attr("checked",true);
-                        }else{
-                            $("[name=" + Object.keys(data)[i] + "]" ).attr("checked",false);
-                        }
-                        $("[name=" + Object.keys(data)[i] + "]" ).val(Object.values(data)[i]);
-                    }
-                    
-                    else if (node == "SELECT") {   
-                        $("select[name=" +
-                                Object.keys(data)[i] +
-                                "]  option[value='" +
-                                Object.values(data)[i] +
-                                "']"
-                        ).attr("selected",true);                   
-                        $("[name=" +
-                                Object.keys(data)[i] +
-                                "]  option[value='" +
-                                Object.values(data)[i] +
-                                "']"
-                        ).prop("selected", true);
-                    }
-
-                if(Object.keys(data)[i] == 'country_id'){
-                     
-                    $('#'+Object.keys(data)[i]).attr('readonly',true);
-                    $('#'+Object.keys(data)[i]).css('pointer-events','none');
+                    $(`[name=${key}] option[value='${data[key]}']`).prop(
+                        "selected",
+                        true
+                    );
                 }
 
-                // if(Object.keys(data)[i]=='city_id'){
-                    
-                //     loadstatecity('city_id',data['city_data'],Object.values(data)[i]);
-                // }else if(Object.keys(data)[i]=='state_id'){
-                //     loadstatecity('state_id',data['state_data'],Object.values(data)[i]);
-                // } 
-                
-
-                if(Object.keys(data)[i]=='admin_service'){
-
-                    var admin_service = Object.values(data)[i];
-                }
-                if(Object.keys(data)[i]=='menu_type_id'){
-                    
-                   loadServiceList('menu_type_id',data['service_list'],Object.values(data)[i], admin_service);
-                }
-                if(Object.keys(data)[i]=='zone_id'){
-                    
-                    loadzoneList('zone_id',data['zone_data'],Object.values(data)[i]);
-                 }
-                
-
-                if(Object.keys(data)[i]=='service_subcategory_id'){
-                    
-                   loadServiceSubcategory('service_subcategory_id',data['service_subcategory_data'],Object.values(data)[i]);
+                // Special handling for country_id
+                if (key == "country_id") {
+                    $(`#${key}`).attr("readonly", true);
+                    $(`#${key}`).css("pointer-events", "none");
                 }
 
-                if(Object.keys(data)[i]=='mobile'){
-                    var countryData = window.intlTelInputGlobals.getCountryData();
-                    var result = $.grep(countryData, function(e){ 
-                    //console.log(e.dialCode);
-                    return e.dialCode == data.country_code; });
-                    //console.log(result);
-                    $(".phone").intlTelInput("setCountry", result[4].iso2);
-                }   
-             
-
-                }else if($("#" +Object.keys(data)[i]).length){
-                    $("#" + Object.keys(data)[i]).val(Object.values(data)[i]);
+                // Additional handling for specific keys
+                if (key == "admin_service") {
+                    const adminService = data[key];
                 }
+                if (key == "menu_type_id") {
+                    loadServiceList(
+                        "menu_type_id",
+                        data.service_list,
+                        data[key],
+                        adminService
+                    );
+                }
+                if (key == "zone_id") {
+                    loadzoneList("zone_id", data.zone_data, data[key]);
+                }
+                if (key == "service_subcategory_id") {
+                    loadServiceSubcategory(
+                        "service_subcategory_id",
+                        data.service_subcategory_data,
+                        data[key]
+                    );
+                }
+                if (key == "mobile") {
+                    const countryData =
+                        window.intlTelInputGlobals.getCountryData();
+                    const result = countryData.find(
+                        (e) => e.dialCode == data.country_code
+                    );
+
+                    $(".phone").intlTelInput("setCountry", result.iso2);
+                }
+            } else if ($(`#${key}`).length) {
+                $(`#${key}`).val(data[key]);
             }
-            hideInlineLoader();
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            if (jqXHR.status == 401 && getToken(guard) != null) {
-                refreshToken(guard);
-            } else if (jqXHR.status == 401) {
-                window.location.replace("/admin/login");
-            }
-            hideInlineLoader();
         }
-    });
- }
 
-function loadstatecity(attr,data,selected_val){
-    $("#"+attr).empty();
-    $("#"+attr).append('<option>-- pleaseSelect --</option>');
-
-    $.each(data,function(key,item){
-        
-        var selected="";
-        if(item.city==undefined){
-            var city_id=item.id;
-            var city_name=item.city_name;
-        }else{
-            var city_id=item.city.id;
-            var city_name=item.city.city_name;
-        } 
-
-         if(item.state==undefined){
-            var state_id=item.id;
-            var state_name=item.state_name;
-        }else{
-            var state_id=item.state.id;
-            var state_name=item.state.state_name;
-        } 
-      
-        if(attr=="city_id"){  
-            if(selected_val==city_id){
-               
-                selected="selected";
-            }
-            
-            $("#"+attr).append('<option value="'+city_id+'" '+selected+ ' >'+city_name+'</option>');
-        } else {
-            if(selected_val==state_id){
-                selected="selected";
-            }
-           
-            $("#"+attr).append('<option value="'+state_id+'" '+selected+ ' >'+state_name+'</option>');  
-        }   
-});
-
-}
-
-function loadServiceSubcategory(attr,data,selected_val){
-    $("#"+attr).empty();
-    $("#"+attr).append('<option>-- Please Select --</option>');
-
-    $.each(data,function(key,item){
-        
-        var selected="";
-
-        if(selected_val==item.id){
-           
-            selected="selected";
+        hideInlineLoader();
+    } catch (error) {
+        if (error.status == 401 && getToken(guard) != null) {
+            refreshToken(guard);
+        } else if (error.status == 401) {
+            window.location.replace("/admin/login");
         }
-        
-        $("#"+attr).append('<option value="'+item.id+'" '+selected+ ' >'+item.service_subcategory_name+'</option>');
-     
-    });
-
-}
- 
-function loadzoneList(attr,data,selected_val){
-    $("#"+attr).empty();
-    $("#"+attr).append('<option>-- Please Select --</option>');
-
-    $.each(data,function(key,item){
-        var selected="";
-        if(selected_val==item.id){
-           selected="selected";
-        }
-        console.log(selected);
-        $("#"+attr).append('<option value="'+item.id+'" '+selected+ ' >'+item.name+'</option>');
-    });
-
-}
-
-function loadServiceList(attr,data,selected_val,serviceId){
-    $("#"+attr).empty();
-    $("#"+attr).append('<option>-- Please Select --</option>');
-
-    if(serviceId == 3){
-
-        $.each(data,function(key,item){
-        
-        var selected="";
-
-        if(selected_val==item.id){
-           
-            selected="selected";
-        }
-        $("#"+attr).append('<option value="'+item.id+'" '+selected+ ' >'+item.service_category_name+'</option>');
-     
-    });
- 
-    }else if(serviceId == 1){
-        $.each(data,function(key,item){
-        
-        var selected="";
-
-        if(selected_val==item.id){
-           
-            selected="selected";
-        }
-       
-        $("#"+attr).append('<option value="'+item.id+'" '+selected+ ' >'+item.ride_name+'</option>');
-        
-    });
- 
+        hideInlineLoader();
     }
+};
 
+// Function to load state/city options dynamically
+const loadStateCity = (attr, data, selectedVal) => {
+    // Clear existing options
+    $(`#${attr}`).empty();
+    // Add a default option
+    $(`#${attr}`).append("<option>-- Please Select --</option>");
 
-}
+    // Iterate through the data array and populate the options
+    data.forEach((item) => {
+        let selected = "";
 
-function deleteRow(id, url, table, guard = "admin") {
+        // Extract city and state information
+        const city = item.city || {};
+        const state = item.state || {};
+
+        const cityId = city.id || item.id;
+        const cityName = city.city_name || item.city_name;
+
+        const stateId = state.id || item.id;
+        const stateName = state.state_name || item.state_name;
+
+        // Determine whether to load city or state options based on the 'attr' parameter
+        if (attr === "city_id") {
+            if (selectedVal === cityId) {
+                selected = "selected";
+            }
+
+            $(`#${attr}`).append(
+                `<option value="${cityId}" ${selected}>${cityName}</option>`
+            );
+        } else {
+            if (selectedVal === stateId) {
+                selected = "selected";
+            }
+
+            $(`#${attr}`).append(
+                `<option value="${stateId}" ${selected}>${stateName}</option>`
+            );
+        }
+    });
+};
+
+// Function to load service subcategories dynamically
+const loadServiceSubcategory = (attr, data, selectedVal) => {
+    $(`#${attr}`).empty();
+    $(`#${attr}`).append("<option>-- Please Select --</option>");
+
+    data.forEach((item) => {
+        let selected = "";
+
+        if (selectedVal == item.id) {
+            selected = "selected";
+        }
+
+        $(`#${attr}`).append(
+            `<option value="${item.id}" ${selected}>${item.service_subcategory_name}</option>`
+        );
+    });
+};
+
+// Function to load zone options dynamically
+const loadZoneList = (attr, data, selectedVal) => {
+    $(`#${attr}`).empty();
+    $(`#${attr}`).append("<option>-- Please Select --</option>");
+
+    data.forEach((item) => {
+        let selected = "";
+
+        if (selectedVal == item.id) {
+            selected = "selected";
+        }
+
+        $(`#${attr}`).append(
+            `<option value="${item.id}" ${selected}>${item.name}</option>`
+        );
+    });
+};
+
+// Function to load service options dynamically
+const loadServiceList = (attr, data, selectedVal, serviceId) => {
+    $(`#${attr}`).empty();
+    $(`#${attr}`).append("<option>-- Please Select --</option>");
+
+    data.forEach((item) => {
+        let selected = "";
+
+        if (selectedVal == item.id) {
+            selected = "selected";
+        }
+
+        if (serviceId == 3) {
+            $(`#${attr}`).append(
+                `<option value="${item.id}" ${selected}>${item.service_category_name}</option>`
+            );
+        } else if (serviceId == 1) {
+            $(`#${attr}`).append(
+                `<option value="${item.id}" ${selected}>${item.ride_name}</option>`
+            );
+        }
+    });
+};
+
+// Function to delete a row with confirmation
+const deleteRow = (id, url, table, guard = "admin") => {
     $(".delete-modal").modal("show");
+
     $(".delete-modal-btn")
         .off()
-        .on("click", function() {
+        .on("click", () => {
+            const confirm = $(this).data("value");
+            const data = {
+                _method: "delete",
+                id: id,
+            };
 
-            var confirm = $(this).data('value');
-
-            var data = {};
-            data._method = "delete";
-            data.id = id;
-            
-
-            if(confirm == 1) {
+            if (confirm == 1) {
                 data.confirm = confirm;
             }
-            
+
             $.ajax({
                 url: url,
                 type: "post",
                 headers: {
-                    Authorization: "Bearer " + getToken(guard)
+                    Authorization: `Bearer ${getToken(guard)}`,
                 },
                 data: data,
-                beforeSend: function (request) {
+                beforeSend: () => {
                     showInlineLoader();
                 },
-                success: function(response, textStatus, jqXHR) {
-                    var data = parseData(response);
-                    var info = $('#data-table').DataTable().page.info();
-                    
+                success: (response, textStatus, jqXHR) => {
+                    const data = parseData(response);
+                    const info = $("#data-table").DataTable().page.info();
+
                     $(".delete-modal").modal("hide");
-                    if(data.responseData.status=="1"){
+                    if (data.responseData.status == "1") {
                         $(".confirm-modal").modal("show");
-                        $('.confirm-modal .modal-body').html("");
-                        $('.confirm-modal .modal-body').html(data.message);
-                    }else{
+                        $(".confirm-modal .modal-body").html("");
+                        $(".confirm-modal .modal-body").html(data.message);
+                    } else {
                         $(".confirm-modal").modal("hide");
-                        table.order([[ info.page, 'asc' ]] ).draw( false );
+                        table.order([[info.page, "asc"]]).draw(false);
                         alertMessage("Success", data.message, "success");
                     }
-                    
+
                     hideInlineLoader();
                 },
-                error: function(jqXHR, textStatus, errorThrown) {
+                error: (jqXHR, textStatus, errorThrown) => {
                     if (jqXHR.status == 401 && getToken(guard) != null) {
                         refreshToken(guard);
                     } else if (jqXHR.status == 401) {
@@ -448,31 +401,32 @@ function deleteRow(id, url, table, guard = "admin") {
                     $(".delete-modal").modal("hide");
                     alertMessage(textStatus, jqXHR.statusText, "danger");
                     hideInlineLoader();
-                }
+                },
             });
         });
-}
-
-
-function parseData(data) {
-    try {
-        return JSON.parse(data);
-    } catch (e) { }
-
-    return data;
-}
-
-protect_email = function (user_email) {
-    var avg, splitted, part1, part2;
-    splitted = user_email.split("@");
-    part1 = splitted[0];
-    avg = part1.length / 2;
-    part1 = part1.substring(0, (part1.length - avg));
-    part2 = splitted[1];
-    return part1 + "****@" + part2;
 };
 
-protect_number=function(number){
-    var str = number.substring(0, number.length-4);
-    return str+'****';
-}
+// Function to parse JSON data safely
+const parseData = (data) => {
+    try {
+        return JSON.parse(data);
+    } catch (e) {}
+
+    return data;
+};
+
+// Function to protect email by hiding part of it
+const protectEmail = (userEmail) => {
+    const splitted = userEmail.split("@");
+    const part1 = splitted[0];
+    const avg = part1.length / 2;
+    const protectedPart = part1.substring(0, part1.length - avg);
+    const part2 = splitted[1];
+    return `${protectedPart}****@${part2}`;
+};
+
+// Function to protect number by hiding part of it
+const protectNumber = (number) => {
+    const str = number.substring(0, number.length - 4);
+    return `${str}****`;
+};
