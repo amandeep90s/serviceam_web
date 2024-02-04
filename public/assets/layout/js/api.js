@@ -27,7 +27,7 @@ function refreshToken(guard) {
             Authorization: "Bearer " + getToken(guard),
         },
         success: function (response) {
-            var data = parseData(response);
+            const data = parseData(response);
             setToken(guard, data.responseData.access_token);
         },
         error: function () {
