@@ -40,7 +40,7 @@ class AdminController extends Controller
     public function permissionList($id, $token): void
     {
         $client = new Client();
-        $result = $client->post(config('app.base_url') . '/api/admin/permission_list', [
+        $result = $client->post(config('app.base_url') . '/api/v1/admin/permission_list', [
             'headers' => ['Authorization' => 'Bearer ' . $token],
         ]);
         Session::put('user_id', $id);

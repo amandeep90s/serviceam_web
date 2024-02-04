@@ -42,7 +42,7 @@ class VerifyLicense
 
             $redis = Redis::connection();
 
-            if ($redis->get($domain) === null) {
+            if ($redis->get($domain) !== null) {
                 $redis->set($domain, json_encode(json_decode($result->getBody())));
             }
         } catch (ClientException $exception) {
